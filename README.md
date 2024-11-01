@@ -26,7 +26,7 @@ The Interoperability Data Models (IDM) project aims to harmonize attributes for 
 <br>An example of how these harmonized attributes can revolutionize datasheets is available at **dcide.app/components**.<br/>
 
 ## **Background**
-The first article of the JSON datamodles was created by Dusan Brhlik and Giel Van den Broeck in 2019 who co-founded by Direct Energy Partners Inernational Corporation (DEP) with a missiion to electrify the world at the speed of thought.
+The first article of the JSON datamodles was created by Dusan Brhlik and Giel Van den Broeck in 2019 who co-founded by Direct Energy Partners Inernational Corporation (DEP) with a mission to electrify the world at the speed of thought. 
 Incosistent equipment attributes made it nearly impossible to asess equipment interoperability. The concepts of describing interoperability and the language around harmonized datasheets and their attributes simply did not exist. The first article of the JSON moodels started as an elaborate spreadsheet and has now been transformed into the world's first digital product catalog with harmonized datasheets at www.dcide.app/components
 
 <br>In order to increase widespread adoption of the attributes, get manufacturer involvement and community engagement, DEP decided to open-soruce this initiateve through the ***Emerge Alliance** https://www.emergealliance.org/<br/>
