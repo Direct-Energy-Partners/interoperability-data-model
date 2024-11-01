@@ -1,0 +1,90 @@
+{
+    "ports": [
+        {
+            "AC": {
+                "enabled": false,
+                "voltage": {
+                    "unit": "V",
+                    "min": null,
+                    "nom": null,
+                    "max": null
+                },
+                "current": {
+                    "unit": "A",
+                    "nom": null,
+                    "max": null
+                },
+                "power": {
+                    "unit": "W",
+                    "nom": null,
+                    "max": null
+                },
+                "frequency": {
+                    "unit": "Hz",
+                    "min": null,
+                    "nom": null,
+                    "max": null
+                },
+                "powerFactor": 0,
+                "controlMethods": []
+            },
+            "DC": {
+                "enabled": false,
+                "voltage": {
+                    "unit": "V",
+                    "min": null,
+                    "nom": null,
+                    "max": null
+                },
+                "current": {
+                    "unit": "A",
+                    "nom": null,
+                    "max": null
+                },
+                "power": {
+                    "unit": "W",
+                    "nom": null,
+                    "max": null
+                },
+                "configuration": "unipolar",
+                "controlMethods": []
+            },
+            "isolated": false,
+            "parallelableCapacity": 1,
+            "powerFlowDirection": null,
+            "capacitance": {
+                "unit": "F",
+                "value": null
+            },
+            "wireSize": {
+                "min": "",
+                "max": ""
+            },
+            "features": []
+        }
+    ],
+    "standards": [],
+    "charging": {
+        "connectors": [],
+        "power": {
+            "unit": "W",
+            "min": null,
+            "nom": null,
+            "max": null
+        },
+        "voltage": {
+            "unit": "V",
+            "min": null,
+            "max": null
+        },
+        "current": {
+            "unit": "A",
+            "min": null,
+            "max": null
+        }
+    },
+    "isolationVoltage": {
+        "unit": "kV",
+        "value": null
+    }
+}

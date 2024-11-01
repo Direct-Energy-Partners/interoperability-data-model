@@ -1,0 +1,164 @@
+{
+    "ports": [
+        {
+            "AC": {
+                "enabled": false,
+                "current": {
+                    "unit": "A",
+                    "nom": null,
+                    "max": null
+                },
+                "frequency": {
+                    "unit": "Hz",
+                    "min": null,
+                    "nom": null,
+                    "max": null
+                },
+                "powerFactor": 0,
+                "voltagePerPole": {
+                    "unit": "V",
+                    "value": null
+                },
+                "instantaneousShortCircuitCurrentUL": {
+                    "unit": "A",
+                    "value": null
+                },
+                "serviceShortCircuitBreakingCapacityIEC": {
+                    "unit": "A",
+                    "value": null
+                },
+                "ultimateShortCircuitBreakingCapacityIEC": {
+                    "unit": "A",
+                    "value": null
+                },
+                "poles": "2P"
+            },
+            "DC": {
+                "enabled": false,
+                "current": {
+                    "unit": "A",
+                    "nom": null,
+                    "max": null
+                },
+                "voltagePerPole": {
+                    "unit": "V",
+                    "value": null
+                },
+                "instantaneousShortCircuitCurrentUL": {
+                    "unit": "A",
+                    "value": null
+                },
+                "serviceShortCircuitBreakingCapacityIEC": {
+                    "unit": "A",
+                    "value": null
+                },
+                "ultimateShortCircuitBreakingCapacityIEC": {
+                    "unit": "A",
+                    "value": null
+                },
+                "poles": "2P"
+            },
+            "tripCurve": [
+                "C"
+            ],
+            "powerFlowDirection": null,
+            "inductance": {
+                "unit": "H",
+                "min": null,
+                "max": null
+            },
+            "inrushCurrent": {
+                "unit": "A",
+                "value": null
+            },
+            "wireSize": {
+                "min": "",
+                "max": ""
+            },
+            "features": []
+        },
+        {
+            "AC": {
+                "enabled": false,
+                "current": {
+                    "unit": "A",
+                    "nom": null,
+                    "max": null
+                },
+                "frequency": {
+                    "unit": "Hz",
+                    "min": null,
+                    "nom": null,
+                    "max": null
+                },
+                "powerFactor": 0,
+                "voltagePerPole": {
+                    "unit": "V",
+                    "value": null
+                },
+                "instantaneousShortCircuitCurrentUL": {
+                    "unit": "A",
+                    "value": null
+                },
+                "serviceShortCircuitBreakingCapacityIEC": {
+                    "unit": "A",
+                    "value": null
+                },
+                "ultimateShortCircuitBreakingCapacityIEC": {
+                    "unit": "A",
+                    "value": null
+                },
+                "poles": "2P"
+            },
+            "DC": {
+                "enabled": false,
+                "current": {
+                    "unit": "A",
+                    "nom": null,
+                    "max": null
+                },
+                "voltagePerPole": {
+                    "unit": "V",
+                    "value": null
+                },
+                "instantaneousShortCircuitCurrentUL": {
+                    "unit": "A",
+                    "value": null
+                },
+                "serviceShortCircuitBreakingCapacityIEC": {
+                    "unit": "A",
+                    "value": null
+                },
+                "ultimateShortCircuitBreakingCapacityIEC": {
+                    "unit": "A",
+                    "value": null
+                },
+                "poles": "2P"
+            },
+            "tripCurve": [
+                "C"
+            ],
+            "powerFlowDirection": null,
+            "inductance": {
+                "unit": "H",
+                "min": null,
+                "max": null
+            },
+            "inrushCurrent": {
+                "unit": "A",
+                "value": null
+            },
+            "wireSize": {
+                "min": "",
+                "max": ""
+            },
+            "features": []
+        }
+    ],
+    "standards": [],
+    "isolationVoltage": {
+        "unit": "kV",
+        "value": null
+    },
+    "polaritySensitive": false
+}
