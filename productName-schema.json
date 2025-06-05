@@ -1,0 +1,8 @@
+{
+	"description":"This the name the manufacturer uses when referring to their product",
+	"schema": {
+		"type": "string",
+		"minLength": 2,
+		"maxLength": 254
+	}
+}

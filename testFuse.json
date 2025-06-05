@@ -1,0 +1,57 @@
+{
+  "$schema": "common-schema.json#/schema",
+  "productName": "20mm cartridge fuse, 3A",
+  "productIdentifier": "3A20",
+  "productSeries": "20mm fuses",
+  "datasheetHyperlink": "https://dcide.app/products/65119bd43fcac27a2e84274c",
+  "description": "This is just a test file to check the validator",
+  "manufacturer": {
+    "coName": "Evonet Energy Ltd",
+    "webHomePageURL": "www.evonet.com"
+  },
+  "distributors": [
+    {
+      "coName": "Digikey",
+      "webHomePageURL": "digikey.com"
+    },
+    {
+      "coName": "Farnell",
+      "webHomePageURL": "uk.farnell.com"
+    }
+  ],
+  "embargoedCountries": [ "Russia", "North Korea" ],
+  "notRecommendedForNewDesigns": false,
+  "listingAuthorities": [
+    {
+      "LAName": "UL",
+      "LALogo": "Base64Image string of logo"
+    },
+    {
+      "LAName": "BSI",
+      "LALogo": "Base64Image string of logo"
+    }
+  ],
+  "typeSpecificParameters": {
+    "componentType": "fuse",
+    "fuseType":{
+      "cartridge":{
+        "length":"1.25in",
+        "diameter": "3mm"
+        }
+    },    
+
+    "currentRating": {
+      "value": 3.0,
+      "units": "A"
+    },
+    "responseTime": "fast",
+    "voltageRatingAC": "250V",
+    "voltageRatingDC": {
+      "value": 30,
+      "units": "V"
+    },
+    "breakingCapacity": "1000A",
+    "indicatorStyle": "none"
+  }
+
+}

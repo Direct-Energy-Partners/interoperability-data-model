@@ -1,0 +1,24 @@
+{
+  "$comment": "This schema may be used for any physical length value",
+  "schema": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "value": { "type": "number" },
+          "units": {
+            "type": "string",
+            "enum": [ "in", "ft", "yds", "mi", "mm", "cm", "m", "km" ]
+          }
+        },
+        "required": [ "value", "units" ]
+      },
+      {
+        "type": "string",
+        "pattern": "^([0-9]+(.[0-9]+)?)(in|ft|yds|mi|mm|cm|m|km)$"
+      }
+
+    ]
+  }
+
+}

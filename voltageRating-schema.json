@@ -1,0 +1,24 @@
+{
+  "$comment": "This schema may be used for any component voltage rating",
+  "schema": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "value": { "type": "number" },
+          "units": {
+            "type": "string",
+            "enum": [ "mV", "V", "kV", "Vrms", "kVrms" ]
+          }
+        },
+        "required": [ "value", "units" ]
+      },
+      {
+        "type": "string",
+        "pattern": "^([0-9]+(.[0-9]+)?)(k|m)?V(rms)?$"
+      }
+
+    ]
+  }
+
+}

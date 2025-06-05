@@ -1,0 +1,7 @@
+{
+  "$comment": "The different solar panel technologies",
+  "schema": {
+      "type": "string"
+  },
+  "initialValues": [ "Monocrystalline", "Polycrystalline", "Thin-film", "Perovskite" ]
+}

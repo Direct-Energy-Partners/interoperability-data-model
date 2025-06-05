@@ -1,0 +1,16 @@
+{
+  "$comment": "These are the initial breaker types.  Manufacturers may add to this list.",
+  "schema": {
+      "type": "string"
+  },
+  "initialValues": [
+    "Thermal",
+    "Thermal-magnetic",
+    "Magnetic",
+    "Thermal-magnetic-hydraulic",
+    "Electronic",
+    "Hybrid"
+
+  ]
+
+}

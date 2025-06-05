@@ -1,0 +1,16 @@
+{
+    "description":"This lists distributors or stockists of the product, with their home web page",
+    "schema": {
+        "oneOf": [
+            { "$ref": "company-schema.json#/schema" },
+            {
+                "type": "array",
+                "items": { "$ref": "company-schema.json#/schema" }
+            }
+        ]
+    },
+    "selectionTool": {
+        "filter": false,
+        "display": true
+    }
+}

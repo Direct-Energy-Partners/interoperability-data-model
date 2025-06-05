@@ -1,0 +1,12 @@
+{
+  "description": "List countries to which it is forbidden by law to ship this product.",
+  "schema": {
+    "oneOf": [
+      { "type": "string", "minLength": 2 },
+      {
+        "type": "array",
+        "items": { "type": "string", "minLength": 2 }
+      }
+    ]
+  }
+}

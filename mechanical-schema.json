@@ -1,0 +1,65 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "length": { "$ref": "dimensions-schema.json#/schema" },
+      "width": { "$ref": "dimensions-schema.json#/schema" },
+      "depth": { "$ref": "dimensions-schema.json#/schema" },
+      "height": { "$ref": "dimensions-schema.json#/schema" },
+      "diameter": { "$ref": "dimensions-schema.json#/schema" },
+      "units": {
+        "type": "string",
+        "enum": [ "in", "ft", "yds", "mi", "mm", "cm", "m", "km" ]
+      },
+      "weight": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "number" },
+          "unit": {
+            "type": "string",
+            "enum": [ "g", "kg", "oz", "lbs" ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "mountingType": {
+        "oneOf": [
+          { "$ref": "#/definitions/mountingStyleType" },
+          {
+            "type": "array",
+            "items": { "$ref": "#/definitions/mountingStyleType" }
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "style": { "$ref": "#/definitions/mountingStyleType" },
+                "orderCode": { "type": "string" }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+
+	"selectionTool": {
+		"filter": false,
+		"display": false
+	},
+	"definitions": {
+
+		"mountingStyleType": {
+			"type": "string",
+			"enum": [
+				"floor",
+				"wall",
+				"panel",
+				"din-rail",
+				"rack"
+			]
+		}
+	}
+}
+

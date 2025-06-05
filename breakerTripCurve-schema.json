@@ -1,0 +1,18 @@
+{
+  "$comment": "These are the initial standard breaker trip curves.  Manufacturers may add to this list.",
+  "schema": {
+      "type": "string"
+  },
+  "initialValues": [
+    "IEC 60947-2 Type Z",
+    "IEC 60898-1 Type B",
+    "IEC 60898-1 Type C",
+    "IEC 60947-2 Type K",
+    "IEC 60898-1 Type D",
+    "IEC 60947-2  Type MA",
+    "IEC 60934",
+    "Custom"
+
+  ]
+
+}

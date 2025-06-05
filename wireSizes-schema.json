@@ -1,0 +1,32 @@
+{
+  "$comment": "These are the standard power cable sizes - values come from https://www.multicable.com/resources/reference-data/cross-reference-awg-to-mm2",
+  "schema": {
+    "type": "string"
+  },
+  "initialValues": [
+    "30AWG, 0.05mm&sup2;",
+    "28AWG, 0.08mm&sup2;",
+    "26AWG, 0.14mm&sup2;",
+    "24AWG, 0.25mm&sup2;",
+    "22AWG, 0.34mm&sup2;",
+    "21AWG, 0.38mm&sup2;",
+    "20AWG, 0.50mm&sup2;",
+    "18AWG, 0.75mm&sup2;",
+    "17AWG, 1.0mm&sup2;",
+    "16AWG, 1.5mm&sup2;",
+    "14AWG, 2.5mm&sup2;",
+    "12AWG, 4.0mm&sup2;",
+    "10AWG, 6.0mm&sup2;",
+    "8AWG, 10mm&sup2;",
+    "6AWG, 16mm&sup2;",
+    "4AWG, 25mm&sup2;",
+    "2AWG, 35mm&sup2;",
+    "1AWG, 50mm&sup2;",
+    "1/0AWG, 55mm&sup2;",
+    "2/0AWG, 70mm&sup2;",
+    "3/0AWG, 95mm&sup2;",
+    "Custom"
+
+  ]
+
+}

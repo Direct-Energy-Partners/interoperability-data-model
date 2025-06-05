@@ -1,0 +1,27 @@
+{
+  "$comment": "This schema may be used for battery energy capacity",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "value": {
+        "anyOf": [
+          { "type": "number" },
+          {
+            "type": "string",
+            "pattern": "^([0-9]+(.[0-9]+)?)(Ah|Wh|kWh)$"
+          }
+        ]
+      },
+      "units": {
+        "type": "string",
+        "enum": [ "Ah", "Wh", "kWh" ]
+      },
+
+      "dischargeRate": {
+        "type": "string",
+        "pattern": "^C[0-9]+(.[0-9]+)?$"
+      }
+    },
+    "required": [ "value" ]
+  }
+}

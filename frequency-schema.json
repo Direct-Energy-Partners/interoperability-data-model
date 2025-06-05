@@ -1,0 +1,58 @@
+{
+  "title": "&copy; (c) Evonet Energy Ltd., 2024.  www.evonet.com",
+  "shebang": "eSafer2.0",
+  "commonEnglishPhrases": [ "[Supply ]Frequency[ range]", "Grid-tied", "~", "AC", "DC", "AC/DC", "U+2393", "U+23E6", "U+223F" ],
+  "parameterID": "F",
+  "description": "The nominal AC frequency (or DC), which may be defined or expected",
+  "mandatory": true,
+  "measurement": "Specified in the tech spec, or user-definable",
+  "schema": {
+    "type": "string",
+    "enum": [ "DC", "P50", "P60", "S50", "S60", "S5060", "N50", "N60", "N5060", "N50DC", "N60DC", "N5060DC" ]
+  },
+  "dataEntry": {
+    "prompt": "Port frequency?",
+    "entryType":  "dropdown",
+    "dropdownValues": [
+      [ "DC,", "DC", "The port expects or delivers Direct Current" ],
+      [ "P50", "Provides 50Hz", "The port defines the frequency as 50Hz.  No connected port may also define the frequency." ],
+      [ "P60", "Provides 60Hz", "The port defines the frequency as 60Hz.  No connected port may also define the frequency." ],
+      [ "S50", "Syncs to 50Hz", "If 50Hz is present, this will synchronise with it, and if not, it will create 50Hz." ],
+      [ "S60", "Syncs to 60Hz", "If 60Hz is present, this will synchronise with it, and if not, it will create 60Hz." ],
+      [ "S5060", "Syncs to 50Hz or 60Hz", "If 50Hz or 60Hz is present, this will synchronise with it, but if absent, it will not create it." ],
+      [ "N50", "Needs 50Hz", "The port expects a nominally 50Hz supply." ],
+      [ "N60", "Needs 60Hz", "The port expects a nominally 60Hz supply." ],
+      [ "N5060", "Needs 50-60Hz", "The port expects a supply with a frequency of nominally either 50Hz or 60Hz." ],
+      [ "N50DC", "50Hz or DC", "The load will work with either 50Hz AC or DC" ],
+      [ "N60DC", "60Hz or DC", "The load will work with either 60Hz AC or DC" ],
+      [ "N5060DC", "50Hz, 60Hz or DC", "The load will work with either 50/60Hz AC or DC" ]
+    ]
+  },
+  "summing": {
+    "method": "textList",
+    "list": [
+      [ "DC", "DC", "DC" ],
+      [ "DC", "N5060DC", "DC" ],
+      [ "P50", "N50", "P50" ],
+      [ "P60", "N60", "P60" ],
+      [ "P50", "S50", "P50" ],
+      [ "P60", "S60", "P60" ],
+      [ "P50", "S5060", "P50" ],
+      [ "P60", "S5060", "P60" ],
+      [ "P50", "N5060", "P50" ],
+      [ "P60", "N5060", "P60" ],
+      [ "P50", "S5060DC", "P50" ],
+      [ "P60", "S5060DC", "P60" ],
+      [ "P50", "N5060DC", "P50" ],
+      [ "P60", "N5060", "P60" ],
+      [ "N50", "N50", "N50" ],
+      [ "N50", "N50", "N50" ],
+      [ "N60", "N60", "N60" ],
+      [ "N50", "N5060", "N50" ],
+      [ "N60", "N5060", "N60" ],
+      [ "N50", "N5060DC", "N50" ],
+      [ "N60", "N5060DC", "N60" ],
+      [ "N5060DC", "N5060DC", "N5060DC" ]
+    ]
+  }
+}

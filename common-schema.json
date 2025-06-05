@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "$comment": "This is the JSON schema for all IDM products.  Listed below are all the parameters that are common to all types of product.  Particular types of product have their own schemas defined in separate files, which must be in the same folder, or sub-folders.",
+  "type": "object",
+  "properties": {
+    "manufacturer": { "$ref": "manufacturer-schema.json#/schema" },
+    "productName": { "$ref": "productName-schema.json#/schema" },
+    "productIdentifier": { "$ref": "productIdentifier-schema.json#/schema" },
+    "productSeries": { "$ref": "productSeries-schema.json#/schema" },
+    "datasheetHyperlink": {
+      "type": "string",
+      "format": "uri"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535
+    },
+    "distributors": { "$ref": "distributors-schema.json#/schema" },
+    "systemsIntegrators": { "$ref": "distributors-schema.json#/schema" },
+    "embargoedCountries": { "$ref": "embargoedCountries-schema.json#/schema" },
+    "notRecommendedForNewDesigns": { "type": "boolean" },
+    "typeSpecificParameters": { "$ref": "typeSpecifics-schema.json#/schema" },
+    "listingAuthorities": { "$ref": "listingAuthorities-schema.json#/schema" },
+    "environmental": { "$ref": "environmental-schema.json#/schema" },
+    "productWarrantyYrs": { "type": "number" },
+    "files": { "$ref": "files-schema.json#/schema" },
+    "images": { "$ref": "images-schema.json#/schema" }
+
+  },
+  "required":["manufacturer","productIdentifier"],
+  "selectionTool": {
+    "$comment": "The selection tool will provide the filter and display sections with the values of those parameters listed in each of the referenced files",
+    "filter": [ "manufacturer.json", "productSeries.json", "notRecommendedForNewDesigns.json", "typeSpecificParameters.json", "environmental.json" ],
+    "display": [ "productIdentifier.json", "images.json", "typeSpecificParameters.json", "environmental.json", "files.json" ]
+  }
+
+
+}

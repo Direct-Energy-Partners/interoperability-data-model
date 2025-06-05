@@ -1,0 +1,15 @@
+{
+  "$comment": "These are the initial fuse response types.  Manufacturers may add to this list.  For further information, see IEC60269, or https://www.swe-check.com.au/pages/learn_fuse_speed.php.  A more quantitative treatment would use the I2T characteristic curves supplied by the manufacturer.",
+  "schema": {
+    "type": "string"
+  },
+  "initialValues": [
+    "Semiconductor",
+    "Fast blow (F)",
+    "Normal (M)",
+    "Slow blow (T)",
+    "Time delay (TT)"
+  ]
+
+
+}

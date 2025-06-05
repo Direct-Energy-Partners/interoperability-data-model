@@ -1,0 +1,40 @@
+{
+  "schema": {
+    "$comment": "This schema is for a battery charging port",
+    "type": "object",
+    "properties": {
+      "portType": {
+        "type": "string",
+        "const": "batteryCharging"
+      },
+      "nominalVoltage": { "$ref": "voltageRating-schema.json#/schema" },
+      "minNominalBattVolts": { "$ref": "voltageRating-schema.json#/schema" },
+      "maxNominalBattVolts": { "$ref": "voltageRating-schema.json#/schema" },
+      "chemistry": { "type": "string" },
+      "BMScommunication": {
+        "type": "object",
+        "properties": {
+          "protocol": {
+            "anyOf": [
+              { "type": "string" },
+              {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            ]
+          },
+          "interface": {
+            "anyOf": [
+              { "type": "string" },
+              {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "required": [ "nominalVoltage", "chemistry" ]
+  }
+}

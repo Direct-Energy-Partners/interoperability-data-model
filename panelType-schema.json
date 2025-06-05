@@ -1,0 +1,8 @@
+{
+  "$comment": "The different forms of solar panels",
+  "schema": {
+      "type": "string"
+  },
+  "initialValues": [ "Building-integrated monofacial", "Flexible", "Bifacial","Monofacial","Mono/bi-facial" ]
+
+}

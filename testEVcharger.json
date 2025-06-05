@@ -1,0 +1,87 @@
+{
+  "$schema": "common-schema.json#/schema",
+  "productName": "60kW DC-DC Mobile EV Charger",
+  "productIdentifier": "AMP-8002-60",
+  "description": "This data is taken from https://dcide.app/products/60kw-dc-dc-mobile-ev-charger-amp-8002-60-dc-dc-mobile-ev-charger-676d68cdc8a1498c3e181318#electrical",
+  "manufacturer": {
+    "coName": "AmperneXt",
+    "webHomePageURL": "www.ampernext.com"
+  },
+  "datasheetHyperlink": "https://www.ampernext.com/products/60kw-mobile-dc-dc-ev-charger-dc-input/",
+  "notRecommendedForNewDesigns": false,
+  "typeSpecificParameters": {
+    "componentType": "converter",
+    "port1": {
+      "portType": "constantPower",
+      "portName": "input",
+      "powerDirection": "input",
+      "frequency": "DC",
+      "nominalVolts": "650V",
+      "minVolts": "300V",
+      "maxVolts": "820V",
+      "maxCurrentIn": "100A",
+      "powerLimitIn": "60kW"
+
+    },
+    "port2": {
+      "portType": "batteryCharging",
+      "portName": "output",
+      "powerDirection": "output",
+      "minNominalBattVolts": "150V",
+      "maxNominalBattVolts": "1000V",
+      "frequency": "DC",
+
+      "maxCurrentOut": "200A",
+      "maxPowerOut": "60kW",
+      "connector": [
+        {
+          "type": "CCS1",
+          "gender": "socket"
+        },
+        {
+          "type": "CCS2",
+          "gender": "socket"
+        }
+      ]
+    },
+    "controlPort": {
+      "interface": [
+        "10/100 Mbps Ethernet",
+        "Wi-Fi",
+        "3G/LTE"
+      ],
+      "controlProtocol": [ "OCPP 1.6j", "Modbus TCP" ]
+    },
+    "staticPower": "300W",
+    "transferPowerSetBy": "controlPort",
+    "transferEfficicency%P1toP2": 95
+  },
+  "environmental": {
+    "ingressProtection_IP": "IP54",
+    "DomesticComponentRequirement": false,
+    "operatingTemperature": {
+      "min": -25,
+      "max": 55,
+      "unit": "C"
+    },
+    "operatingHumidity%": {
+      "max": 95
+    }
+  },
+
+  "mechanical": {
+    "dimensions": {
+      "length": 870,
+      "height": 480,
+      "width": 670,
+      "unit": "mm"
+    },
+
+    "weight": {
+      "value": 100,
+      "unit": "kg"
+    }
+  }
+
+}
+

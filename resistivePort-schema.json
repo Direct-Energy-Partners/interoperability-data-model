@@ -1,0 +1,14 @@
+{
+  "$comment": "This schema describes a port with a resistive characteristic",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "portType": {
+        "type": "string",
+        "const": "resistive"
+      },
+      "resistance": { "$ref": "resistanceRating-schema.json#/schema" },
+      "maxPower": { "$ref": "powerRating-schema.json#/schema" }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$comment": "Physical formats for fuses.  Each format has its own options for size.  As new formats are added, so a list of possible sizes should be added.",
+  "schema": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "automotiveBlade": {
+            "type": "object",
+            "properties": {
+              "size": {
+                "type": "string",
+                "enum": [ "standard", "mini" ]
+              }
+            },
+            "required": [ "size" ]
+          }
+        },
+        "required": [ "automotiveBlade" ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "cartridge": {
+            "type": "object",
+            "properties": {
+              "length": { "$ref": "dimensions-schema.json#/schema" },
+              "diameter": { "$ref": "dimensions-schema.json#/schema" }
+            },
+            "required": [ "length", "diameter" ]
+          }
+        },
+        "required": [ "cartridge" ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "flushSquareBody": {
+            "type": "object",
+            "properties": {
+              "size": { "type": "string" }
+            },
+            "required": [ "size" ]
+          }
+        },
+        "required": [ "flushSquareBody" ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "SQB": {
+            "type": "object",
+            "properties": {
+              "size": { "type": "string" }
+            },
+            "required": [ "size" ]
+          }
+        },
+        "required": [ "SQB" ]
+      },
+      {
+        "type": "string",
+        "const": "L25S"
+      },
+      {
+        "type": "string",
+        "const": "L50S"
+      }
+    ]
+
+  }
+}

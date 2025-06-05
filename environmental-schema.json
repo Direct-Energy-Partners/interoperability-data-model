@@ -1,0 +1,76 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "operatingTemperature": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [ "C", "F" ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "operatingHumidity%": {
+        "type": "object",
+        "$comment": "IEC 60068-2-11",
+        "properties": {
+          "min": {
+            "type": "number",
+            "minimum": 0
+          },
+          "max": {
+            "type": "number",
+            "maximum": 100
+          }
+        },
+        "additionalProperties": false
+      },
+      "ingressProtection_IP": {
+        "type": "string",
+        "pattern": "^IP([0-6])|x([0-9])|x[ABCD]*[HMSW]*$"
+      },
+      "ingressProtection_NEMA": {
+        "type": "string",
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "3X",
+          "3S",
+          "3SX",
+          "3R",
+          "3RX",
+          "4",
+          "4X",
+          "5",
+          "6",
+          "6P",
+          "12",
+          "12K",
+          "13"
+        ]
+      },
+      "maximumOperatingAltitude": { "$ref": "dimensions-schema.json#/schema" },
+
+      "coolingMethod": {
+        "type": "string",
+        "enum": [
+          "passive",
+          "forced-air",
+          "liquid",
+          "none"
+        ]
+      },
+      "RoHScompliant": { "type": "boolean" },
+      "DomesticComponentRequirement": { "type": "boolean" }
+    }
+  }
+}
