@@ -1,0 +1,20 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+ 
+      "fuseType": { "$ref": "fuseType-schema.json#/schema" },
+      "currentRating": { "$ref": "currentRating-schema.json#/schema" },
+      "voltageRatingAC": { "$ref": "voltageRating-schema.json#/schema" },
+      "voltageRatingDC": { "$ref": "voltageRating-schema.json#/schema" },
+      "breakingCapacity": { "$ref": "currentRating-schema.json#/schema" },
+      "responseTime": { "$ref": "fuseResponse-schema.json#/schema" },
+      "blownIndicator": { "type": "boolean" }
+    }
+
+  },
+  "selectionTool": {
+    "filter": [ "fuseType", "packageOrCase", "currentRating", "responseTime", "voltageRatingAC", "voltageRatingDC" ],
+    "display": [ "fuseType", "packageOrCase", "currentRating", "responseTime", "voltageRatingAC", "voltageRatingDC", "breakingCapacity" ]
+  }
+}

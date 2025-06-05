@@ -1,0 +1,37 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "tripCriteria": {"$ref": "tripCriteria-schema.json#/schema"},
+      "detectionMethod": { "$ref": "breakerType-schema.json#/schema" },
+      "numberOfPoles": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "currentRating": { "$ref": "currentRating-schema.json#/schema" },
+      "voltageRatingAC": { "$ref": "voltageRating-schema.json#/schema" },
+      "voltageRatingDC": { "$ref": "voltageRating-schema.json#/schema" },
+      "voltageRatingDC-2PolesInSeries": { "$ref": "voltageRating-schema.json#/schema" },
+      "ampsBreakingCapacity": { "$ref": "currentRating-schema.json#/schema" },
+      "tripCurve": { "$ref": "breakerTripCurve-schema.json#/schema" },
+      "isolationMechanism": {
+        "type": "string",
+        "enum": [ "mechanical", "solid-state", "hybrid" ]
+      },
+      "mountingStyle": { "$ref": "mountingStyle-schema.json#/schema" },
+      "connection": { "$ref": "connection-schema.json#/schema" },
+      "reset": {
+        "type": "string",
+        "enum": [ "manual", "auto", "remote" ]
+      },
+      "auxiliaryContact": {
+        "type": "string",
+        "enum": [ "NC", "NO", "C/O" ]
+      }
+    },"required": ["currentRating"]
+  },
+  "selectionTool": {
+    "filter": [ "all" ],
+    "display": [ "all" ]
+  }
+}

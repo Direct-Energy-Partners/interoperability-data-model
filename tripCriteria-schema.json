@@ -1,0 +1,35 @@
+{
+  "$xcomment": "Reasons that a breaker might turn off.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "overCurrent": { "type": "boolean" },
+      "overVoltage": { "type": "boolean" },
+      "underVoltage": { "type": "boolean" },
+      "groundFault": { "type": "boolean" },
+      "arcFault": { "type": "boolean" },
+      "manualOperation": { "type": "boolean" },
+      "phaseImbalance": { "type": "boolean" },
+      "externalSolenoid": { "type": "boolean" },
+      "acronym": {
+        "type": "string",
+        "enum": [
+          "GFCI",
+          "AFCI",
+          "RCB",
+          "RCD",
+          "RCBO",
+          "RCCB",
+          "MCB",
+          "MCCB",
+          "AFCB",
+          "ELCB"
+
+        ]
+
+      }
+
+    }
+  }
+
+}

@@ -1,0 +1,23 @@
+{
+  "$comment": "This schema may be used for any component current rating",
+  "schema": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "value": { "type": "number" },
+          "units": {
+            "type": "string",
+            "enum": [ "mA", "A", "kA" ]
+          }
+        },
+        "required": [ "value", "units" ]
+      },
+      {
+        "type": "string",
+        "pattern": "^([0-9]+(.[0-9]+)?)(k|m)?A$"
+      }
+
+    ]
+  }
+}

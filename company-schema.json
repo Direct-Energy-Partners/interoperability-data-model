@@ -1,0 +1,23 @@
+{
+  "description": "This the name and home web page of a company, which may be a manufacturer or distributor\nThe logo can easily be represented here by a Base64 string",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "coName": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 254
+      },
+      "webHomePageURL": {
+        "type": "string",
+        "format": "hostname"
+      },
+      "coLogo": { "type": "string" }
+    },
+    "required": [ "coName", "webHomePageURL" ]
+  },
+  "selectionTool": {
+    "display": "<a href \"https:$webHomePageURL$\">$coName$</a>",
+    "$comment": "This will need some coding to build the hyperlink"
+  }
+}

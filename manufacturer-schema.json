@@ -1,0 +1,8 @@
+{
+  "description":"This the name and home web page of the manufacturer",
+  "schema": { "$ref": "company-schema.json#/schema" },
+  "selectionTool": {
+    "filter": [ "company.json" ],
+    "display": [ "company.json" ]
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"description":"The product range, family or series that this product forms part of, if any",
+	"schema": {
+		"type": "string",
+		"minLength": 0,
+		"maxLength": 254
+	},
+	"selectionTool": {
+		"filter": true,
+		"display": false
+	}
+}

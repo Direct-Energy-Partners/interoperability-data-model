@@ -1,0 +1,26 @@
+{
+  "$comment": "This JSON schema is for a control port, with no power transfer function",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "interface": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        ]
+      },
+      "protocol": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        ]
+      }
+    }
+  }
+}

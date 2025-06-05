@@ -1,0 +1,12 @@
+{
+  "$comment": "Options for mounting small components. Manufacturers may add to this list.",
+  "schema": {
+      "type": "string"
+  },
+  "initialValues": [
+    "Surface mount",
+    "DIN rail",
+    "Panel mount"
+  ]
+
+}

@@ -1,0 +1,35 @@
+{
+ "description": "This schema may be used for any battery presenting two power terminals, with no associated electronics apart from a BMS",
+ "schema": {
+    "type": "object",
+    "properties": {
+      "nominalVoltage": { "$ref": "voltageRating-schema.json#/schema" },
+      "energyCapacity": { "$ref": "energy-schema.json#/schema" },
+      "chemistry": { "type": "string" },
+      "BMScommunication": {
+        "type": "object",
+        "properties": {
+          "protocol": {
+            "anyOf": [
+              { "type": "string" },
+              {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            ]
+          },
+          "interface": {
+            "anyOf": [
+              { "type": "string" },
+              {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "required": [ "nominalVoltage", "energyCapacity", "chemistry" ]
+  }
+}

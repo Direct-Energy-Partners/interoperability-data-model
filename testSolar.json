@@ -1,0 +1,75 @@
+{
+  "$schema": "common-schema.json#/schema",
+  "productName": "SuperSolarPanels",
+  "productIdentifier": "ABC123",
+  "productSeries": "SuperSolar",
+  "description": "This is just a test file to check the validator",
+  "manufacturer": {
+      "coName": "Evonet Energy Ltd",
+      "webHomePageURL": "www.evonet.com"
+  },
+  "distributors": [
+    {
+      "coName": "Digikey",
+      "webHomePageURL": "digikey.com"
+    },
+    {
+      "coName": "Farnell",
+      "webHomePageURL": "uk.farnell.com"
+    },
+    {
+        "coName": "Wind&Sun",
+        "webHomePageURL": "www.windandsun.co.uk"
+    }
+  ],
+  "embargoedCountries": [ "Russia", "North Korea" ],
+  "notRecommendedForNewDesigns": false,
+  "typeSpecificParameters": {
+    "componentType": "solar",
+    "panelType": "building-attached",
+    "panelTech": "polycrystalline",
+    "NOCTElectrical": {
+      "wattsPeak": "200W",
+      "openCircuitVolts": {
+        "value": 80,
+        "units": "V"
+      },
+      "shortCircuitCurrent": {
+        "value": 30,
+        "units": "A"
+      }
+    },
+    "maxSystemVolts": "1500V",
+    "maxFuseRating": "20A",
+    "integralBypassDiode": true,
+    "performanceWarrantyYrs": 25
+  },
+  "environmental": {
+    "ingressProtection_IP": "IP67",
+    "RoHScompliant": true,
+    "DomesticComponentRequirement": false,
+    "operatingTemperature": {
+      "min": -20,
+      "max": 80,
+      "unit": "C"
+    }
+  },
+  "productWarratyYrs": 3,
+
+  "mechanical": {
+    "dimensions": {
+      "length": 100,
+      "height": 80,
+      "width": 10,
+      "unit": "cm"
+    },
+
+    "weight": {
+      "value": 10,
+      "unit": "kg"
+    }
+  },
+  "connector": "MC4"
+      
+}
+

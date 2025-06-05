@@ -1,0 +1,37 @@
+{
+  "$comment": "This JSON schema is for any electrical power port",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "portType": {
+        "oneOf": [
+          { "$ref": "constPowerPort-schema.json#/schema" },
+          { "$ref": "constCurrentPort-schema.json#/schema" },
+          { "$ref": "constVoltsPort-schema.json#/schema" },
+          { "$ref": "solarInputPort-schema.json#/schema" },
+          { "$ref": "resistivePort-schema.json#/schema" },
+          { "$ref": "batteryChargingPort-schema.json#/schema" }
+        ]
+      },
+      "portName": { "type": "string" },
+      "powerDirection": {
+        "type": "string",
+        "enum": [ "input", "output", "bi-directional" ]
+      },
+      "frequency": { "$ref": "frequency-schema.json#/schema" },
+      "minVoltage": { "$ref": "voltageRating-schema.json#/schema" },
+      "maxVoltage": { "$ref": "voltageRating-schema.json#/schema" },
+      "nominalVoltage": { "$ref": "voltageRating-schema.json#/schema" },
+      "maxCurrentOut": { "$ref": "currentRating-schema.json#/schema" },
+      "maxCurrentIn": { "$ref": "currentRating-schema.json#/schema" },
+      "maxPowerIn": { "$ref": "powerRating-schema.json#/schema" },
+      "maxPowerOut": { "$ref": "powerRating-schema.json#/schema" },
+      "connector": { "type": "string" }
+    }
+  },
+
+  "selectionTool": {
+    "filter": [ "frequency","permissibleExternallyAppliedVoltageRange","maxCurrent","controlMethods","grounding" ],
+    "display":  [ "frequency","permissibleExternallyAppliedVoltageRange","maxCurrent","controlMethods","grounding" ]
+  }
+}

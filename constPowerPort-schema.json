@@ -1,0 +1,17 @@
+{
+  "$comment": "This schema describes a port with a constant power characteristic.  The target power level will be determined either by the need for power balance with the other port, or by software",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "portType": {
+        "const": "constantPower"
+      },
+      "maxVolts": { "$ref": "voltageRating-schema.json#/schema" },
+      "maxCurrentIn": { "$ref": "currentRating-schema.json#/schema" },
+      "maxCurrentOut": { "$ref": "currentRating-schema.json#/schema" },
+      "powerLimitOut": { "$ref": "powerRating-schema.json#/schema" },
+      "powerLimitIn": { "$ref": "powerRating-schema.json#/schema" }
+    }
+  }
+}
+

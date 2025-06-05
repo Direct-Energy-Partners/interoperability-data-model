@@ -1,0 +1,12 @@
+{
+  "schema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "filename": {"type": "string"},
+        "mimeType": { "type": "string" }
+      }
+    }
+  }
+}

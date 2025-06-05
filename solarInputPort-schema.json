@@ -1,0 +1,15 @@
+{
+  "$comment": "This schema describes a solar or wind input port for connection to solar panels.  In the case of wind/hydro, there is no requirement for the input power to equal the output power.",
+  "schema": {
+     "type": "object",
+    "properties": {
+      "portType": {
+        "type": "string",
+        "const": "solarInput"
+      },
+      "maxOpenCctVolts": { "$ref": "voltageRating-schema.json#/schema" },
+      "maxShortCctCurrent": { "$ref": "currentRating-schema.json#/schema" },
+      "maxPower": { "$ref": "powerRating-schema.json#/schema" }
+    }
+  }
+}
