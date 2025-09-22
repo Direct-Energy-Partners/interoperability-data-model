@@ -1,13 +1,32 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-
-  "$comment": "This is the JSON schema for all IDM products.  Listed below are all the parameters that are common to all types of product.  Particular types of product have their own schemas defined in separate files, which must be in the same folder, or sub-folders.",
+  "$comment": [
+    "IDMversion",
+    "1.3 2025-08-10",
+    "license (c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+    "This is the JSON schema for all IDM products.  Listed below are all the parameters that are common to all types of product",
+    "Particular types of product have their own schemas defined in separate files, which must be in the same folder, or sub-folders."
+  ],
   "type": "object",
   "properties": {
-    "manufacturer": { "$ref": "manufacturer-schema.json#/schema" },
-    "productName": { "$ref": "productName-schema.json#/schema" },
-    "productIdentifier": { "$ref": "productIdentifier-schema.json#/schema" },
-    "productSeries": { "$ref": "productSeries-schema.json#/schema" },
+    "IDMVersion": {"const": "1.3 2025-08-10"},
+    "license": {"type": "string"},
+    "productCategory": {
+      "type": "string",
+      "enum": [
+        "powerSource",
+        "converter",
+        "energyStorage",
+        "load",
+        "powerDistribution",
+        "circuitProtection",
+        "solution"
+      ]
+    },
+    "manufacturer": {"$ref": "manufacturer-schema.json#/schema"},
+    "productName": {"$ref": "productName-schema.json#/schema"},
+    "productIdentifier": {"$ref": "productIdentifier-schema.json#/schema"},
+    "productSeries": {"$ref": "productSeries-schema.json#/schema"},
     "datasheetHyperlink": {
       "type": "string",
       "format": "uri"
@@ -17,24 +36,43 @@
       "minLength": 0,
       "maxLength": 65535
     },
-    "distributors": { "$ref": "distributors-schema.json#/schema" },
-    "systemsIntegrators": { "$ref": "distributors-schema.json#/schema" },
-    "embargoedCountries": { "$ref": "embargoedCountries-schema.json#/schema" },
-    "notRecommendedForNewDesigns": { "type": "boolean" },
-    "typeSpecificParameters": { "$ref": "typeSpecifics-schema.json#/schema" },
-    "listingAuthorities": { "$ref": "listingAuthorities-schema.json#/schema" },
-    "environmental": { "$ref": "environmental-schema.json#/schema" },
-    "productWarrantyYrs": { "type": "number" },
-    "files": { "$ref": "files-schema.json#/schema" },
-    "images": { "$ref": "images-schema.json#/schema" }
-
+    "distributors": {"$ref": "distributors-schema.json#/schema"},
+    "systemsIntegrators": {"$ref": "distributors-schema.json#/schema"},
+    "embargoedCountries": {"$ref": "embargoedCountries-schema.json#/schema"},
+    "notRecommendedForNewDesigns": {"type": "boolean"},
+    "typeSpecificParameters": {"$ref": "typeSpecifics-schema.json#/schema"},
+    "mechanical": {"$ref": "mechanical-schema.json#/schema"},
+    "environmental": {"$ref": "environmental-schema.json#/schema"},
+    "listingAuthorities": {"$ref": "listingAuthorities-schema.json#/schema"},
+    "productWarrantyYrs": {"type": "number"},
+    "files": {"$ref": "files-schema.json#/schema"},
+    "images": {"$ref": "images-schema.json#/schema"},
+    "listPriceUSD": {"type": "number"}
   },
-  "required":["manufacturer","productIdentifier"],
+  "required": [
+    "manufacturer",
+    "productIdentifier"
+  ],
   "selectionTool": {
-    "$comment": "The selection tool will provide the filter and display sections with the values of those parameters listed in each of the referenced files",
-    "filter": [ "manufacturer.json", "productSeries.json", "notRecommendedForNewDesigns.json", "typeSpecificParameters.json", "environmental.json" ],
-    "display": [ "productIdentifier.json", "images.json", "typeSpecificParameters.json", "environmental.json", "files.json" ]
+    "$comment": "The selection tool will provide the filter, display and comparison sections with the values of those parameters listed in each of the referenced files",
+    "filter": [
+      "manufacturer.json",
+      "productSeries.json",
+      "notRecommendedForNewDesigns.json",
+      "typeSpecificParameters.json",
+      "environmental.json"
+    ],
+    "display": [
+      "productIdentifier.json",
+      "images.json",
+      "typeSpecificParameters.json",
+      "environmental.json",
+      "files.json"
+    ],
+    "comparison": [
+      "productIdentifier.json",
+      "typeSpecificParameters.json",
+      "environmental.json"
+    ]
   }
-
-
 }

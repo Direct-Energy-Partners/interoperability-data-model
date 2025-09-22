@@ -1,4 +1,6 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "schema": {
     "$comment": "This schema is for a battery charging port",
     "type": "object",
@@ -7,34 +9,45 @@
         "type": "string",
         "const": "batteryCharging"
       },
-      "nominalVoltage": { "$ref": "voltageRating-schema.json#/schema" },
-      "minNominalBattVolts": { "$ref": "voltageRating-schema.json#/schema" },
-      "maxNominalBattVolts": { "$ref": "voltageRating-schema.json#/schema" },
-      "chemistry": { "type": "string" },
+      "nominalVoltage": {
+        "anyOf": [
+          {"$ref": "voltageRating-schema.json#/schema"},
+          {
+            "type": "array",
+            "items": {"$ref": "voltageRating-schema.json#/schema"}
+          }
+        ]
+      },
+      "minNominalBattVolts": {"$ref": "voltageRating-schema.json#/schema"},
+      "maxNominalBattVolts": {"$ref": "voltageRating-schema.json#/schema"},
+      "chemistry": {"type": "string"},
       "BMScommunication": {
         "type": "object",
         "properties": {
           "protocol": {
             "anyOf": [
-              { "type": "string" },
+              {"type": "string"},
               {
                 "type": "array",
-                "items": { "type": "string" }
+                "items": {"type": "string"}
               }
             ]
           },
           "interface": {
             "anyOf": [
-              { "type": "string" },
+              {"type": "string"},
               {
                 "type": "array",
-                "items": { "type": "string" }
+                "items": {"type": "string"}
               }
             ]
           }
         }
       }
     },
-    "required": [ "nominalVoltage", "chemistry" ]
+    "required": [
+      "nominalVoltage",
+      "chemistry"
+    ]
   }
 }

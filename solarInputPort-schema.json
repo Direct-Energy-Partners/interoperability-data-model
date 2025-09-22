@@ -1,15 +1,17 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This schema describes a solar or wind input port for connection to solar panels.  In the case of wind/hydro, there is no requirement for the input power to equal the output power.",
   "schema": {
-     "type": "object",
+    "type": "object",
     "properties": {
       "portType": {
         "type": "string",
         "const": "solarInput"
       },
-      "maxOpenCctVolts": { "$ref": "voltageRating-schema.json#/schema" },
-      "maxShortCctCurrent": { "$ref": "currentRating-schema.json#/schema" },
-      "maxPower": { "$ref": "powerRating-schema.json#/schema" }
+      "SOA": {"$ref": "SOA-schema.json#/schema"},
+      "maxOpenCctVolts": {"$ref": "voltageRating-schema.json#/schema"},
+      "maxShortCctCurrent": {"$ref": "currentRating-schema.json#/schema"}
     }
   }
 }

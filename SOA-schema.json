@@ -1,0 +1,37 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "This JSON schema defines the Safe Operating Area of any electrical power port",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "minVoltage": {"$ref": "voltageRating-schema.json#/schema"},
+      "maxVoltage": {"$ref": "voltageRating-schema.json#/schema"},
+      "nominalVoltage": {"$ref": "voltageRating-schema.json#/schema"},
+      "voltage": {
+        "type": "object",
+        "properties": {
+          "min": {"type": "number"},
+          "max": {"type": "number"},
+          "nominal": {"type": "number"},
+          "units": {
+            "type": "string",
+            "enum": [
+              "mV",
+              "V",
+              "kV",
+              "Vrms",
+              "kVrms"
+            ]
+          }
+        },
+        "required": ["units"],
+        "additionalProperties": false
+      },
+      "maxCurrentOut": {"$ref": "currentRating-schema.json#/schema"},
+      "maxCurrentIn": {"$ref": "currentRating-schema.json#/schema"},
+      "maxPowerIn": {"$ref": "powerRating-schema.json#/schema"},
+      "maxPowerOut": {"$ref": "powerRating-schema.json#/schema"}
+    }
+  }
+}

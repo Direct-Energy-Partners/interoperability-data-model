@@ -1,0 +1,92 @@
+{
+  "$schema": "common-schema.json#/schema",
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "productCategory": "powerDistribution",
+  "productName": "Hybrid high voltage relay",
+  "productIdentifier": "HVR10-N0C1G1-BS02D9-300A",
+  "productSeries": "HVR10",
+  "description": "The HVR10 is a hybrid powerful high voltage relay in a compact design. It combines physical isolation of an electro-mechanical contact and state-of-the-art semi-conductor technology. The hybrid, arc-free switching system allows repeated and reliable disconnection, even in the event of an overload, of up to 2 megawatts – 2,000 A/1,000 V. The HVR10 withstands high short circuit currents up to 5,000 A until the fast HV-fuse trips. The compact unit can switch and permanently process 300 A up to 50,000 times, arc-free and wear-free. The innovative self-monitoring function immediately signals critical operating conditions to the controlgear.",
+  "manufacturer": {
+    "coName": "E-T-A Elektrotechnische Apparate GmbH",
+    "webHomePageURL": "www.e-t-a.co.uk"
+  },
+  "datasheetHyperlink": "https://dcide-payload-nyc.nyc3.digitaloceanspaces.com/dcide-production/d-hvr10-en-EZZWZj.pdf",
+  "notRecommendedForNewDesigns": false,
+  "typeSpecificParameters": {
+    "componentType": "contactor",
+    "contactor": {
+      "coilContactIsolationVolts": {
+        "value": 4000,
+        "units": "V"
+      },
+      "coilNominalVolts": {
+        "value": 12,
+        "units": "V"
+      },
+      "coilACDC": "DC",
+      "coilSOA": {
+          "voltage": {
+            "max": 24,
+            "min": 12, 
+        "units": "V"},
+        "maxCurrentIn": "14A"
+      },
+      "contactRating": {
+        "frequency": "DC",
+        "SOA": {
+          "maxCurrentIn": {
+            "value": 250,
+            "units": "A"
+          },
+          "maxVoltage": {
+            "value": 900,
+            "units": "V"
+          }
+        },
+        "AEndConnection": {
+          "connectionType": "bolt",
+          "bolt":  "M10 (13/32\")"
+        },
+        "BEndConnection": {
+          "connectionType": "bolt",
+          "bolt": "M10 (13/32\")"
+        },
+        "mechanicalContact": {
+          "ampsBreakingCapacity": {
+            "value": 2000,
+            "units": "A"
+          },
+          "maxSteadyCurrent": "250A",
+          "maxVoltageDC": "900V",
+          "configuration": "Normally Open"
+        }
+      },
+      "numberOfPolesNormallyOpen": 1,
+      "mountingStyle": "M5 screws"
+    }
+  },
+  "listingAuthorities": [
+    {"LAName": "KBA"}
+  ],
+  "environmental": {
+    "operatingTemperature": {
+      "min": -40,
+      "max": 85,
+      "unit": "C"
+    },
+    "operatingHumidity": {"max": 85}
+  },
+  "mechanical": {
+    "size":{
+      "depth": 90,
+      "height": 87,
+      "width": 80,
+      "units":"mm" 
+    },
+    "weight": {
+      "value": 550,
+      "unit": "g"
+    }
+  }
+}

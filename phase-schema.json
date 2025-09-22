@@ -1,0 +1,145 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "description": "The AC or DC connection type",
+  "mandatory": true,
+  "schema": {
+    "type": "string",
+    "enum": [
+      "D3S",
+      "D3L",
+      "Y3S",
+      "P1S",
+      "P1L",
+      "P2S",
+      "P2L",
+      "DC"
+    ]
+  },
+  "dataEntry": {
+    "prompt": "Port connection type?",
+    "entryType": "dropdown",
+    "dropdownValues": [
+      [
+        "D3S",
+        "Delta 3ph power",
+        "The port provides a 3-wire 3-phase power source"
+      ],
+      [
+        "D3L",
+        "Delta 3ph load",
+        "The port provides a 3-wire 3-phase load (eg 208VAC or 415VAC)"
+      ],
+      [
+        "Y4S",
+        "Y 3+N power",
+        "The port provides a 4-wire 3-phase+Neutral power source"
+      ],
+      [
+        "Y4L",
+        "3+N Loads",
+        "The load(s) need 3phase and Neutral"
+      ],
+      [
+        "P1S",
+        "AC 1ph power",
+        "Single phase - The power source just has Live and Neutral"
+      ],
+      [
+        "P1L",
+        "AC 1ph load",
+        "Single-phase - The load just has Live and Neutral (eg 120VAC or 220-240VAC)"
+      ],
+      [
+        "P2S",
+        "AC split-phase supply",
+        "The supply has two opposite phases, eg 120/240V.  Neutral is also available"
+      ],
+      [
+        "P2L",
+        "AC split-phase load",
+        "The load needs two live phases at 180 degrees, eg 120/240VAC (no Neutral connection)"
+      ],
+      [
+        "DC",
+        "2-wire DC",
+        "The port has Positive and Negative"
+      ]
+    ]
+  },
+  "summing": {
+    "method": "textList",
+    "list": [
+      [
+        "D3S",
+        "D3L",
+        "D3S"
+      ],
+      [
+        "Y3S",
+        "D3L",
+        "Y3S"
+      ],
+      [
+        "P1S",
+        "P1L",
+        "P1S"
+      ],
+      [
+        "P2S",
+        "P2L",
+        "P2S"
+      ],
+      [
+        "P2S",
+        "P1L",
+        "P2S"
+      ],
+      [
+        "Y3S",
+        "P1L",
+        "Y3S"
+      ],
+      [
+        "D3L",
+        "D3L",
+        "D3L"
+      ],
+      [
+        "P1L",
+        "P1L",
+        "P1L"
+      ],
+      [
+        "P2L",
+        "P2L",
+        "P2L"
+      ],
+      [
+        "P1L",
+        "P2L",
+        "P2L"
+      ],
+      [
+        "D3L",
+        "P1L",
+        "Y4L"
+      ],
+      [
+        "Y4L",
+        "P1L",
+        "Y4L"
+      ],
+      [
+        "Y4L",
+        "D3L",
+        "Y4L"
+      ],
+      [
+        "DC",
+        "DC",
+        "DC"
+      ]
+    ]
+  }
+}

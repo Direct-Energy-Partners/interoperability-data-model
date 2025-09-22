@@ -1,0 +1,42 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "This schema is suitable for any mechanical contactor or relay",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "coilNominalVolts": {"$ref": "voltageRating-schema.json#/schema"},
+      "coilACDC": {
+        "type": "string",
+        "enum": [
+          "AC",
+          "DC",
+          "AC/DC"
+        ]
+      },
+      "coilResistance": {"$ref": "resistanceValue-schema.json#/schema"},
+      "coilSOA": {"$ref": "SOA-schema.json#/schema"},
+      "contactRating": {"$ref": "TPPD-schema.json#/schema"},
+      "coilContactIsolationVolts": {"$ref": "voltageRating-schema.json#/schema"},
+      "numberOfPolesNormallyOpen": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "numberOfPolesNormallyClosed": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "numberOfPolesChangeover": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "numberOfPolesMakeBeforeBreak": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "mountingStyle": {"$ref": "mountingStyle-schema.json#/schema"},
+      "width": {"$ref": "dimensions-schema.json#/schema"},
+      "connection": {"$ref": "connection-schema.json#/schema"}
+    }
+  }
+}

@@ -1,41 +1,91 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "schema": {
     "type": "object",
     "properties": {
-      "length": { "$ref": "dimensions-schema.json#/schema" },
-      "width": { "$ref": "dimensions-schema.json#/schema" },
-      "depth": { "$ref": "dimensions-schema.json#/schema" },
-      "height": { "$ref": "dimensions-schema.json#/schema" },
-      "diameter": { "$ref": "dimensions-schema.json#/schema" },
-      "units": {
-        "type": "string",
-        "enum": [ "in", "ft", "yds", "mi", "mm", "cm", "m", "km" ]
-      },
-      "weight": {
+      "length": {"$ref": "dimensions-schema.json#/schema"},
+      "width": {"$ref": "dimensions-schema.json#/schema"},
+      "depth": {"$ref": "dimensions-schema.json#/schema"},
+      "height": {"$ref": "dimensions-schema.json#/schema"},
+      "diameter": {"$ref": "dimensions-schema.json#/schema"},
+      "size": {
         "type": "object",
         "properties": {
-          "value": { "type": "number" },
-          "unit": {
+          "length": {
+            "type": "number",
+            "minimum": 0
+          },
+          "width": {
+            "type": "number",
+            "minimum": 0
+          },
+          "depth": {
+            "type": "number",
+            "minimum": 0
+          },
+          "height": {
+            "type": "number",
+            "minimum": 0
+          },
+          "diameter": {
+            "type": "number",
+            "minimum": 0
+          },
+          "units": {
             "type": "string",
-            "enum": [ "g", "kg", "oz", "lbs" ]
+            "enum": [
+              "in",
+              "ft",
+              "yds",
+              "mi",
+              "mm",
+              "cm",
+              "m",
+              "km"
+            ]
           }
         },
-        "additionalProperties": false
+        "required": ["units"]
+      },
+      "weight": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "value": {"type": "number"},
+              "units": {
+                "type": "string",
+                "enum": [
+                  "g",
+                  "kg",
+                  "oz",
+                  "lbs"
+                ]
+              }
+            },
+            "required": ["value"]
+          },
+          {
+            "type": "string",
+            "pattern": "^([0-9]+(.[0-9]+)?)((m|k)?g|oz|lbs)$"
+          }
+        ]
       },
       "mountingType": {
         "oneOf": [
-          { "$ref": "#/definitions/mountingStyleType" },
+          {"$ref": "mountingStyle-schema.json#/schema"},
           {
             "type": "array",
-            "items": { "$ref": "#/definitions/mountingStyleType" }
+            "items": {"$ref": "mountingStyle-schema.json#/schema"}
           },
           {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "style": { "$ref": "#/definitions/mountingStyleType" },
-                "orderCode": { "type": "string" }
+                "style": {"$ref": "mountingStyle-schema.json#/schema"},
+                "orderCode": {"type": "string"}
               }
             }
           }
@@ -43,23 +93,8 @@
       }
     }
   },
-
-	"selectionTool": {
-		"filter": false,
-		"display": false
-	},
-	"definitions": {
-
-		"mountingStyleType": {
-			"type": "string",
-			"enum": [
-				"floor",
-				"wall",
-				"panel",
-				"din-rail",
-				"rack"
-			]
-		}
-	}
+  "selectionTool": {
+    "filter": false,
+    "display": false
+  }
 }
-

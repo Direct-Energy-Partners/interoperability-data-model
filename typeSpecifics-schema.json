@@ -1,50 +1,32 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "description": "Each type of microgrid component will have its own particular critical parameters, so we select the appropriate schema here",
   "schema": {
     "type": "object",
     "properties": {
-
-      "breaker": {"$ref":"breaker-schema.json#/schema"},
-      "solar": { "$ref": "solar-schema.json#/schema" },
-      "fuse": { "$ref": "fuse-schema.json#/schema" },
-      "converter":{ "$ref": "converter-schema.json#/schema/" },
-      "battery": { "$ref": "battery-schema.json#/schema" }
+      "battery": {"$ref": "battery-schema.json#/schema"},
+      "breaker": {"$ref": "breaker-schema.json#/schema"},
+      "cable": {"$ref": "cable-schema.json#/schema"},
+      "contactor": {"$ref": "contactor-schema.json#/schema"},
+      "converter": {"$ref": "converter-schema.json#/schema"},
+      "fuse": {"$ref": "fuse-schema.json#/schema"},
+      "integratedSource": {"$ref": "integratedSource-schema.json#/schema/"},
+      "isolator": {"$ref": "isolator-schema.json#/schema"},
+      "load": {"$ref": "load-schema.json#/schema"},
+      "meter": {"$ref": "TPPD-schema.json#/schema"},
+      "solar": {"$ref": "solar-schema.json#/schema"},
+      "solution": {"$ref": "solution-schema.json#/schema"}
     }
   },
   "$comment": [
     "The list will eventually want to include:",
-    { "$ref": "bus/bus-schema.json#/schema/" },
-
-    { "$ref": "load-schema.json#/schema/" },
-    { "$ref": "meter-schema.json#/schema/" },
-    { "$ref": "solar-schema.json#/schema/" },
-    { "$ref": "solution-schema.json#/schema/" },
     "Electrical bus",
     "Capacitor",
-    "EV Charger",
-    "Combiner Box",
-    "Contactor",
-    "Converter",
-    "Custom",
-    "Disconnect",
-    "Fuse",
-    "Grounding",
-    "HVAC",
-    "Hydro",
-    "Load",
-    "Light",
+    "Distribution board",
     "Meter",
-    "Motor",
-    "Other",
-    "Panel Switchboard",
-    "Power distribution unit",
     "Rapid shutdown device",
-    "Solar",
-    "Solution",
-    "Transfer switch",
     "Transformer",
-    "Utility",
-    "Wind"
+    "Utility"
   ]
-
 }

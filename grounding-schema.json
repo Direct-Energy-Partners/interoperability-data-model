@@ -1,0 +1,114 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "description": "If the component includes a connection between either power pole and the earth or a PE conductor",
+  "mandatory": true,
+  "schema": {
+    "type": "string",
+    "enum": [
+      "Pos",
+      "Neg",
+      "Float",
+      "Live",
+      "Neut",
+      "PVD",
+      "NVD"
+    ]
+  },
+  "dataEntry": {
+    "prompt": "Is a power pole connected to a local ground?",
+    "entryType": "dropdown",
+    "dropdownValues": [
+      [
+        "Pos",
+        "Positive grounded",
+        "The positive pole is grounded, the live has a negative voltage"
+      ],
+      [
+        "Neg",
+        "Negative grounded",
+        "The negative pole is grounded, the live has a positive voltage"
+      ],
+      [
+        "Float",
+        "No pole grounded",
+        "Neither power pole is grounded in this component"
+      ],
+      [
+        "Live",
+        "Both power poles live",
+        "The component has a local ground, and imposes some voltage on both power poles"
+      ],
+      [
+        "Neut",
+        "AC Neutral grounded",
+        "The AC Neutral is grounded"
+      ],
+      [
+        "PVD",
+        "Positive via diodes",
+        "The positive pole is grounded locally via diodes"
+      ],
+      [
+        "NVD",
+        "Negative via diodes",
+        "The negative pole is grounded locally via diodes"
+      ]
+    ]
+  },
+  "summing": {
+    "method": "textList",
+    "list": [
+      [
+        "Pos",
+        "Float",
+        "Pos"
+      ],
+      [
+        "Neg",
+        "Float",
+        "Neg"
+      ],
+      [
+        "Neut",
+        "Float",
+        "Neut"
+      ],
+      [
+        "Pos",
+        "PVD",
+        "Pos"
+      ],
+      [
+        "Neg",
+        "NVD",
+        "Neg"
+      ],
+      [
+        "Neut",
+        "Neut",
+        "Neut"
+      ],
+      [
+        "Live",
+        "Float",
+        "Live"
+      ],
+      [
+        "PVD",
+        "Float",
+        "PVD"
+      ],
+      [
+        "NVD",
+        "Float",
+        "NVD"
+      ],
+      [
+        "Float",
+        "Float",
+        "Float"
+      ]
+    ]
+  }
+}

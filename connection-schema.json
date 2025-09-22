@@ -1,28 +1,65 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "Options for connecting microgrid components.",
   "schema": {
     "oneOf": [
       {
         "type": "object",
         "properties": {
-          "bolt": { "$ref": "boltSize-schema.json#/schema" }
+          "connectionType": {"const": "bolt"},
+          "bolt": {"$ref": "boltSize-schema.json#/schema"}
         },
-        "required": [ "bolt" ]
+        "required": [
+          "connectionType",
+          "bolt"
+        ]
       },
       {
         "type": "object",
         "properties": {
-          "terminal": { "$ref": "wireSizes-schema.json#/schema" }
+          "connectionType": {"const": "terminal"},
+          "terminal": {"$ref": "wireSizes-schema.json#/schema"}
         },
-        "required": [ "terminal" ]
+        "required": [
+          "connectionType",
+          "terminal"
+        ]
       },
       {
         "type": "object",
         "properties": {
-          "other": { "type": "string" }
+          "connectionType": {"const": "plugAndSocket"},
+          "type": {"type": "string"},
+          "gender": {"type": "string"}
+        }
+      },
+      {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "connectionType": {"const": "plugAndSocket"},
+            "type": {"type": "string"},
+            "gender": {"type": "string"}
+          }
+        }
+      },
+      {
+        "type": "object",
+        "properties": {
+          "connectionType": {"const": "other"},
+          "other": {"type": "string"}
         },
         "required": ["other"]
       }
     ]
+  },
+  "definitions": {
+    "plugAndSocket": {
+      "connectionType": {"const": "plugAndSocket"},
+      "type": {"type": "string"},
+      "gender": {"type": "string"}
+    }
   }
 }

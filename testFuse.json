@@ -1,57 +1,63 @@
 {
   "$schema": "common-schema.json#/schema",
-  "productName": "20mm cartridge fuse, 3A",
-  "productIdentifier": "3A20",
-  "productSeries": "20mm fuses",
-  "datasheetHyperlink": "https://dcide.app/products/65119bd43fcac27a2e84274c",
-  "description": "This is just a test file to check the validator",
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "productCategory": "circuitProtection",
+  "productName": "Fuse ATQ-Midget",
+  "productIdentifier": "ATQ25, EAN/UPC782001904623",
+  "productSeries": "ATQ",
+  "description": "Fuse ATQ - Midget - Time-Delay 500VAC 25A Ferrule\n\nAmp-Trap ATQ midget time-delay fuses are rated 500VAC with 42 ampere ratings from 1/10 to 30A. They are an excellent choice for supplemental protection of circuits where the available short circuit current does not exceed 10,000A. (Not for Branch Circuit Protection)\n\n*Supplemental protection of lighting, solenoid, motor and transformer circuits",
   "manufacturer": {
-    "coName": "Evonet Energy Ltd",
-    "webHomePageURL": "www.evonet.com"
+    "coName": "Mersen",
+    "webHomePageURL": "mersen.com"
   },
-  "distributors": [
-    {
-      "coName": "Digikey",
-      "webHomePageURL": "digikey.com"
-    },
-    {
-      "coName": "Farnell",
-      "webHomePageURL": "uk.farnell.com"
-    }
-  ],
-  "embargoedCountries": [ "Russia", "North Korea" ],
+  "datasheetHyperlink": "https://www.mersen.com/en/products/atq-midget-time-delay/atq25",
   "notRecommendedForNewDesigns": false,
-  "listingAuthorities": [
-    {
-      "LAName": "UL",
-      "LALogo": "Base64Image string of logo"
-    },
-    {
-      "LAName": "BSI",
-      "LALogo": "Base64Image string of logo"
-    }
-  ],
   "typeSpecificParameters": {
     "componentType": "fuse",
-    "fuseType":{
-      "cartridge":{
-        "length":"1.25in",
-        "diameter": "3mm"
+    "fuse": {
+      "TPPD": {
+        "SOA": {
+          "maxVoltage": {
+            "value": 500,
+            "units": "V"
+          },
+          "maxCurrentIn": {
+            "value": 25,
+            "units": "A"
+          }
+        },
+        "frequency": "N5060",
+        "AEndConnection": {
+          "connectionType": "bolt",
+          "bolt": ""
         }
-    },    
-
-    "currentRating": {
-      "value": 3.0,
-      "units": "A"
+      },
+      "fuseType": {
+        "cartridge": {
+          "length": "38.1mm",
+          "diameter": "10.3mm",
+          "weight": "6.4g"
+          }
+      },
+      "breakingCapacity": {
+        "value": 10,
+        "units": "kA"
+      },
+      "responseTime": "Time delay",
+      "blownIndicator": false
+    }
+  },
+  "listingAuthorities": [
+    {"LAName": "UL",
+    "standard":"248-14 File E33925"
     },
-    "responseTime": "fast",
-    "voltageRatingAC": "250V",
-    "voltageRatingDC": {
-      "value": 30,
-      "units": "V"
-    },
-    "breakingCapacity": "1000A",
-    "indicatorStyle": "none"
-  }
-
+    {
+      "LAName": "CSA",
+      "standard":"C22.2 No. 248.14"
+    }
+  ]
+  
+ 
+ 
 }

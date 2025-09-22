@@ -1,0 +1,69 @@
+{
+  "$schema": "common-schema.json#/schema",
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "productCategory": "circuitProtection",
+  "productName": "Hydraulic-magnetic circuit breaker",
+  "productIdentifier": "CX2-B0-14-220-3MA-15G",
+  "productSeries": "CX-Series Hydraulic-magnetic circuit breakers",
+  "description": "This data is taken from the data sheet linked below",
+  "manufacturer": {
+    "coName": "Littelfuse Carling Technologies",
+    "webHomePageURL": "www.carlingtech.com"
+  },
+  "datasheetHyperlink": "https://www.carlingtech.com/sites/default/files/documents/CX-Series_Details_%26_COS_010714.pdf",
+  "notRecommendedForNewDesigns": false,
+  "typeSpecificParameters": {
+    "componentType": "breaker",
+    "TPPD": {
+      "frequency": "DC",
+      "SOA": {
+        "maxVoltage": "380V",
+        "maxCurrentOut": "20A"
+      },
+      "mechanicalContact": {
+        "maxVoltageDC": "380V",
+        "maxSteadyCurrent": "20A",
+        "ampsBreakingCapacity": "10kA",
+        "configuration": "Normally Open"
+      },
+      "AEndConnection": {
+        "connectionType": "bolt",
+        "bolt": "10 -32,(3/16\")"
+      },
+      "BEndConnection": {
+        "connectionType": "bolt",
+        "bolt": "10 -32,(3/16\")"
+      }
+    },
+    "numberOfPoles": 2,
+    "tripCriteria": {"overCurrent": true},
+    "detectionMethod": "Magnetic-hydraulic",
+    "unsafeIfDCpresent": false,
+    "isolationMechanism": "mechanical",
+    "tripCurve": "Custom",
+    "mountingStyle": "Threaded insert: #6-32 UNC-2B, or M3X0.5-6H B ISO (2 per pole)",
+    "width": "0.755in",
+    "reset": "manual"
+  },
+  "listingAuthorities": [
+    {"LAName": "UL489 Listed"}
+  ],
+  "environmental": {
+    "operatingTemperature": {
+      "min": -40,
+      "max": 85,
+      "unit": "C"
+    },
+    "operatingHumidity%": {"max": 98}
+  },
+  "mechanical": {
+    "depth": "2.259in",
+    "height": "3.094in",
+    "width": "0.755in",
+    "weight": {
+      "value": 150,
+      "unit": "g"
+    }
+  }
+}

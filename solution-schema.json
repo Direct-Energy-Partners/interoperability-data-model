@@ -1,0 +1,46 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "This JSON schema is for any multi-port component",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "ports": {
+        "type": "array",
+        "items": {"$ref": "port-schema.json#/schema"}
+      },
+      "controPort": {"$ref": "controlPort-schema.json#/schema"},
+      "functions": {
+        "type": "array",
+        "items":{
+          "type":"object",
+          "properties":{
+            "fromPort":{"type":"string"},
+            "toPort":{"type":"string"},
+            "function":{"type":"string","enum":[
+              "solar battery charge controller",
+              "solar to AC grid-tie inverter",
+              "grid pass-thru",
+              "AC-powered battery charger",
+              "direct solar to load",
+              "AC-DC power supply",
+              "DC to AC inverter (non-grid-tie)",
+              "DC to AC inverter (grid-tie)",
+              "bidirectional DC-AC grid tie inverter",
+              "battery discharge controller"
+            ]},
+            "transferEfficiency":{
+              "type":"number",
+              "exclusiveMinimum": 0,
+              "exclusiveMaximum": 100
+            }
+          } 
+        } 
+      },
+      "outputsParallelable": {"type": "boolean"},
+      "3for3phase": {"type": "boolean"},
+      "staticPower": {"$ref": "powerRating-schema.json#/schema"},
+      "energyCapacity": {"$ref": "energy-schema.json#/schema"}
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "$schema": "common-schema.json#/schema",
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "productCategory": "converter",
+  "productName": "Sol-Ark 12K Essentials",
+  "productIdentifier": "12K-2P",
+  "description": "This data is taken from https://dcide.app/products/sol-ark-12k-essentials-900-00006-residential-hybrid-inverters-680a5a8ade89c214626ce2a1 and Sol-Ark's online datasheet'",
+  "manufacturer": {
+    "coName": "Sol-Ark",
+    "webHomePageURL": "sol-ark.com"
+  },
+  "datasheetHyperlink": "https://www.sol-ark.com/residential/12k-essentials-inverter/",
+  "notRecommendedForNewDesigns": false,
+  "listPriceUSD": 5299,
+  "typeSpecificParameters": {
+    "componentType": "solution",
+    "solution": {
+    "ports": [
+      {
+        "portName": "grid",
+        "VIrelationship": {"portType": "VIrelationshipUndefined"},
+        "frequency": "S60",
+        "connectionType": "P1L",
+        "SOA": {
+          "nominalVoltage": "120V",
+          "maxCurrentIn": "-37.5A",
+          "maxCurrentOut": "37.5A",
+          "powerLimitIn": "-9kW",
+          "power LimitOut": "9kW"
+        },
+        "connector": {
+          "connectionType": "terminal",
+          "terminal": "4AWG, 25mm&sup2;"
+        },
+        "poleLocallyGrounded": "Float",
+        "groundWire": "required"
+      },
+      {
+        "portName": "gen",
+        "VIrelationship": {"portType": "VIrelationshipUndefined"},
+        "frequency": "N60",
+        "connectionType": "P1L",
+        "SOA": {
+          "nominalVoltage": "120V",
+          "maxCurrentIn": "-37.5A",
+          "maxCurrentOut": "37.5A",
+          "powerLimitIn": "-9kW",
+          "power LimitOut": "9kW"
+        },
+        "connector": {
+          "connectionType": "terminal",
+          "terminal": "4AWG, 25mm&sup2;"
+        },
+        "poleLocallyGrounded": "Float",
+        "groundWire": "offered"
+      },
+      {
+        "portName": "load",
+        "VIrelationship": {"portType": "VIrelationshipUndefined"},
+        "frequency": "P60",
+        "connectionType": "P1L",
+        "SOA": {
+          "nominalVoltage": "120V",
+          "maxCurrentIn": "-37.5A",
+          "maxCurrentOut": "37.5A",
+          "powerLimitIn": "-9kW",
+          "power LimitOut": "9kW"
+        },
+          "transferTime": "4ms",
+        "connector": {
+          "connectionType": "terminal",
+          "terminal": "4AWG, 25mm&sup2;"
+        },
+        "poleLocallyGrounded": "Float",
+        "groundWire": "offered"
+      },
+      {
+        "portName": "solarIn1",
+        "VIrelationship": {"portType": "VIrelationshipUndefined"},
+        "frequency": "DC",
+        "connectionType": "DC",
+        "SOA": {
+          "minVoltage": "125V",
+          "maxVoltage": "500V",
+          "maxCurrentIn": "20A",
+          "powerLimitIn": "6.5kW"
+        },
+        "poleLocallyGrounded": "Live",
+        "groundWire": "offered",
+        "connector": {
+          "connectionType": "terminal",
+          "teerminal": "10AWG, 6.0mm&sup2;"
+        }
+      },
+      {
+        "portName": "solarIn2",
+        "VIrelationship": {"portType": "VIrelationshipUndefined"},
+        "frequency": "DC",
+        "connectionType": "DC",
+        "SOA": {
+          "minVoltage": "125V",
+          "maxVoltage": "500V",
+          "maxCurrentIn": "20A",
+          "powerLimitIn": "6.5kW"
+        },
+        "poleLocallyGrounded": "Live",
+        "groundWire": "offered",
+        "connector": {
+          "connectionType": "terminal",
+          "teerminal": "10AWG, 6.0mm&sup2;"
+        }
+      },
+      {
+        "portName": "battery",
+        "VIrelationship": {
+          "portType": "batteryCharging",
+          "minNominalBattVolts": "48V",
+          "maxNominalBattVolts": "48V",
+          "BMScommunication": [
+            "CAN",
+            "RS-485",
+            "Modbus"
+          ]
+        },
+        "frequency": "DC",
+        "connectionType": "DC",
+        "SOA": {
+          "minVoltage": "43V",
+          "maxVoltage": "63V",
+          "maxCurrentIn": "-185A",
+          "maxCurrentOut": "185A"
+        },
+        "poleLocallyGrounded": "Float",
+        "connector": {
+          "connectionType": "bolt",
+          "bolt": "M10 (13/32\")"
+        }
+      },
+      {
+        "portName": "controlPort",
+        "interface": [
+          "10/100 Mbps Ethernet",
+          "Wi-Fi"
+        ],
+        "controlProtocol": [
+          "CAN",
+          "Modbus RTU"
+        ]
+      }
+    ],
+      "functions": [
+        {
+          "fromPort":"grid",
+          "toPort":"load",
+          "function":"grid pass-thru"
+        },
+        {
+          "fromPort":"grid",
+          "toPort": "battery",
+          "function": "bidirectional DC-AC grid tie inverter",
+          "transferEfficiency":96
+        },
+        {
+          "fromPort":"battery",
+          "toPort": "load",
+          "function":"DC to AC inverter (grid-tie)",
+          "transferEfficiency":96.5
+        }      ],
+    "outputsParallelable": true,
+    "3for3phase": true,
+    "transferEfficiency": 96.5,
+    "staticPower": "60W"
+  },
+  "environmental": {
+    "ingressProtection_IP": "IP65",
+    "ingressProtection_NEMA": "3R",
+    "operatingTemperature": {
+      "min": -13,
+      "max": 113,
+      "unit": "F"
+    }
+  },
+  "mechanical": {
+    "weight": {
+      "value": 78,
+      "unit": "lb"
+    },
+    "mountingType": "wall-mount"
+  }
+}
