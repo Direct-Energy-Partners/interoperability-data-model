@@ -7,12 +7,12 @@
     "This is the JSON schema for all IDM products.  Listed below are all the parameters that are common to all types of product",
     "Particular types of product have their own schemas defined in separate files, which must be in the same folder, or sub-folders.",
     
-    "fileVersion: 1.0","fileDate 2025-09-26"
+    "fileVersion: 1.01","fileDate 2025-09-26"
   ],
     "type": "object",
   "properties": {
     "IDMVersion": { "const": "1.2 2025-08-10" },
-    "license": { "const": "license (c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved" },
+    "license": { "const": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved" },
     "fileVersion":{"type":"string", "default":"0.0"}, 
     "fileDate":{"type":"string"},
     "changeRecord":{"type":"string"},
