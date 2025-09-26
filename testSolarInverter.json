@@ -16,139 +16,139 @@
   "typeSpecificParameters": {
     "componentType": "solution",
     "solution": {
-    "ports": [
-      {
-        "portName": "grid",
-        "VIrelationship": {"portType": "VIrelationshipUndefined"},
-        "frequency": "S60",
-        "connectionType": "P1L",
-        "SOA": {
-          "nominalVoltage": "120V",
-          "maxCurrentIn": "-37.5A",
-          "maxCurrentOut": "37.5A",
-          "powerLimitIn": "-9kW",
-          "power LimitOut": "9kW"
+      "ports": [
+        {
+          "portName": "grid",
+          "VIrelationship": {"portType": "VIrelationshipUndefined"},
+          "frequency": "S60",
+          "connectionType": "P1L",
+          "SOA": {
+            "nominalVoltage": "120V",
+            "maxCurrentIn": "-37.5A",
+            "maxCurrentOut": "37.5A",
+            "powerLimitIn": "-9kW",
+            "power LimitOut": "9kW"
+          },
+          "connector": {
+            "connectionType": "terminal",
+            "terminal": "4AWG, 25mm&sup2;"
+          },
+          "poleLocallyGrounded": "Float",
+          "groundWire": "required"
         },
-        "connector": {
-          "connectionType": "terminal",
-          "terminal": "4AWG, 25mm&sup2;"
+        {
+          "portName": "gen",
+          "VIrelationship": {"portType": "VIrelationshipUndefined"},
+          "frequency": "N60",
+          "connectionType": "P1L",
+          "SOA": {
+            "nominalVoltage": "120V",
+            "maxCurrentIn": "-37.5A",
+            "maxCurrentOut": "37.5A",
+            "powerLimitIn": "-9kW",
+            "power LimitOut": "9kW"
+          },
+          "connector": {
+            "connectionType": "terminal",
+            "terminal": "4AWG, 25mm&sup2;"
+          },
+          "poleLocallyGrounded": "Float",
+          "groundWire": "offered"
         },
-        "poleLocallyGrounded": "Float",
-        "groundWire": "required"
-      },
-      {
-        "portName": "gen",
-        "VIrelationship": {"portType": "VIrelationshipUndefined"},
-        "frequency": "N60",
-        "connectionType": "P1L",
-        "SOA": {
-          "nominalVoltage": "120V",
-          "maxCurrentIn": "-37.5A",
-          "maxCurrentOut": "37.5A",
-          "powerLimitIn": "-9kW",
-          "power LimitOut": "9kW"
+        {
+          "portName": "load",
+          "VIrelationship": {"portType": "VIrelationshipUndefined"},
+          "frequency": "P60",
+          "connectionType": "P1L",
+          "SOA": {
+            "nominalVoltage": "120V",
+            "maxCurrentIn": "-37.5A",
+            "maxCurrentOut": "37.5A",
+            "powerLimitIn": "-9kW",
+            "power LimitOut": "9kW"
+          },
+            "transferTime": "4ms",
+          "connector": {
+            "connectionType": "terminal",
+            "terminal": "4AWG, 25mm&sup2;"
+          },
+          "poleLocallyGrounded": "Float",
+          "groundWire": "offered"
         },
-        "connector": {
-          "connectionType": "terminal",
-          "terminal": "4AWG, 25mm&sup2;"
+        {
+          "portName": "solarIn1",
+          "VIrelationship": {"portType": "VIrelationshipUndefined"},
+          "frequency": "DC",
+          "connectionType": "DC",
+          "SOA": {
+            "minVoltage": "125V",
+            "maxVoltage": "500V",
+            "maxCurrentIn": "20A",
+            "powerLimitIn": "6.5kW"
+          },
+          "poleLocallyGrounded": "Live",
+          "groundWire": "offered",
+          "connector": {
+            "connectionType": "terminal",
+            "terminal": "10AWG, 6.0mm&sup2;"
+          }
         },
-        "poleLocallyGrounded": "Float",
-        "groundWire": "offered"
-      },
-      {
-        "portName": "load",
-        "VIrelationship": {"portType": "VIrelationshipUndefined"},
-        "frequency": "P60",
-        "connectionType": "P1L",
-        "SOA": {
-          "nominalVoltage": "120V",
-          "maxCurrentIn": "-37.5A",
-          "maxCurrentOut": "37.5A",
-          "powerLimitIn": "-9kW",
-          "power LimitOut": "9kW"
+        {
+          "portName": "solarIn2",
+          "VIrelationship": {"portType": "VIrelationshipUndefined"},
+          "frequency": "DC",
+          "connectionType": "DC",
+          "SOA": {
+            "minVoltage": "125V",
+            "maxVoltage": "500V",
+            "maxCurrentIn": "20A",
+            "powerLimitIn": "6.5kW"
+          },
+          "poleLocallyGrounded": "Live",
+          "groundWire": "offered",
+          "connector": {
+            "connectionType": "terminal",
+            "terminal": "10AWG, 6.0mm&sup2;"
+          }
         },
-          "transferTime": "4ms",
-        "connector": {
-          "connectionType": "terminal",
-          "terminal": "4AWG, 25mm&sup2;"
+        {
+          "portName": "battery",
+          "VIrelationship": {
+            "portType": "batteryChargingPort",
+            "minNominalBattVolts": "48V",
+            "maxNominalBattVolts": "48V",
+            "BMScommunication": [
+              "CAN",
+              "RS-485",
+              "Modbus"
+            ]
+          },
+          "frequency": "DC",
+          "connectionType": "DC",
+          "SOA": {
+            "minVoltage": "43V",
+            "maxVoltage": "63V",
+            "maxCurrentIn": "-185A",
+            "maxCurrentOut": "185A"
+          },
+          "poleLocallyGrounded": "Float",
+          "connector": {
+            "connectionType": "bolt",
+            "bolt": "M10 (13/32\")"
+          }
         },
-        "poleLocallyGrounded": "Float",
-        "groundWire": "offered"
-      },
-      {
-        "portName": "solarIn1",
-        "VIrelationship": {"portType": "VIrelationshipUndefined"},
-        "frequency": "DC",
-        "connectionType": "DC",
-        "SOA": {
-          "minVoltage": "125V",
-          "maxVoltage": "500V",
-          "maxCurrentIn": "20A",
-          "powerLimitIn": "6.5kW"
-        },
-        "poleLocallyGrounded": "Live",
-        "groundWire": "offered",
-        "connector": {
-          "connectionType": "terminal",
-          "teerminal": "10AWG, 6.0mm&sup2;"
-        }
-      },
-      {
-        "portName": "solarIn2",
-        "VIrelationship": {"portType": "VIrelationshipUndefined"},
-        "frequency": "DC",
-        "connectionType": "DC",
-        "SOA": {
-          "minVoltage": "125V",
-          "maxVoltage": "500V",
-          "maxCurrentIn": "20A",
-          "powerLimitIn": "6.5kW"
-        },
-        "poleLocallyGrounded": "Live",
-        "groundWire": "offered",
-        "connector": {
-          "connectionType": "terminal",
-          "teerminal": "10AWG, 6.0mm&sup2;"
-        }
-      },
-      {
-        "portName": "battery",
-        "VIrelationship": {
-          "portType": "batteryCharging",
-          "minNominalBattVolts": "48V",
-          "maxNominalBattVolts": "48V",
-          "BMScommunication": [
+        {
+          "portName": "controlPort",
+          "interface": [
+            "10/100 Mbps Ethernet",
+            "Wi-Fi"
+          ],
+          "controlProtocol": [
             "CAN",
-            "RS-485",
-            "Modbus"
+            "Modbus RTU"
           ]
-        },
-        "frequency": "DC",
-        "connectionType": "DC",
-        "SOA": {
-          "minVoltage": "43V",
-          "maxVoltage": "63V",
-          "maxCurrentIn": "-185A",
-          "maxCurrentOut": "185A"
-        },
-        "poleLocallyGrounded": "Float",
-        "connector": {
-          "connectionType": "bolt",
-          "bolt": "M10 (13/32\")"
         }
-      },
-      {
-        "portName": "controlPort",
-        "interface": [
-          "10/100 Mbps Ethernet",
-          "Wi-Fi"
-        ],
-        "controlProtocol": [
-          "CAN",
-          "Modbus RTU"
-        ]
-      }
-    ],
+      ],
       "functions": [
         {
           "fromPort":"grid",
@@ -166,11 +166,13 @@
           "toPort": "load",
           "function":"DC to AC inverter (grid-tie)",
           "transferEfficiency":96.5
-        }      ],
-    "outputsParallelable": true,
-    "3for3phase": true,
-    "transferEfficiency": 96.5,
-    "staticPower": "60W"
+        }      
+      ],
+      "outputsParallelable": true,
+      "3for3phase": true,
+      "transferEfficiency": 96.5,
+      "staticPower": "60W"
+    }
   },
   "environmental": {
     "ingressProtection_IP": "IP65",
