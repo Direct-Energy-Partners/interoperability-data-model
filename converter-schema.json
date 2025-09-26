@@ -1,22 +1,24 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This JSON schema is for 2-port power converters and inverters, but no energy storage",
   "schema": {
     "type": "object",
     "properties": {
-      "port1": {
-        "$ref": "port-schema.json#/schema"
-      },
-      "port2": {
-        "$ref": "port-schema.json#/schema"
-      },
+      "port1": {"$ref": "port-schema.json#/schema"},
+      "port2": {"$ref": "port-schema.json#/schema"},
       "transferPowerSetBy": {
         "type": "string",
-        "enum": [ "port1", "port2", "firmware", "controlPort", "the lower of P1 and P2" ]
+        "enum": [
+          "port1",
+          "port2",
+          "firmware",
+          "controlPort",
+          "the lower of P1 and P2"
+        ]
       },
-      "controPort": { "$ref": "controlPort-schema.json#/schema" },
-      "staticPower": {
-        "$ref": "powerRating-schema.json#/schema"
-      },
+      "controPort": {"$ref": "controlPort-schema.json#/schema"},
+      "staticPower": {"$ref": "powerRating-schema.json#/schema"},
       "transferEfficicency%P1toP2": {
         "type": "number",
         "minimum": 0,
@@ -26,11 +28,33 @@
         "type": "number",
         "minimum": 0,
         "maximum": 100
+      },
+      "shortOverload": {
+        "type": "object",
+        "properties": {
+          "peakPower": {"$ref": "powerRating-schema.json#/schema"},
+          "maxDuration": {"$ref": "duration-schema.json#/schema"}
+        }
       }
     }
   },
   "selectionTool": {
-    "filter": [ "fuseType", "packageOrCase", "currentRating", "responseTime", "voltageRatingAC", "voltageRatingDC" ],
-    "display": [ "fuseType", "packageOrCase", "currentRating", "responseTime", "voltageRatingAC", "voltageRatingDC", "breakingCapacity" ]
+    "filter": [
+      "fuseType",
+      "packageOrCase",
+      "currentRating",
+      "responseTime",
+      "voltageRatingAC",
+      "voltageRatingDC"
+    ],
+    "display": [
+      "fuseType",
+      "packageOrCase",
+      "currentRating",
+      "responseTime",
+      "voltageRatingAC",
+      "voltageRatingDC",
+      "breakingCapacity"
+    ]
   }
 }

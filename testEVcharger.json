@@ -1,5 +1,8 @@
 {
   "$schema": "common-schema.json#/schema",
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "productCategory": "converter",
   "productName": "60kW DC-DC Mobile EV Charger",
   "productIdentifier": "AMP-8002-60",
   "description": "This data is taken from https://dcide.app/products/60kw-dc-dc-mobile-ev-charger-amp-8002-60-dc-dc-mobile-ev-charger-676d68cdc8a1498c3e181318#electrical",
@@ -12,33 +15,56 @@
   "typeSpecificParameters": {
     "componentType": "converter",
     "port1": {
-      "portType": "constantPower",
       "portName": "input",
-      "powerDirection": "input",
+      "VIrelationship": {
+        "portType": "constantPower",
+        "powerLevel": "-60kW"
+      },
       "frequency": "DC",
-      "nominalVolts": "650V",
-      "minVolts": "300V",
-      "maxVolts": "820V",
-      "maxCurrentIn": "100A",
-      "powerLimitIn": "60kW"
-
+      "connectionType": "DC",
+      "SOA": {
+        "minVoltage": "300V",
+        "maxVoltage": "820V",
+        "maxCurrentIn": "-100A",
+        "powerLimitIn": "-60kW"
+      },
+      "maxVoltageToGround": "1000V",
+      "poleLocallyGrounded": "Float",
+      "groundWire": "required",
+      "connector": {
+        "connectionType": "bolt",
+        "bolt": "M8 (5/16\")"
+      },
+      "prechargeProtection": "neither"
     },
     "port2": {
-      "portType": "batteryCharging",
       "portName": "output",
-      "powerDirection": "output",
-      "minNominalBattVolts": "150V",
-      "maxNominalBattVolts": "1000V",
+      "VIrelationship": {
+        "portType": "batteryCharging",
+        "minNominalBattVolts": "150V",
+        "maxNominalBattVolts": "1000V",
+        "chemistry": "Li-ion",
+        "BMScommunication": "Modbus TCP"
+      },
       "frequency": "DC",
-
-      "maxCurrentOut": "200A",
-      "maxPowerOut": "60kW",
+      "connectionType": "DC",
+      "SOA": {
+        "minVoltage": "150V",
+        "maxVoltage": "1000V",
+        "maxCurrentOut": "100A",
+        "powerLimitOut": "60kW"
+      },
+      "maxVoltageToGround": "1000V",
+      "poleLocallyGrounded": "Float",
+      "groundWire": "offered",
       "connector": [
         {
+          "connectionType": "plugAndSocket",
           "type": "CCS1",
           "gender": "socket"
         },
         {
+          "connectionType": "plugAndSocket",
           "type": "CCS2",
           "gender": "socket"
         }
@@ -50,7 +76,10 @@
         "Wi-Fi",
         "3G/LTE"
       ],
-      "controlProtocol": [ "OCPP 1.6j", "Modbus TCP" ]
+      "controlProtocol": [
+        "OCPP 1.6j",
+        "Modbus TCP"
+      ]
     },
     "staticPower": "300W",
     "transferPowerSetBy": "controlPort",
@@ -64,24 +93,17 @@
       "max": 55,
       "unit": "C"
     },
-    "operatingHumidity%": {
-      "max": 95
-    }
+    "operatingHumidity%": {"max": 95}
   },
-
   "mechanical": {
     "dimensions": {
-      "length": 870,
-      "height": 480,
-      "width": 670,
-      "unit": "mm"
+      "length": "870mm",
+      "height": "480mm",
+      "width": "670mm"
     },
-
     "weight": {
       "value": 100,
       "unit": "kg"
     }
   }
-
 }
-

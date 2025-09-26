@@ -1,0 +1,23 @@
+{
+    "$schema": "common-schema.json#/schema",
+    "IDMVersion": "1.3 2025-08-10",
+    "license": "license (c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+    "manufacturer": {
+        "coName": "AC Electronics",
+        "webHomePageURL": "evonet.com"
+    },
+    "datasheetHyperlink": "https://www.evonet.com/product",
+    "listPriceUSD": 24,
+    "typeSpecificParameters": {
+        "fuse":{
+            "fuseType": {
+                "cartridge": {
+                    "length": "0.25in",
+                    "diameter": "4.5mm"                    
+                }
+            },
+        "blownIndicator": false
+        }
+            
+    }  
+}

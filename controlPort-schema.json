@@ -1,23 +1,25 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This JSON schema is for a control port, with no power transfer function",
   "schema": {
     "type": "object",
     "properties": {
       "interface": {
         "oneOf": [
-          { "type": "string" },
+          {"type": "string"},
           {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {"type": "string"}
           }
         ]
       },
       "protocol": {
         "oneOf": [
-          { "type": "string" },
+          {"type": "string"},
           {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {"type": "string"}
           }
         ]
       }

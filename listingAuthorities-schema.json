@@ -1,6 +1,15 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "description": "This lists organisations that have certified the product to meet certain standards ",
-  "initialDropdownList": [ "UL", "CSA", "TUV", "Nemko", "CE", "UKCA" ],
+  "initialDropdownList": [
+    "UL",
+    "CSA",
+    "TUV",
+    "Nemko",
+    "CE",
+    "UKCA"
+  ],
   "$comment": "Manufacturers can add to this list, but if they do so, they will need to be given a way to upload the relevant logo",
   "schema": {
     "type": "array",
@@ -8,8 +17,9 @@
       "type": "object",
       "$comment": "The logo can easily be represented here by a Base64 string",
       "properties": {
-        "LAName": { "type": "string" },
-        "LALogo": { "type": "string" }
+        "LAName": {"type": "string"},
+        "LALogo": {"type": "string"},
+        "standard":{"type":"string"} 
       },
       "required": ["LAName"]
     }
@@ -17,6 +27,5 @@
   "selectionTool": {
     "filter": false,
     "display": "<img src=\"data:image/jpeg;base64\",$LALogo$>"
-
   }
 }

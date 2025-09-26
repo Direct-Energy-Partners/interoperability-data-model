@@ -1,0 +1,24 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "rating": {"$ref": "mechanicalContact-schema.json#/schema"},
+      "numberOfPoles": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "mechanical": {"$ref": "mechanical-schema.json#/schema"},
+      "lockable": {"type": "boolean"},
+      "style": {
+        "type": "string",
+        "enum": [
+          "On/Off",
+          "A-Off-B",
+          "Changeover"
+        ]
+      }
+    }
+  }
+}

@@ -1,16 +1,18 @@
 {
-    "description":"This lists distributors or stockists of the product, with their home web page",
-    "schema": {
-        "oneOf": [
-            { "$ref": "company-schema.json#/schema" },
-            {
-                "type": "array",
-                "items": { "$ref": "company-schema.json#/schema" }
-            }
-        ]
-    },
-    "selectionTool": {
-        "filter": false,
-        "display": true
-    }
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "description": "This lists distributors or stockists of the product, with their home web page",
+  "schema": {
+    "oneOf": [
+      {"$ref": "company-schema.json#/schema"},
+      {
+        "type": "array",
+        "items": {"$ref": "company-schema.json#/schema"}
+      }
+    ]
+  },
+  "selectionTool": {
+    "filter": false,
+    "display": true
+  }
 }

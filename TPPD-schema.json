@@ -1,0 +1,17 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "Schema for any two-port passive device (TPPD).  If necessary, the current return path is assumed and assumed to have zero resistance",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "frequency": {"$ref": "frequency-schema.json#/schema"},
+      "SOA": {"$ref": "SOA-schema.json#/schema"},
+      "maxVoltageToGround": {"$ref": "voltageRating-schema.json#/schema"},
+      "mechanicalContact": {"$ref": "mechanicalContact-schema.json#/schema"},
+      "insertedResistance": {"$ref": "resistanceValue-schema.json#/schema"},
+      "AEndConnection": {"$ref": "connection-schema.json#/schema"},
+      "BEndConnection": {"$ref": "connection-schema.json#/schema"}
+    }
+  }
+}

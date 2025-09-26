@@ -1,0 +1,70 @@
+{
+    "$schema": "common-schema.json#/schema",
+    "IDMversion": "1.3 2025-08-10",
+    "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+    "productCategory": "energyStorage",
+    "productName": "10.4kWh Battery Storage",
+    "productIdentifier": "HV2600",
+    "manufacturer": {
+        "coName": "Foxess Co. Ltd",
+        "webHomePageURL": "www.fox-ess.com"
+    },
+    "description": "The HV2600 is a high-performance, scalable battery storage module.\nThe modular design allows for maximum flexibility, making it suitable for a broad range of storage applications.\nAdditional batteries can be installed in series, allowing for a maximum storage capacity of 20.48kWh. Installation is easy, with a plug and play solution that can save valuable time for installers",
+    "productSeries": "HV-Batteries",
+    "datasheetHyperlink": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-HV2600-Datasheet-V3.5-20241119.pdf",
+    "typeSpecificParameters": {
+        "battery": {
+            "SOA": {
+                "voltage": {
+                    "nominal": 204.8,
+                    "max": 233.6,
+                    "min": 160,
+                    "units": "V"
+                },
+                "maxCurrentIn": "50A",
+                "maxCurrentOut": "60A"
+            },
+            "energyCapacity": "10240Wh",
+            "dischargeRate": "C10",
+            "chemistry": "LiFePO4",
+            "BMScommunication": {
+                "interface": "RS-485",
+                "protocol": "CAN"
+            },
+            "typicalCycleLife": 6000
+        }
+    },
+    "mechanical": {
+        "size": {
+            "width": 420,
+            "height": 116,
+            "depth": 480,
+            "units": "mm"
+        },
+        "weight": {
+            "value": 118.8,
+            "units": "kg"
+        },
+        "mountingType": "Indoor (stand)"
+    },
+    "listingAuthorities": [
+        {"LAName": "IEC62619"}
+    ],
+    "environmental": {
+        "ingressProtection_IP": "IP21",
+        "maximumOperatingAltitude": {
+            "value": 2000,
+            "units": "m"
+        },
+        "operatingTemperature": {
+            "min": 0,
+            "max": 50,
+            "unit": "C"
+        },
+        "coolingMethod": "passive",
+        "operatingHumidity": {
+            "min": 5,
+            "max": 95
+        }
+    }
+}

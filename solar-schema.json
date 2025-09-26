@@ -1,26 +1,27 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "schema": {
     "type": "object",
     "properties": {
-
-      "panelType": { "$ref": "panelType-schema.json#/schema" },
-      "panelTech": { "$ref": "panelTech-schema.json#/schema" },
-      "STCElectrical": { "$ref": "#/definitions/electrical" },
-      "NMOTElectrical": { "$ref": "#/definitions/electrical" },
-      "NOCTElectrical": { "$ref": "#/definitions/electrical" },
-      "bifacialGain5%": { "$ref": "#/definitions/electrical" },
-      "bifacialGain10%": { "$ref": "#/definitions/electrical" },
-      "bifacialGain15%": { "$ref": "#/definitions/electrical" },
-      "bifacialGain20%": { "$ref": "#/definitions/electrical" },
-      "bifacialGain25%": { "$ref": "#/definitions/electrical" },
-      "bifacialGain30%": { "$ref": "#/definitions/electrical" },
-      "maxSystemVolts": { "$ref": "voltageRating-schema.json#/schema" },
-      "maxFuseRating": { "$ref": "currentRating-schema.json#/schema" },
-      "integralBypassDiode": { "type": "boolean" },
+      "outputPort": {"$ref": "port-schema.json#/schema"},
+      "panelType": {"$ref": "panelType-schema.json#/schema"},
+      "panelTech": {"$ref": "panelTech-schema.json#/schema"},
+      "STCElectrical": {"$ref": "#/definitions/electrical"},
+      "NMOTElectrical": {"$ref": "#/definitions/electrical"},
+      "NOCTElectrical": {"$ref": "#/definitions/electrical"},
+      "bifacialGain5%": {"$ref": "#/definitions/electrical"},
+      "bifacialGain10%": {"$ref": "#/definitions/electrical"},
+      "bifacialGain15%": {"$ref": "#/definitions/electrical"},
+      "bifacialGain20%": {"$ref": "#/definitions/electrical"},
+      "bifacialGain25%": {"$ref": "#/definitions/electrical"},
+      "bifacialGain30%": {"$ref": "#/definitions/electrical"},
+      "maxFuseRating": {"$ref": "currentRating-schema.json#/schema"},
+      "integralBypassDiode": {"type": "boolean"},
       "performanceWarranty": {
         "type": "object",
         "properties": {
-          "years": { "type": "number" },
+          "years": {"type": "number"},
           "percentageReducedTo": {
             "type": "number",
             "minimum": 0,
@@ -28,21 +29,20 @@
           }
         }
       },
-      "mechanical": { "$ref": "mechanical-schema.json#/schema" },
-      "environmental": { "$ref": "environmental-schema.json#/schema" },
-      "connector": { "type": "string" }
-
+      "mechanical": {"$ref": "mechanical-schema.json#/schema"},
+      "environmental": {"$ref": "environmental-schema.json#/schema"},
+      "connector": {"type": "string"}
     }
   },
   "definitions": {
     "electrical": {
       "type": "object",
       "properties": {
-        "wattsPeak": { "$ref": "powerRating-schema.json#/schema" },
-        "openCircuitVolts": { "$ref": "voltageRating-schema.json#/schema" },
-        "shortCircuitCurrent": { "$ref": "currentRating-schema.json#/schema" },
-        "MPPTVolts": { "$ref": "voltageRating-schema.json#/schema" },
-        "MPPTCurrent": { "$ref": "currentRating-schema.json#/schema" },
+        "wattsPeak": {"$ref": "powerRating-schema.json#/schema"},
+        "openCircuitVolts": {"$ref": "voltageRating-schema.json#/schema"},
+        "shortCircuitCurrent": {"$ref": "currentRating-schema.json#/schema"},
+        "MPPTVolts": {"$ref": "voltageRating-schema.json#/schema"},
+        "MPPTCurrent": {"$ref": "currentRating-schema.json#/schema"},
         "efficiency%": {
           "type": "number",
           "minimum": 0,

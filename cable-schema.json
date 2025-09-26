@@ -1,0 +1,33 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "TPPD": {"$ref": "TPPD-schema.json#/schema"},
+      "numberOfConductors": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "length": {"$ref": "dimensions-schema.json#/schema"},
+      "conductorSize": {"$ref": "wireSizes-schema.json#/schema"},
+      "strandsPerConductor": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "conductorMaterial": {
+        "type": "string",
+        "enum": [
+          "copper",
+          "aluminum",
+          "AAC",
+          "AAAC",
+          "ACSR"
+        ]
+      },
+      "insulationMaterial": {"type": "string"},
+      "armored": {"type": "boolean"},
+      "environmental": {"$ref": "environmental-schema.json#/schema"}
+    }
+  }
+}

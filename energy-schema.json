@@ -1,27 +1,32 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This schema may be used for battery energy capacity",
   "schema": {
-    "type": "object",
-    "properties": {
-      "value": {
-        "anyOf": [
-          { "type": "number" },
-          {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "value": {"type": "number"},
+          "units": {
             "type": "string",
-            "pattern": "^([0-9]+(.[0-9]+)?)(Ah|Wh|kWh)$"
+            "enum": [
+              "Ah",
+              "Wh",
+              "kWh"
+            ]
           }
-        ]
+        },
+        "required": [
+          "value",
+          "units"
+        ],
+        "additionalProperties": false
       },
-      "units": {
+      {
         "type": "string",
-        "enum": [ "Ah", "Wh", "kWh" ]
-      },
-
-      "dischargeRate": {
-        "type": "string",
-        "pattern": "^C[0-9]+(.[0-9]+)?$"
+        "pattern": "^([0-9]+(.[0-9]+)?)(Ah|Wh|kWh)$"
       }
-    },
-    "required": [ "value" ]
+    ]
   }
 }

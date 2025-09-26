@@ -1,0 +1,34 @@
+{
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "This schema may be used for any time measurement",
+  "schema": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "value": {"type": "number"},
+          "units": {
+            "type": "string",
+            "enum": [
+              "ns",
+              "&micro;s",
+              "ms",
+              "s",
+              "mins",
+              "hrs",
+              "days",
+              "wks",
+              "yrs"
+            ]
+          }
+        },
+        "required": ["value"]
+      },
+      {
+        "type": "string",
+        "pattern": "^([0-9]+(.[0-9]+)?)(((n|&micro;|m)?s)|min|hrs|days|wks|mon|yrs)$"
+      }
+    ]
+  }
+}

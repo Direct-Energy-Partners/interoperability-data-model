@@ -1,37 +1,51 @@
 {
+  "IDMversion": "1.3 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "schema": {
     "type": "object",
     "properties": {
-      "tripCriteria": {"$ref": "tripCriteria-schema.json#/schema"},
-      "detectionMethod": { "$ref": "breakerType-schema.json#/schema" },
+      "TPPD": {"$ref": "TPPD-schema.json#/schema"},
       "numberOfPoles": {
         "type": "integer",
         "minimum": 1
       },
-      "currentRating": { "$ref": "currentRating-schema.json#/schema" },
-      "voltageRatingAC": { "$ref": "voltageRating-schema.json#/schema" },
-      "voltageRatingDC": { "$ref": "voltageRating-schema.json#/schema" },
-      "voltageRatingDC-2PolesInSeries": { "$ref": "voltageRating-schema.json#/schema" },
-      "ampsBreakingCapacity": { "$ref": "currentRating-schema.json#/schema" },
-      "tripCurve": { "$ref": "breakerTripCurve-schema.json#/schema" },
+      "tripCriteria": {"$ref": "tripCriteria-schema.json#/schema"},
+      "detectionMethod": {"$ref": "breakerType-schema.json#/schema"},
+      "unsafeIfDCpresent": {"type": "boolean"},
       "isolationMechanism": {
         "type": "string",
-        "enum": [ "mechanical", "solid-state", "hybrid" ]
+        "enum": [
+          "mechanical",
+          "solid-state",
+          "hybrid"
+        ]
       },
-      "mountingStyle": { "$ref": "mountingStyle-schema.json#/schema" },
-      "connection": { "$ref": "connection-schema.json#/schema" },
+      "contactRating": {"$ref": "mechanicalContact-schema.json#/schema"},
+      "voltageRatingDC-2PolesInSeries": {"$ref": "voltageRating-schema.json#/schema"},
+      "tripCurve": {"$ref": "breakerTripCurve-schema.json#/schema"},
+      "moechanical": {"$ref": "mechanical-schema.json#/schema"},
+      "connection": {"$ref": "connection-schema.json#/schema"},
       "reset": {
         "type": "string",
-        "enum": [ "manual", "auto", "remote" ]
+        "enum": [
+          "manual",
+          "auto",
+          "remote"
+        ]
       },
       "auxiliaryContact": {
         "type": "string",
-        "enum": [ "NC", "NO", "C/O" ]
+        "enum": [
+          "NC",
+          "NO",
+          "C/O"
+        ]
       }
-    },"required": ["currentRating"]
+    },
+    "required": ["currentRating"]
   },
   "selectionTool": {
-    "filter": [ "all" ],
-    "display": [ "all" ]
+    "filter": ["all"],
+    "display": ["all"]
   }
 }
