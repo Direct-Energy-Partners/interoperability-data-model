@@ -1,5 +1,11 @@
 {
-  "$schema": "common-schema.json#/schema",
+  "$schema": "common-schema.json",
+  "IDMVersion": "1.2 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "This is a template for creating product test files for IDM",
+  "fileVersion": "1.0",
+  "fileDate":"2025-09-26",
+  "changeRecord":"",
   "productName": "Inverter3Kw",
   "productIdentifier": "DCAC3000",
   "productSeries": "EasyPower",
@@ -22,7 +28,7 @@
         "webHomePageURL": "www.windandsun.co.uk"
     }
   ],
-  "embargoedCountries": [ "Russia", "North Korea" ],
+  "embargoedCountries": [ "RU", "NK" ],
   "notRecommendedForNewDesigns": false,
   "typeSpecificParameters": {
     "componentType": "converter",
