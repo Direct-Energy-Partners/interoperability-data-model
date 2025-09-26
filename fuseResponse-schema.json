@@ -1,7 +1,9 @@
 {
-  "IDMversion": "1.3 2025-08-10",
+  "IDMVersion": "1.2 2025-08-10",
   "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "These are the initial fuse response types.  Manufacturers may add to this list.  For further information, see IEC60269, or https://www.swe-check.com.au/pages/learn_fuse_speed.php.  A more quantitative treatment would use the I2T characteristic curves supplied by the manufacturer.",
+  "fileVersion": "1.0",
+  "fileDate":"2025-09-26",  
   "schema": {"type": "string"},
   "initialValues": [
     "Semiconductor",
