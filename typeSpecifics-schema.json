@@ -3,7 +3,8 @@
   "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "description": "Each type of microgrid component will have its own particular critical parameters, so we select the appropriate schema here",
   "fileVersion": "1.0",
-  "fileDate":"2025-09-26",  
+  "fileDate":"2025-10-08",
+  "changeRecord":"Motor option added 2025-10-08",   
   "schema": {
     "type": "object",
     "properties": {
@@ -17,6 +18,7 @@
       "isolator": {"$ref": "isolator-schema.json#/schema"},
       "load": {"$ref": "load-schema.json#/schema"},
       "meter": {"$ref": "TPPD-schema.json#/schema"},
+      "motor": {"$ref": "motor-schema.json#/schema"},
       "solar": {"$ref": "solar-schema.json#/schema"},
       "solution": {"$ref": "solution-schema.json#/schema"}
     }
@@ -26,7 +28,6 @@
     "Electrical bus",
     "Capacitor",
     "Distribution board",
-    "Meter",
     "Rapid shutdown device",
     "Transformer",
     "Utility"

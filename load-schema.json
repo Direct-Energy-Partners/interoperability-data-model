@@ -3,11 +3,13 @@
   "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This JSON schema is for any electrical load",
   "fileVersion": "1.0",
-  "fileDate":"2025-09-26",  
+  "fileDate":"2025-10-08",
+  "changeRecord":"Alternative power input added, 2025-10-08",   
   "schema": {
     "type": "object",
     "properties": {
       "powerInput": {"$ref": "port-schema.json#/schema"},
+      "altPowerInput": {"$ref": "port-schema.json#/schema"},
       "controPort": {"$ref": "controlPort-schema.json#/schema"}
     },
     "required": ["powerInput"]

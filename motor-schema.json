@@ -1,0 +1,24 @@
+{
+  "IDMVersion": "1.2 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "This JSON schema is for any motor",
+  "fileVersion": "1.0",
+  "fileDate":"2025-10-08",  
+  "schema": {
+    "type": "object",
+    "properties": {
+      "powerInput": {"$ref": "port-schema.json#/schema"},
+      "controPort": {"$ref": "controlPort-schema.json#/schema"},
+      "maxTorque":  {
+          "type": "string",
+          "pattern": "^([0-9]+(.[0-9]+)?)(Nm|ft-lbs)$"
+      },
+      "ratedSpeed": {
+        "type": "string",
+        "pattern": "^([0-9]+(.[0-9]+)?)rpm$"
+      }
+
+    },
+    "required": ["powerInput"]
+  }
+}

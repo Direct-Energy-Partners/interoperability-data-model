@@ -2,7 +2,8 @@
   "IDMVersion": "1.2 2025-08-10",
   "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "fileVersion": "1.0",
-  "fileDate":"2025-09-26",  
+  "fileDate":"2025-10-08", 
+  "changeRecord":"Added variable frequency supply for brushless motors, 2025-10-08",  
   "description": "The nominal AC frequency (or DC), which may be defined or expected",
   "schema": {
     "type": "string",
@@ -18,7 +19,8 @@
       "N5060",
       "N50DC",
       "N60DC",
-      "N5060DC"
+      "N5060DC",
+      "3VF"
     ]
   },
   "dataEntry": {
@@ -84,6 +86,11 @@
         "N5060DC",
         "50Hz, 60Hz or DC",
         "The load will work with either 50/60Hz AC or DC"
+      ],
+      [
+        "3VF",
+        "3ph, variable",
+        "3-phase variable frequency supply for driving brushless motors"
       ]
     ]
   },

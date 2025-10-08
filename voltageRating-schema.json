@@ -3,12 +3,12 @@
   "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This schema may be used for any component voltage rating",
   "fileVersion": "1.0",
-  "fileDate":"2025-09-26",  
+  "fileDate":"2025-10-08",  
   "schema": {
     "oneOf": [
       {
         "type": "string",
-        "pattern": "^([0-9]+(.[0-9]+)?)(k|m)?V(rms)?$"
+        "pattern": "^([0-9]+(.[0-9]+)?)(/([0-9]+(.[0-9]+)?))*(k|m)?V(rms)?$"
       },
       {
         "type": "object",

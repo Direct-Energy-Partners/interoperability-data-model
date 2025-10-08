@@ -1,0 +1,47 @@
+{
+  "$schema": "common-schema.json",
+  "IDMVersion": "1.2 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "This is a test file for a motor",
+  "fileVersion": "1.0",
+  "fileDate":"2025-10-08",
+  "changeRecord":"",
+  "description": "BLDC motor with integral encoder",
+  "productIdentifier": "90BLW42-48V-E.000",
+  "manufacturer": {
+    "coName": "Delta Line",
+    "webHomePageURL": "www.delta-line.com"
+  },
+  "datasheetHyperlink": "https://www.delta-line.com/cat.pag/categoria-czk305kzpsxzk.html",
+  "typeSpecificParameters": {
+    "motor": {
+      "powerInput": {
+        "frequency": "3VF",
+        "SOA": {
+          "nominalVoltage": "48V",
+          "maxCurrentIn": "4.3A"
+        },
+        "maxVoltageToGround": "600Vrms"
+      },
+      "controPort": {
+        "interface": "12-pin connector",
+        "protocol": "4096 pulses per revolution"
+        },
+      "maxTorque": "0.96Nm",
+      "ratedSpeed": "1670rpm"
+    }
+  },
+  "mechanical": {
+    "diameter": "90mm",
+    "length": "41.5mm",
+    "weight": "1.2kg"
+  },
+  "environmental": {
+    "ingressProtection_IP": "IP40",
+    "RoHScompliant": true
+  }
+  
+  
+  
+  
+}

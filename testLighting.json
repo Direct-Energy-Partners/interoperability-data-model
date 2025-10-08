@@ -1,0 +1,50 @@
+{
+  "$schema": "common-schema.json",
+  "IDMVersion": "1.2 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "This is a test file for any type of load",
+  "fileVersion": "1.0",
+  "fileDate":"2025-09-26",
+  "changeRecord":"",
+  "productName": "AC/DC Combination 48” Long Industrial Series LED DC Light Fixture",
+  "productSeries": "Industrial Series 3 LED Light Fixture (AC/DC combo)",
+  "description": "AC/DC Combination 48” Long Industrial Series LED DC Light Fixture with one (1) 24DC lamp and two (2) AC lamps",
+  "productCategory": "load",
+  "manufacturer": {
+    "coName": "Marshall DC Lighting",
+    "webHomePageURL": "www.marshalldc.com"
+  },
+  "productIdentifier": "T8IN-3LED-120/277AC(2L)-24DC(1L)-20-WH",
+  "datasheetHyperlink": "https://www.marshalldc.com/product/industrial-series-3-led-light-fixture-ac-dc-combo/",
+  "typeSpecificParameters": {
+    "load": {
+      "powerInput": {
+        "frequency": "N5060",
+        "SOA": {
+          "nominalVoltage": "120/277Vrms",
+          "maxPowerIn": "20W"
+        }
+      },
+      "altPowerInput": {
+        "frequency": "DC",
+        "SOA": {
+          "nominalVoltage": "24/48/125V",
+          "maxPowerIn": "20W"
+        }
+      }
+    }
+  },
+  "environmental": {
+    "operatingTemperature": {
+      "min": -4,
+      "max": 150,
+      "unit": "F"
+    }
+  },
+  "productWarrantyYrs": 3
+  
+  
+  
+  
+  
+}
