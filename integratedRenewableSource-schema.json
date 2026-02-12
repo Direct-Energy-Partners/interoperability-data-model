@@ -1,0 +1,20 @@
+{
+  "IDMVersion": "1.2 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "Any renewable power source that includes a power controller",
+  "fileVersion": "1.1",
+  "fileDate":"2026-02-12",  
+  "schema": {
+    "type": "object",
+    "properties": {
+      "energySource": {"type":"string"},
+      "integrationCycle": {"$ref":"duration-schema.json#/schema"},
+      "energyPerCycle": {"$ref":"energy-schema.json#/schema"},   
+      "outputPort": {"$ref": "port-schema.json#/schema"},
+      "mechanical": {"$ref": "mechanical-schema.json#/schema"},
+      "environmental": {"$ref": "environmental-schema.json#/schema"},
+      "connector": {"type": "string"},
+      "controlPort": {"$ref": "controlPort-schema.json#/schema"}
+    }
+  }
+}

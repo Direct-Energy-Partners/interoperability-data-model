@@ -2,8 +2,8 @@
   "IDMVersion": "1.2 2025-08-10",
   "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This JSON schema is for any electrical power port",
-  "fileVersion": "1.0",
-  "fileDate":"2025-09-26",  
+  "fileVersion": "1.1",
+  "fileDate":"2026-02-12",  
   "schema": {
     "type": "object",
     "properties": {
@@ -32,7 +32,8 @@
             "properties": {
               "portType": {"const": "constantVoltage"},
               "openCctVolts": {"$ref": "voltageRating-schema.json#/schema"},
-              "theveninResistance": {"$ref": "resistanceValue-schema.json#/schema"}
+              "theveninResistance": {"$ref": "resistanceValue-schema.json#/schema"},
+              "droopHysterisisVolts": {"$ref": "voltageRating-schema.json#/schema"}
             }
           },
           {

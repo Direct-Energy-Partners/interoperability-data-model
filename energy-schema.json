@@ -2,8 +2,8 @@
   "IDMVersion": "1.2 2025-08-10",
   "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This schema may be used for battery energy capacity",
-  "fileVersion": "1.0",
-  "fileDate":"2025-09-26",  
+  "fileVersion": "1.1",
+  "fileDate":"2026-02-12",  
   "schema": {
     "oneOf": [
       {
@@ -15,7 +15,8 @@
             "enum": [
               "Ah",
               "Wh",
-              "kWh"
+              "kWh",
+              "MWh"
             ]
           }
         },
@@ -27,7 +28,7 @@
       },
       {
         "type": "string",
-        "pattern": "^([0-9]+(.[0-9]+)?)(Ah|Wh|kWh)$"
+        "pattern": "^([0-9]+(.[0-9]+)?)(Ah|Wh|kWh|MWh)$"
       }
     ]
   }

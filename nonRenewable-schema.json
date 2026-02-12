@@ -1,0 +1,17 @@
+{
+  "IDMVersion": "1.2 2025-08-10",
+  "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
+  "$comment": "Any non-renewable (dispatchable) power source that is integrated with a power controller",
+  "fileVersion": "1.0",
+  "fileDate":"2026-02-12",  
+  "schema": {
+    "type": "object",
+    "properties": {
+      "outputPort": {"$ref": "port-schema.json#/schema"},
+      "mechanical": {"$ref": "mechanical-schema.json#/schema"},
+      "environmental": {"$ref": "environmental-schema.json#/schema"},
+      "connector": {"type": "string"},
+      "controlPort": {"$ref": "controlPort-schema.json#/schema"}
+    }
+  }
+}

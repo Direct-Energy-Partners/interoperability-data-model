@@ -2,8 +2,8 @@
   "IDMVersion": "1.2 2025-08-10",
   "license": "(c) EMerge Alliance 2025, Licensed CC BY-NC-ND 4.0 -All Rights Reserved",
   "$comment": "This schema may be used for any time measurement",
-  "fileVersion": "1.0",
-  "fileDate":"2025-09-26",  
+  "fileVersion": "1.1",
+  "fileDate":"2026-02-12",  
   "schema": {
     "oneOf": [
        {
@@ -17,19 +17,19 @@
           "units": {
             "type": "string",
             "enum": [
-              "ns",
-              "&micro;s",
-              "ms",
-              "s",
-              "mins",
-              "hrs",
+              "ns","nanoseconds",
+              "&micro;s","microseconds",
+              "ms","milliseconds",
+              "s","secs","seconds",
+              "mins","minutes",
+              "hrs","hours",
               "days",
-              "wks",
-              "yrs"
+              "wks","weeks",
+              "yrs","years"
             ]
           }
         },
-        "required": ["value"]
+        "required": ["value","units"]
       }
     ]
   }
