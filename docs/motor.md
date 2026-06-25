@@ -1,0 +1,35 @@
+# Motor
+
+A motor converts electrical power into mechanical motion. In a DC system it is a controllable
+load, and because many motors can regenerate (returning power while braking), its port may be
+bidirectional. The IDM models a motor as a single port that can carry AC, DC, or both.
+
+- Type key: `motor`
+- Indicator: `M`
+- Plural: Motors
+- Ports: 1, input or bidirectional, carries an AC block and a DC block.
+
+See [common attributes](./common.md) for the shared base every component carries
+(identification, compliance, communication, environmental, mechanical, performance, files,
+images and metadata) and for the shared port model.
+
+## Ports
+
+A motor has exactly one port. The port has its power flow direction fixed to `input`, since a
+motor draws power to drive its load. At the definition level the supported directions are
+`input` and `bidirectional`, allowing for regeneration. The port carries both an AC block and a
+DC block. Beyond the abstract port base (features, terminal, wire size) and the standard AC and
+DC blocks (voltage, current, power, configuration, earthing, and for AC also frequency and
+power factor), the motor port adds no extra port level attributes.
+
+The allowed control methods at the definition level are `constant-power` and `power-voltage`.
+
+## Electrical
+
+The `electrical` section holds the single port.
+
+- `ports` (array of 1 port): see above.
+
+## Example
+
+See [`examples/testMotor.json`](../examples/testMotor.json).

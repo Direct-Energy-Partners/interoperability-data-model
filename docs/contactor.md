@@ -1,0 +1,47 @@
+# Contactor
+
+A contactor is an electrically controlled switch used to make or break a circuit under load. In
+a DC system it connects or isolates a section on command, for example energising a battery or
+disconnecting a source. The IDM models a contactor as two ports (an input side and an output
+side) that share their electrical specifications.
+
+- Type key: `contactor`
+- Indicator: `K`
+- Plural: Contactors
+- Ports: 2 (input and output), each input, output or bidirectional, AC and DC (displayed as a
+  single port)
+- Acts as: switchgear
+
+See [common attributes](./common.md) for the shared base every component carries
+(identification, compliance, communication, environmental, mechanical, performance, files,
+images and metadata) and for the shared port model.
+
+## Ports
+
+A contactor has exactly two ports, a line side and a load side. They are kept in sync, so the
+two ports share the same electrical values, and the contactor is displayed in diagrams as a
+single port. Each port defaults to a bidirectional power flow direction. Every port carries
+both an AC block and a DC block, each of which adds `controlMethods` on top of the standard
+fields.
+
+On top of the abstract port base (features, terminal, wire size) and the AC and DC blocks, each
+contactor port adds:
+
+- `controlMethods` (array, per AC and DC block, default `[]`): the control strategies the port
+  can use. AC values are `constant-voltage-frequency`, `constant-active-reactive-power`,
+  `uncontrolled`. DC values are `constant-voltage`, `constant-current`, `constant-power`,
+  `droop-voltage`, `power-voltage`, `maximum-power-point-tracking`, `uncontrolled`.
+
+## Electrical
+
+The `electrical` section holds the two ports plus contactor level attributes.
+
+- `ports` (tuple of 2 ports): see above. The two ports are synchronised.
+- `features` (object):
+  - `feedbackSignal` (boolean, default `false`): whether the contactor provides a feedback
+    (auxiliary) signal.
+- `isolationVoltage` (value, unit `V`): rated isolation voltage.
+
+## Example
+
+See [`examples/testContactor.json`](../examples/testContactor.json).

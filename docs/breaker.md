@@ -1,0 +1,87 @@
+# Circuit Breaker
+
+A circuit breaker protects a circuit by automatically interrupting current when a fault or
+overload is detected, and it can also serve as a manual switching point. In a DC system it
+isolates faulted sections and protects conductors and downstream equipment. The IDM models a
+circuit breaker as two ports (an input side and an output side) that share their electrical
+specifications, plus protection attributes such as trip curves and short circuit ratings.
+
+- Type key: `breaker`
+- Indicator: `Q`
+- Plural: Circuit Breakers
+- Ports: 2 (input and output), each input, output or bidirectional, AC and DC (displayed as a
+  single port)
+- Acts as: switchgear
+- Can serve as: contactor, disconnect
+
+See [common attributes](./common.md) for the shared base every component carries
+(identification, compliance, communication, environmental, mechanical, performance, files,
+images and metadata) and for the shared port model.
+
+## Ports
+
+A circuit breaker has exactly two ports, a line side and a load side. They are kept in sync, so
+the two ports share the same electrical values, and the breaker is displayed in diagrams as a
+single port. Each port defaults to a bidirectional power flow direction. Every port carries
+both an AC block and a DC block. In both blocks the standard `power` field is removed and a
+nominal `current` field is used instead.
+
+On top of the abstract port base (features, terminal, wire size), each AC and DC block adds
+these protection and rating attributes:
+
+- `current` (nom, unit `A`): nominal rated current.
+- `voltagePerPole` (value, unit `V`): rated voltage per pole.
+- `instantaneousShortCircuitCurrentUL` (value, unit `A`): UL instantaneous short circuit
+  current.
+- `serviceShortCircuitBreakingCapacityIEC` (value, unit `A`): IEC service short circuit
+  breaking capacity (Ics).
+- `ultimateShortCircuitBreakingCapacityIEC` (value, unit `A`): IEC ultimate short circuit
+  breaking capacity (Icu).
+- `criticalClearingTime` (value, unit `s`): critical clearing time.
+- `poles` (enum, default `2P`): pole configuration, one of `1P`, `1P+N`, `1P+M`, `2P`, `2P+M`,
+  `3P`, `3P+N`, `4P`.
+- `totalVoltage` (value, unit `V`): total rated voltage.
+
+Beyond the AC and DC blocks, each port also adds:
+
+- `tripCurve` (array, default `['C']`): trip curve classes, subset of `A`, `B`, `C`, `D`, `K`,
+  `Z`, `custom`.
+- `customTripCurve` (array, optional): a custom curve as a list of points, each with `time`
+  (number) and `current` (number).
+- `inductance` (min, max, unit `H`): series inductance range.
+- `inrushCurrent` (value, unit `A`): inrush current.
+- `overvoltageCategory` (number, optional): overvoltage category.
+- `residualCurrentDeviceTripLevel` (value, unit `A`): residual current device trip level.
+
+## Electrical
+
+The `electrical` section holds the two ports and the breaker level protection attributes.
+
+- `ports` (tuple of 2 ports): see above. The two ports are synchronised.
+- `standards` (string array): breaker specific standards.
+- `isolationVoltage` (value, unit `V`): rated isolation voltage.
+- `polaritySensitive` (boolean, default `false`): whether the breaker is polarity sensitive.
+- `openingTime` (enum, default `conventional`): opening time class, one of `ultra-fast` (less
+  than 10 microseconds), `fast` (less than 1 millisecond), `conventional` (more than 1
+  millisecond).
+- `breakerType` (enum, nullable, default `null`): construction type, one of `MCB` (miniature
+  circuit breaker), `MCCB` (molded case circuit breaker), `SSCB` (solid-state circuit breaker),
+  `ACB` (air circuit breaker).
+- `residualCurrentDevice` (object): integrated residual current device.
+  - `enabled` (boolean, default `false`): whether an RCD is present.
+  - `ratedResidualOperatingCurrent` (value, unit `A`): rated residual operating current.
+
+The component also carries a top level `canServeAs` key:
+
+- `canServeAs` (array of component types, default `[]`): the component types this breaker may
+  stand in for, drawn from the can serve as options (`contactor`, `disconnect`).
+
+## Environmental
+
+The circuit breaker uses the environmental section with `coolingMethod` added (one of
+`passive`, `forced-air`, `liquid`, `none`, default `none`). All other environmental fields are
+as described in [common attributes](./common.md).
+
+## Example
+
+See [`examples/testBreaker.json`](../examples/testBreaker.json).
