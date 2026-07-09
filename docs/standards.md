@@ -1,0 +1,58 @@
+# Standards and alignment
+
+This page documents the standards and ratings the Interoperability Data Model (IDM)
+actually references today. It is scoped to what exists in the schemas. It does not claim a
+formal standard the model does not implement.
+
+## What the model aligns to
+
+The IDM schemas are generated from the dcide-app component validators, which are the source
+of truth. The model is an open effort championed through the Emerge Alliance
+(https://www.emergealliance.org/). It is a harmonized data format for microgrid equipment,
+not a certification standard in its own right.
+
+## Compliance flags
+
+Every component carries a `compliance` object with boolean flags for the certifications and
+alliances a product meets:
+
+- `CE`
+- `UL`
+- `currentOS` (Current/OS)
+- `emergeAlliance` (Emerge Alliance)
+- `ODCA`
+- `other` (with free text `otherInput`)
+
+All default to `false`. These are self declared flags, not evidence of certification.
+
+## Free form standards lists
+
+Components carry a top level `standards` string array, and several component types also
+carry a type specific `standards` array inside their `electrical` section (for example
+battery, breaker and fuse). These are free text lists of the standards a product complies
+with. The model does not constrain their values.
+
+## IEC and UL short circuit ratings
+
+The only place the model names specific standards bodies is in the short circuit ratings on
+protective devices. Circuit breakers (`breaker`) and fuses (`fuse`) both carry parallel IEC
+and UL fields so a product can be described under either regime:
+
+- `instantaneousShortCircuitCurrentUL` (value, unit `A`): the UL instantaneous short circuit
+  current.
+- `serviceShortCircuitBreakingCapacityIEC` (value, unit `A`): the IEC service short circuit
+  breaking capacity, Ics.
+- `ultimateShortCircuitBreakingCapacityIEC` (value, unit `A`): the IEC ultimate short circuit
+  breaking capacity, Icu.
+
+See the [Circuit Breaker](breaker.md) and [Fuse](fuse.md) guides, and their
+[breaker](reference/breaker.md) and [fuse](reference/fuse.md) schema references, for the full
+field lists.
+
+## On IEC 62683
+
+The model does not currently contain an IEC 62683 mapping or crosswalk. The IEC references in
+the model are limited to the short circuit breaking capacity fields described above. If a
+formal IEC 62683 (or eCl@ss, or other standard) alignment is wanted, it needs source material
+and a deliberate mapping. This page will be extended once that material exists. Nothing here
+is invented to fill that gap.

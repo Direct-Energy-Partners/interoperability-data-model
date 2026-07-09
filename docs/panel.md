@@ -32,4 +32,4 @@ The `electrical` section holds the port array.
 
 ## Example
 
-See [`examples/testPanel.json`](../examples/testPanel.json).
+See [`examples/testPanel.json`](examples/testPanel.json).

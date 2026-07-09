@@ -1,0 +1,129 @@
+site_name: Interoperability Data Model
+site_description: >-
+  Reference documentation for the Interoperability Data Model (IDM): a common, machine
+  readable model for microgrid electrical components, generated from the dcide-app validators.
+repo_url: https://github.com/Direct-Energy-Partners/interoperability-data-model
+repo_name: interoperability-data-model
+docs_dir: docs
+site_url: https://direct-energy-partners.github.io/interoperability-data-model/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - toc.follow
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  nav:
+    not_found: warn
+  links:
+    not_found: warn
+    anchors: warn
+
+nav:
+  - Home: README.md
+  - Data model:
+      - Common attributes: common.md
+      - Battery: battery.md
+      - Cable: cable.md
+      - Capacitor: capacitor.md
+      - Circuit Breaker: breaker.md
+      - Combiner Box: combinerBox.md
+      - Contactor: contactor.md
+      - Converter: converter.md
+      - Current Transducer: currentTransducer.md
+      - Diode: diode.md
+      - Disconnect: disconnect.md
+      - EV Charger: charger.md
+      - Fuel Cell: fuelCell.md
+      - Fuse: fuse.md
+      - Generator: generator.md
+      - Grounding: grounding.md
+      - HVAC: hvac.md
+      - Hydro: hydro.md
+      - Light: light.md
+      - Load: load.md
+      - Meter: meter.md
+      - Motor: motor.md
+      - Panel Switchboard: panel.md
+      - Power Distribution Unit: powerDistributionUnit.md
+      - Precharge: precharge.md
+      - Rapid Shutdown Device: rapidShutdownDevice.md
+      - Solar Panel: solar.md
+      - Transfer Switch: transferSwitch.md
+      - Transformer: transformer.md
+      - Utility: utility.md
+      - Voltage Transducer: voltageTransducer.md
+      - Wind: wind.md
+  - Schema reference:
+      - Overview: reference/index.md
+      - Battery: reference/battery.md
+      - Cable: reference/cable.md
+      - Capacitor: reference/capacitor.md
+      - Circuit Breaker: reference/breaker.md
+      - Combiner Box: reference/combinerBox.md
+      - Contactor: reference/contactor.md
+      - Converter: reference/converter.md
+      - Current Transducer: reference/currentTransducer.md
+      - Diode: reference/diode.md
+      - Disconnect: reference/disconnect.md
+      - EV Charger: reference/charger.md
+      - Fuel Cell: reference/fuelCell.md
+      - Fuse: reference/fuse.md
+      - Generator: reference/generator.md
+      - Grounding: reference/grounding.md
+      - HVAC: reference/hvac.md
+      - Hydro: reference/hydro.md
+      - Light: reference/light.md
+      - Load: reference/load.md
+      - Meter: reference/meter.md
+      - Motor: reference/motor.md
+      - Panel Switchboard: reference/panel.md
+      - Power Distribution Unit: reference/powerDistributionUnit.md
+      - Precharge: reference/precharge.md
+      - Rapid Shutdown Device: reference/rapidShutdownDevice.md
+      - Solar Panel: reference/solar.md
+      - Transfer Switch: reference/transferSwitch.md
+      - Transformer: reference/transformer.md
+      - Utility: reference/utility.md
+      - Voltage Transducer: reference/voltageTransducer.md
+      - Wind: reference/wind.md
+  - Standards and alignment: standards.md
+  - Contributing: contributing.md

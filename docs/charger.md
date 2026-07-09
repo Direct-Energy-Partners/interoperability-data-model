@@ -67,4 +67,4 @@ described in [common attributes](./common.md).
 
 ## Example
 
-See [`examples/testCharger.json`](../examples/testCharger.json).
+See [`examples/testCharger.json`](examples/testCharger.json).

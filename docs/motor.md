@@ -32,4 +32,4 @@ The `electrical` section holds the single port.
 
 ## Example
 
-See [`examples/testMotor.json`](../examples/testMotor.json).
+See [`examples/testMotor.json`](examples/testMotor.json).

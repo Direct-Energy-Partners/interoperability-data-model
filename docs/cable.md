@@ -77,4 +77,4 @@ specific objects above.
 
 ## Example
 
-See [`examples/testCable.json`](../examples/testCable.json).
+See [`examples/testCable.json`](examples/testCable.json).

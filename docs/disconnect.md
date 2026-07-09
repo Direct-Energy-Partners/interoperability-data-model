@@ -45,4 +45,4 @@ The `electrical` section holds the ports and a feature flag object.
 
 ## Example
 
-See [`examples/testDisconnect.json`](../examples/testDisconnect.json).
+See [`examples/testDisconnect.json`](examples/testDisconnect.json).

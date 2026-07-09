@@ -36,4 +36,4 @@ The `electrical` section holds the input port and the measurement ratings.
 
 ## Example
 
-See [`examples/testVoltageTransducer.json`](../examples/testVoltageTransducer.json).
+See [`examples/testVoltageTransducer.json`](examples/testVoltageTransducer.json).

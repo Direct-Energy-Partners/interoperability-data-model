@@ -40,4 +40,4 @@ The component also carries a top level `compatibleProducts` key:
 
 ## Example
 
-See [`examples/testCombinerBox.json`](../examples/testCombinerBox.json).
+See [`examples/testCombinerBox.json`](examples/testCombinerBox.json).

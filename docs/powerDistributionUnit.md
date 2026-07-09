@@ -43,4 +43,4 @@ The power distribution unit uses the standard environmental section as described
 
 ## Example
 
-See [`examples/testPowerDistributionUnit.json`](../examples/testPowerDistributionUnit.json).
+See [`examples/testPowerDistributionUnit.json`](examples/testPowerDistributionUnit.json).

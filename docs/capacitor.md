@@ -32,4 +32,4 @@ The `electrical` section holds the single port.
 
 ## Example
 
-See [`examples/testCapacitor.json`](../examples/testCapacitor.json).
+See [`examples/testCapacitor.json`](examples/testCapacitor.json).

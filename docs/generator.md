@@ -41,4 +41,4 @@ The `electrical` section holds only the port.
 
 ## Example
 
-See [`examples/testGenerator.json`](../examples/testGenerator.json).
+See [`examples/testGenerator.json`](examples/testGenerator.json).

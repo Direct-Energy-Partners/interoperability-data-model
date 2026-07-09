@@ -37,4 +37,4 @@ The `electrical` section holds the metrology attributes.
 
 ## Example
 
-See [`examples/testCurrentTransducer.json`](../examples/testCurrentTransducer.json).
+See [`examples/testCurrentTransducer.json`](examples/testCurrentTransducer.json).

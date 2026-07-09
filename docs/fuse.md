@@ -62,4 +62,4 @@ The `electrical` section holds the ports and the let-through energy characterist
 
 ## Example
 
-See [`examples/testFuse.json`](../examples/testFuse.json).
+See [`examples/testFuse.json`](examples/testFuse.json).

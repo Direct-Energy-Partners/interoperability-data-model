@@ -44,4 +44,4 @@ The `electrical` section holds the two ports plus contactor level attributes.
 
 ## Example
 
-See [`examples/testContactor.json`](../examples/testContactor.json).
+See [`examples/testContactor.json`](examples/testContactor.json).
