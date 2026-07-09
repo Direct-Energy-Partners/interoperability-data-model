@@ -1,8 +1,10 @@
 name: Docs
 
 # Builds the Fumadocs site as a Next.js static export and deploys it to GitHub
-# Pages using the official Pages-from-Actions flow (configure-pages,
-# upload-pages-artifact, deploy-pages).
+# Pages. The build job validates the static export and uploads it as an
+# artifact; it does not touch the Pages API, so it passes regardless of repo
+# settings. The deploy job publishes the artifact and needs Pages enabled with
+# Source = GitHub Actions (Settings > Pages); it stays red until that is set.
 #
 # After this branch is merged, change the trigger branch below from
 # idm-docs-website to main so the live site tracks main.
@@ -48,7 +50,7 @@ jobs:
         working-directory: website
         run: npm ci
 
-      - name: Build static site
+      - name: Build static export
         working-directory: website
         env:
           # Turns on output:export + basePath in next.config.mjs. Without this
@@ -56,13 +58,7 @@ jobs:
           PAGES_DEPLOY: "true"
         run: npm run build
 
-      - name: Configure Pages
-        # Requires Pages to be enabled with Source = GitHub Actions in the repo
-        # settings (Settings > Pages). This step fails until that toggle is set;
-        # every step before it (content generation and the static build) passes.
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: website/out
@@ -74,6 +70,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

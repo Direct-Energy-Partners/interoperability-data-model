@@ -468,8 +468,10 @@ GitHub Pages (static export):
 
 Vercel (native Next.js):
 
-- Import the repository in Vercel and set Root Directory = `website` (a dashboard setting; it
-  cannot be forced from code).
+- Import the repository in Vercel and deploy. A repo root `vercel.json` builds the `website/`
+  app (its install and build commands cd into `website`, and `outputDirectory` is
+  `website/.next`), so you do not need to set the Vercel Root Directory. Setting Root
+  Directory = `website` in the dashboard also works if you prefer.
 - Vercel builds without `PAGES_DEPLOY`, so there is no base path and the app serves at the
   domain root and runs natively. Each branch and pull request gets a preview deployment.
 
