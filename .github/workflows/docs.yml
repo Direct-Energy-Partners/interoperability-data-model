@@ -1,7 +1,8 @@
 name: Docs
 
-# Builds the MkDocs site and deploys it to GitHub Pages using the official
-# Pages-from-Actions flow (configure-pages, upload-pages-artifact, deploy-pages).
+# Builds the Fumadocs site as a Next.js static export and deploys it to GitHub
+# Pages using the official Pages-from-Actions flow (configure-pages,
+# upload-pages-artifact, deploy-pages).
 #
 # After this branch is merged, change the trigger branch below from
 # idm-docs-website to main so the live site tracks main.
@@ -12,13 +13,11 @@ on:
       - idm-docs-website
   workflow_dispatch:
 
-# Least privilege plus the tokens the Pages deployment needs.
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Let one deploy finish before the next starts; do not cancel a running deploy.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -35,14 +34,23 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Generate Fumadocs content from schemas and prose
+        run: python scripts/gen_docs.py
+
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        working-directory: website
+        run: npm ci
 
-      - name: Generate schema reference pages
-        run: python scripts/gen_schema_docs.py
-
-      - name: Build site (strict)
-        run: mkdocs build --strict
+      - name: Build static site
+        working-directory: website
+        run: npm run build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -50,7 +58,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: website/out
 
   deploy:
     needs: build
