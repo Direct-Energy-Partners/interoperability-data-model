@@ -450,7 +450,7 @@ From the repository root:
 ```
 python scripts/gen_docs.py       # build the Fumadocs content tree
 npm ci                            # install pinned dependencies
-npm run build                     # build (static export under out/ when PAGES_DEPLOY=true)
+npm run build                     # build the Next.js app
 ```
 
 `npm run dev` runs a local preview. The generator regenerates the whole `content/docs` tree
@@ -458,22 +458,9 @@ so the reference can never drift from the schemas.
 
 ## Deploying
 
-The site supports two deploy targets from the same code. `next.config.mjs` gates the GitHub
-Pages specifics behind the `PAGES_DEPLOY` env var.
-
-Vercel (native Next.js):
-
-- The app is at the repository root, so Vercel detects Next.js automatically. Import the
-  repository in Vercel and deploy. No Root Directory change is needed.
-- Vercel builds without `PAGES_DEPLOY`, so there is no base path and the app serves at the
-  domain root and runs natively. Each branch and pull request gets a preview deployment.
-
-GitHub Pages (static export):
-
-- Handled by `.github/workflows/docs.yml`, which sets `PAGES_DEPLOY=true` so the build emits a
-  static export under `out/` with the `/interoperability-data-model` base path.
-- One time setup by a repo admin: Settings > Pages > Build and deployment > Source =
-  GitHub Actions.
+The docs deploy on Vercel. The app is at the repository root, so Vercel detects Next.js
+automatically: import the repository in Vercel and deploy, with no Root Directory change
+needed. Each branch and pull request gets a preview deployment.
 
 ## Style
 
