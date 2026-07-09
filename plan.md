@@ -113,6 +113,54 @@ tailored to this model's shape). Rationale:
 If the team strongly prefers a JS toolchain or wants interactive schema exploration later,
 Starlight is the fallback; the structure below is framework independent.
 
+## 2b. Linear and Vercel style alternatives (aesthetic driven)
+
+Raised because the team likes the Linear docs and Vercel docs look. Findings:
+
+- Linear's docs (`linear.app/docs`, `linear.app/developers`) are a bespoke in house Next.js
+  build. Not a public framework, not open source, not adoptable. The look is custom design
+  work, not an installable theme.
+- Vercel's own docs are also a custom internal Next.js app. What Vercel publishes for others
+  is Nextra, their recommended docs starter. Nextra powers many sites with that same look
+  (SWR, tRPC, Turborepo).
+- So "the Linear/Vercel aesthetic" is not one framework. It is the modern dev docs layout
+  (left nav, centered content, right TOC, dark mode, fast search) plus tight design tokens.
+  Several frameworks give that off the shelf.
+
+Closest installable matches:
+
+- Fumadocs (Next.js): the most Linear/Vercel like of the installable frameworks; first party
+  auto generation of reference pages; typed code blocks. Needs a Next.js runtime and some
+  design effort. Best when hosted on Vercel. Static export to GitHub Pages is possible but
+  more friction.
+- Nextra v4 (Next.js): the battle tested Vercel look with the least design effort, since it
+  is the Vercel ecosystem theme. App router plus RSC makes fully static GitHub Pages export
+  more friction.
+- Starlight (Astro): static first, deploys to GitHub Pages trivially, but you invest design
+  effort to reach Linear level polish.
+- Mintlify: hosted SaaS, very Linear like, but runs on their platform, not a free GitHub
+  Pages self host.
+
+Build from scratch: not recommended. From scratch means rebuilding search, nav, TOC, the
+MDX pipeline, syntax highlighting, dark mode, responsive layout and accessibility, then
+maintaining all of it. For a 31 page auto generated schema reference that is not worth it.
+The Linear look is design tokens layered on one of the frameworks above, a fraction of the
+effort with none of the maintenance tail.
+
+The deciding fork is hosting, not looks. Our schemas are draft-07 component schemas, not
+OpenAPI, so Fumadocs' headline auto gen feature does not directly apply; we write a small
+generator either way, which levels the auto gen advantage across all options. That leaves:
+
+- If we can host on Vercel: Fumadocs gets closest to the Linear/Vercel feel with the least
+  fighting the framework.
+- If GitHub Pages stays a hard requirement: Starlight is the clean static fit, themed toward
+  Linear. Nextra also works but with static export friction.
+- If aesthetic is secondary to zero maintenance: MkDocs Material stays the safe default.
+
+Revised lean: Fumadocs on Vercel if hosting is flexible, otherwise Starlight on GitHub Pages.
+Not from scratch. This supersedes the MkDocs lean above if the Linear/Vercel aesthetic is a
+priority; see open question 8 (hosting) which now drives the framework pick.
+
 ## 3. Site structure and navigation
 
 - Home / Overview
@@ -237,8 +285,8 @@ Open questions for you:
    breaker and fuse. Do you have IEC 62683 (or eCl@ss/other standard) source material you
    want cross referenced, or should the standards page just document what the model
    references today? I will not fabricate a crosswalk.
-2. Framework: confirm MkDocs Material, or do you want a JS toolchain (Starlight) for future
-   interactivity?
+2. Framework: MkDocs Material (safe, low maintenance) or a Linear/Vercel style framework
+   (Fumadocs or Starlight)? This now hinges on question 8. See section 2b.
 3. Generated pages: commit the generated Markdown for previewable diffs, or keep it a build
    only artifact for clean history?
 4. Deploy method: Pages from Actions (recommended) or the `gh-pages` branch?
@@ -248,6 +296,9 @@ Open questions for you:
    model releases/tags?
 7. Home page: how much of the README narrative do you want on the site versus a lean landing
    page that points to the reference?
+8. Hosting (now the driver of the framework pick): must the site be GitHub Pages, or is
+   Vercel acceptable? Vercel unlocks Fumadocs and the Linear/Vercel aesthetic with least
+   friction; GitHub Pages points to Starlight or MkDocs. See section 2b.
 
-Next step: on your go ahead I will scaffold the MkDocs site, wire the generator, and add the
-Actions workflow. Not before.
+Next step: on your go ahead, and once you answer question 8, I will scaffold the chosen
+framework, wire the generator, and add the deploy workflow. Not before.
