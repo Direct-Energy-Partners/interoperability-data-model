@@ -54,6 +54,10 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Best effort: enable Pages (Actions build type) if the token allows,
+          # so the run does not hard fail before the repo setting is toggled.
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
