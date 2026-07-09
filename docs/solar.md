@@ -39,4 +39,4 @@ The `electrical` section holds the port and the cell technology.
 
 ## Example
 
-See [`examples/testSolar.json`](examples/testSolar.json).
+See [`examples/testSolar.json`](../examples/testSolar.json).

@@ -84,4 +84,4 @@ as described in [common attributes](./common.md).
 
 ## Example
 
-See [`examples/testBreaker.json`](examples/testBreaker.json).
+See [`examples/testBreaker.json`](../examples/testBreaker.json).

@@ -38,4 +38,4 @@ The `electrical` section holds the two ports and the winding rating.
 
 ## Example
 
-See [`examples/testTransformer.json`](examples/testTransformer.json).
+See [`examples/testTransformer.json`](../examples/testTransformer.json).

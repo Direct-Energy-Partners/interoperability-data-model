@@ -42,4 +42,4 @@ The `electrical` section holds the port array.
 
 ## Example
 
-See [`examples/testHvac.json`](examples/testHvac.json).
+See [`examples/testHvac.json`](../examples/testHvac.json).

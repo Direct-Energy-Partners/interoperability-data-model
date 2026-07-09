@@ -36,4 +36,4 @@ The `electrical` section holds only the port.
 
 ## Example
 
-See [`examples/testGrounding.json`](examples/testGrounding.json).
+See [`examples/testGrounding.json`](../examples/testGrounding.json).

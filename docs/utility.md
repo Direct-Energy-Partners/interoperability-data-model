@@ -31,4 +31,4 @@ The `electrical` section holds the single port.
 
 ## Example
 
-See [`examples/testUtility.json`](examples/testUtility.json).
+See [`examples/testUtility.json`](../examples/testUtility.json).

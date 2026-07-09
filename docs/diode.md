@@ -38,4 +38,4 @@ The `electrical` section holds only the ports.
 
 ## Example
 
-See [`examples/testDiode.json`](examples/testDiode.json).
+See [`examples/testDiode.json`](../examples/testDiode.json).

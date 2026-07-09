@@ -41,4 +41,4 @@ The `electrical` section holds only the port.
 
 ## Example
 
-See [`examples/testFuelCell.json`](examples/testFuelCell.json).
+See [`examples/testFuelCell.json`](../examples/testFuelCell.json).

@@ -31,4 +31,4 @@ The `electrical` section holds the port pair and the precharge resistance.
 
 ## Example
 
-See [`examples/testPrecharge.json`](examples/testPrecharge.json).
+See [`examples/testPrecharge.json`](../examples/testPrecharge.json).

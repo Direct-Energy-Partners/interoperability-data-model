@@ -36,4 +36,4 @@ The `electrical` section holds the three ports, device standards and the isolati
 
 ## Example
 
-See [`examples/testTransferSwitch.json`](examples/testTransferSwitch.json).
+See [`examples/testTransferSwitch.json`](../examples/testTransferSwitch.json).

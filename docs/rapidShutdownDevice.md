@@ -43,4 +43,4 @@ as described in [common attributes](./common.md).
 
 ## Example
 
-See [`examples/testRapidShutdownDevice.json`](examples/testRapidShutdownDevice.json).
+See [`examples/testRapidShutdownDevice.json`](../examples/testRapidShutdownDevice.json).

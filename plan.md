@@ -98,7 +98,11 @@ Options evaluated:
     pages but not a full site with guides, so we would still need a site framework around
     them. Best used as a generator feeding a framework, not as the framework.
 
-Recommendation: MkDocs Material, with a small schema to Markdown generation step
+Operator decision: Fumadocs (Next.js) was chosen and is being built, deployed as a Next.js
+static export (`output: 'export'`) to GitHub Pages. This supersedes the MkDocs recommendation
+below, which is kept for the record. See section 2b for the Fumadocs rationale.
+
+Recommendation (original, superseded by the Fumadocs decision above): MkDocs Material, with a small schema to Markdown generation step
 (`json-schema-for-humans` for a rich per schema reference, or a ~150 line Python script
 tailored to this model's shape). Rationale:
 

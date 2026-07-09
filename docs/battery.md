@@ -45,4 +45,4 @@ described in [common attributes](./common.md).
 
 ## Example
 
-See [`examples/testBattery.json`](examples/testBattery.json).
+See [`examples/testBattery.json`](../examples/testBattery.json).

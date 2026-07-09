@@ -64,4 +64,4 @@ described in [common attributes](./common.md).
 
 ## Example
 
-See [`examples/testConverter.json`](examples/testConverter.json).
+See [`examples/testConverter.json`](../examples/testConverter.json).

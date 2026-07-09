@@ -37,4 +37,4 @@ The `electrical` section holds the port pair and an isolation rating.
 
 ## Example
 
-See [`examples/testMeter.json`](examples/testMeter.json).
+See [`examples/testMeter.json`](../examples/testMeter.json).
