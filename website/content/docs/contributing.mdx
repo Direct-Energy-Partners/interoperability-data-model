@@ -1,0 +1,38 @@
+---
+title: Contributing
+description: How the schemas, the reference pages and the docs site are built.
+---
+
+## Source of truth
+
+The JSON Schemas in `schema/` are generated from the dcide-app component validators. Those
+validators are the source of truth for the data model. Changes flow from the validators into
+`schema/` and `examples/`, and this site regenerates from there.
+
+## What is hand written and what is generated
+
+- Hand written: the narrative guides (`docs/common.md` and one page per component type), and
+  the authored overview, standards and contributing pages inside `scripts/gen_docs.py`.
+- Generated: everything under `website/content/docs/` is produced by `scripts/gen_docs.py`
+  from the hand written prose and the schemas. Do not edit files under
+  `website/content/docs/` by hand; they are overwritten on every run.
+
+## Building the site
+
+From the repository root:
+
+```
+python scripts/gen_docs.py       # build the Fumadocs content tree
+cd website
+npm ci                            # install pinned dependencies
+npm run build                     # static export to website/out
+```
+
+`npm run dev` runs a local preview. The generator regenerates the whole
+`website/content/docs` tree so the reference can never drift from the schemas.
+
+## Style
+
+- No em dashes or en dashes.
+- One item per line in bullet lists.
+- Keep prose direct.
