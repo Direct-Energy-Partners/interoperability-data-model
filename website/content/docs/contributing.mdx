@@ -31,6 +31,25 @@ npm run build                     # static export to website/out
 `npm run dev` runs a local preview. The generator regenerates the whole
 `website/content/docs` tree so the reference can never drift from the schemas.
 
+## Deploying
+
+The site supports two deploy targets from the same code. `next.config.mjs` gates the GitHub
+Pages specifics behind the `PAGES_DEPLOY` env var.
+
+GitHub Pages (static export):
+
+- Handled by `.github/workflows/docs.yml`, which sets `PAGES_DEPLOY=true` so the build emits a
+  static export under `website/out` with the `/interoperability-data-model` base path.
+- One time setup by a repo admin: Settings > Pages > Build and deployment > Source =
+  GitHub Actions.
+
+Vercel (native Next.js):
+
+- Import the repository in Vercel and set Root Directory = `website` (a dashboard setting; it
+  cannot be forced from code).
+- Vercel builds without `PAGES_DEPLOY`, so there is no base path and the app serves at the
+  domain root and runs natively. Each branch and pull request gets a preview deployment.
+
 ## Style
 
 - No em dashes or en dashes.

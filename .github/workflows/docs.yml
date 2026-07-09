@@ -50,6 +50,10 @@ jobs:
 
       - name: Build static site
         working-directory: website
+        env:
+          # Turns on output:export + basePath in next.config.mjs. Without this
+          # (for example on Vercel) the app builds as a normal Next.js site.
+          PAGES_DEPLOY: "true"
         run: npm run build
 
       - name: Configure Pages
