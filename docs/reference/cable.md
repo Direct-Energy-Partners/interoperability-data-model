@@ -1,0 +1,219 @@
+# Cable schema reference
+
+Generated from `schema/cable.json` by `scripts/gen_schema_docs.py`. The schemas are the source of truth (dcide-app validators). Do not edit this page by hand.
+
+- Type key: `cable`
+- Indicator: `WIRE`
+- Required top level fields: `name`
+- Example instance: [`examples/testCable.json`](../examples/testCable.json)
+- Narrative guide: [Cable](../cable.md)
+
+## Top level attributes
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `type` | const |  | `cable` | = `cable` |
+| `name` | string | yes |  |  |
+| `description` | string |  | `""` |  |
+| `manufacturer` | string |  |  | nullable |
+| `teamManufacturer` | string |  | `null` | nullable |
+| `distributors` | array of string |  | `[]` |  |
+| `distributorsDetails` | array of objects |  | `[]` |  |
+| `productIdentifier` | string |  | `""` |  |
+| `productSeries` | string |  | `""` |  |
+| `msrp` | number |  |  | nullable |
+| `leadTime` | number |  |  | nullable |
+| `lifecycle` | object |  | `{}` |  |
+| `website` | string |  |  | format `uri`; nullable |
+| `regionAvailability` | array |  | `[]` | items: one of `EU`, `US`, `Canada`, `China`, `Japan` |
+| `compliance` | object |  | `{}` |  |
+| `application` | array |  | `[]` | items: one of `dc-microgrid` |
+| `communication` | object |  | `{}` |  |
+| `environmental` | object |  | `{}` |  |
+| `files` | array of objects |  | `[]` |  |
+| `images` | array of objects |  | `[8 items]` |  |
+| `mechanical` | object |  | `{}` |  |
+| `performance` | object |  | `{}` |  |
+| `questions` | array of objects |  | `[]` |  |
+| `standards` | array of string |  | `[]` |  |
+| `archivedAt` | string |  |  | format `date-time`; nullable |
+| `deletedAt` | string |  |  | format `date-time`; nullable |
+| `visibility` | string |  | `private` | one of `private`, `public` |
+| `reviewed` | boolean |  | `false` |  |
+| `publishedBy` | string |  | `null` | nullable |
+| `publishedAt` | string |  |  | format `date-time`; nullable |
+| `metadata` | any |  | `{}` |  |
+| `compatibleWith` | array of string |  | `[]` | nullable |
+| `compatibleWithCrossReference` | array of string |  | `[]` | nullable |
+| `compatibleWithPlaceholders` | array of objects |  | `[]` |  |
+| `specificationsSummary` | string |  | `""` |  |
+| `completeness` | number |  |  |  |
+| `viewedCount` | number |  |  |  |
+| `id` | string |  |  |  |
+| `electrical` | object |  | `{}` |  |
+
+### `distributorsDetails[]`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `distributor` | string | yes |  |  |
+| `price` | number |  |  |  |
+
+### `lifecycle`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `release` | string |  |  | format `date-time`; nullable |
+| `endOfLife` | string |  |  | format `date-time`; nullable |
+
+### `compliance`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `CE` | boolean |  | `false` |  |
+| `UL` | boolean |  | `false` |  |
+| `currentOS` | boolean |  | `false` |  |
+| `emergeAlliance` | boolean |  | `false` |  |
+| `ODCA` | boolean |  | `false` |  |
+| `other` | boolean |  | `false` |  |
+| `otherInput` | string |  |  |  |
+
+### `communication`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+
+### `environmental`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `installationTemperature` | measurement |  | `{}` | fields: min, max; unit `K` |
+| `use` | array |  | `[]` | items: one of `indoor`, `outdoor` |
+
+### `files[]`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `file` | object or string | yes | `null` |  |
+| `type` | string | yes |  | one of `applicationNotes`, `characteristics`, `datasheet`, `dynamicCharacteristics`, `installationManual`, `other`, `operationalManual`, `outputImpedanceCharacteristics`, ... (11 total) |
+| `visibility` | string |  | `public` | one of `private`, `public`; nullable |
+
+### `images[]`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `file` | object or string | yes | `null` | nullable |
+| `type` | string | yes |  | one of `thumbnail`, `ISOPicture`, `front`, `rear`, `left`, `right`, `top`, `bottom`, ... (9 total) |
+
+### `mechanical`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `conductorMaterial` | string |  | `copper` | one of `aluminum`, `copper` |
+| `conductorFlexibility` | string |  |  | one of `solid`, `stranded`, `class1`, `class2`, `class3`, `class4`, `class5`, `class6`; nullable |
+| `insulationMaterial` | string |  | `PVC` | one of `PVC`, `XLPE` |
+| `screen` | string |  |  | one of `none`, `yes`, `aluminiumPet`, `aluminiumPetDrain`, `copperBraid`, `tinnedCopperBraid`, `copperTape`, `steelWireArmour`, ... (14 total); nullable |
+
+### `performance`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+
+### `questions[]`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `question` | string |  | `""` |  |
+| `answer` | string |  | `""` |  |
+
+### `compatibleWithPlaceholders[]`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `manufacturer` | string | yes |  |  |
+| `productIdentifier` | string | yes |  |  |
+| `componentType` | string |  |  | one of `battery`, `bus`, `capacitor`, `charger`, `breaker`, `controller`, `combinerBox`, `contactor`, ... (39 total) |
+
+### `electrical`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `ports` | array of objects |  | `[null]` |  |
+| `wireSize` | string |  |  | one of `1`, `1.5`, `2.5`, `4`, `6`, `10`, `16`, `25`, ... (37 total); nullable |
+| `cores` | string |  | `single` | one of `single`, `multi`, `multi-pe` |
+| `operatingVoltage` | object |  | `{"toEarth": {}, "betweenLines": {}}` |  |
+| `numberOfConductors` | integer |  |  | nullable |
+| `hasPE` | boolean |  | `false` |  |
+| `voltageTypes` | array |  | `[]` | items: one of `AC`, `DC` |
+| `resistancePerLength` | measurement |  | `{}` | fields: value; unit `ohm/m` |
+| `inductancePerLength` | measurement |  | `{}` | fields: value; unit `H/m` |
+| `cpr` | object |  | `{}` |  |
+| `intertrippingWireSize` | number |  | `null` | nullable |
+
+#### `electrical.ports[]`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `id` | string |  |  |  |
+| `label` | string |  |  |  |
+| `features` | array |  | `[]` | items: one of `pre-charge`, `contactor`, `arc-fault-detection`, `circuit-breaker`, `disconnect`, `fuse`, `residual-current-detection`, `voltage-measurement`, ... (13 total) |
+| `powerFlowDirection` | string |  |  | one of `bidirectional`, `input`, `output`; nullable |
+| `terminal` | object |  | `{}` |  |
+| `wireSize` | object |  | `{}` |  |
+| `AC` | object |  | `{}` |  |
+| `DC` | object |  | `{}` |  |
+
+#### `electrical.operatingVoltage`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `toEarth` | measurement |  | `{}` | fields: value; unit `V` |
+| `betweenLines` | measurement |  | `{}` | fields: value; unit `V` |
+
+#### `electrical.cpr`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `class` | string |  |  | one of `Aca`, `B1ca`, `B2ca`, `Cca`, `Dca`, `Eca`, `Fca`; nullable |
+| `smokeProduction` | string |  |  | one of `s1`, `s1a`, `s1b`, `s2`, `s3`; nullable |
+| `flamingDroplets` | string |  |  | one of `d0`, `d1`, `d2`; nullable |
+| `acidity` | string |  |  | one of `a1`, `a2`, `a3`; nullable |
+
+##### `electrical.ports[].terminal`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `temperature` | measurement |  | `{}` | fields: min, max; unit `K` |
+| `type` | string |  |  | one of `lug`, `screw`; nullable |
+| `torque` | measurement |  | `{}` | fields: nom, max; unit `N m` |
+
+##### `electrical.ports[].wireSize`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `min` | string |  |  | one of `1`, `1.5`, `2.5`, `4`, `6`, `10`, `16`, `25`, ... (37 total); nullable |
+| `max` | string |  |  | one of `1`, `1.5`, `2.5`, `4`, `6`, `10`, `16`, `25`, ... (37 total); nullable |
+
+##### `electrical.ports[].AC`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `enabled` | boolean |  | `true` |  |
+| `voltage` | measurement |  | `{}` | fields: min, nom, max; unit `V` |
+| `current` | measurement |  | `{}` | fields: nom, max; unit `A` |
+| `power` | measurement |  | `{}` | fields: nom, max; unit `W` |
+| `frequency` | measurement |  | `{}` | fields: min, nom, max; unit `Hz` |
+| `powerFactor` | number |  |  |  |
+| `configuration` | string |  |  | one of `single-phase`, `split-phase`, `three-phase-wye-neutral`, `three-phase-wye`, `three-phase-delta`; nullable |
+| `earthingConfigurations` | array |  | `[]` | items: one of `high-impedance-earthed-neutral`, `low-impedance-earthed-neutral` |
+
+##### `electrical.ports[].DC`
+
+| Field | Type | Required | Default | Allowed / notes |
+| --- | --- | --- | --- | --- |
+| `enabled` | boolean |  | `true` |  |
+| `voltage` | measurement |  | `{}` | fields: min, nom, max; unit `V` |
+| `current` | measurement |  | `{}` | fields: nom, max; unit `A` |
+| `power` | measurement |  | `{}` | fields: nom, max; unit `W` |
+| `configuration` | string |  |  | one of `unipolar`, `bipolar`; nullable |
+| `earthingConfigurations` | array |  | `[]` | items: one of `unearthed`, `earthedPositive`, `earthedNegative`, `earthedMidpoint` |
