@@ -1,0 +1,64 @@
+name: Docs
+
+# Builds the MkDocs site and deploys it to GitHub Pages using the official
+# Pages-from-Actions flow (configure-pages, upload-pages-artifact, deploy-pages).
+#
+# After this branch is merged, change the trigger branch below from
+# idm-docs-website to main so the live site tracks main.
+
+on:
+  push:
+    branches:
+      - idm-docs-website
+  workflow_dispatch:
+
+# Least privilege plus the tokens the Pages deployment needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let one deploy finish before the next starts; do not cancel a running deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate schema reference pages
+        run: python scripts/gen_schema_docs.py
+
+      - name: Build site (strict)
+        run: mkdocs build --strict
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
