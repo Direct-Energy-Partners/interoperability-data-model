@@ -38,6 +38,25 @@ mkdocs serve
 Then open the local URL that `mkdocs serve` prints. Use `mkdocs build --strict` to catch
 broken links and nav problems the way the deploy workflow does.
 
+## Deploying to GitHub Pages
+
+The site is built and deployed by GitHub Actions using the official Pages-from-Actions flow.
+See `.github/workflows/docs.yml`. On every push to the `idm-docs-website` branch the workflow
+installs the pinned dependencies, runs `scripts/gen_schema_docs.py`, builds with
+`mkdocs build --strict`, and deploys the `site/` artifact.
+
+One time repository setup, which only a repository admin can do:
+
+- Go to Settings > Pages > Build and deployment.
+- Set Source to "GitHub Actions".
+
+Nothing else needs toggling. The workflow already requests the `pages: write` and
+`id-token: write` permissions it needs. The published URL is
+`https://direct-energy-partners.github.io/interoperability-data-model/`.
+
+After this branch merges, change the trigger branch in `.github/workflows/docs.yml` from
+`idm-docs-website` to `main` so the live site tracks `main`.
+
 ## Style
 
 - No em dashes or en dashes.
