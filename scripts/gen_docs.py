@@ -25,7 +25,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCHEMA_DIR = os.path.join(ROOT, "schema")
 EXAMPLE_DIR = os.path.join(ROOT, "examples")
 SRC_DOCS = os.path.join(ROOT, "docs")
-CONTENT = os.path.join(ROOT, "website", "content", "docs")
+CONTENT = os.path.join(ROOT, "content", "docs")
 GH_BLOB = ("https://github.com/Direct-Energy-Partners/interoperability-data-model"
            "/blob/main")
 
@@ -434,11 +434,14 @@ validators are the source of truth for the data model. Changes flow from the val
 
 ## What is hand written and what is generated
 
+The Fumadocs Next.js app lives at the repository root (package.json, next.config.mjs, src/,
+content/). The data model source (schema/, examples/, docs/) sits alongside it.
+
 - Hand written: the narrative guides (`docs/common.md` and one page per component type), and
   the authored overview, standards and contributing pages inside `scripts/gen_docs.py`.
-- Generated: everything under `website/content/docs/` is produced by `scripts/gen_docs.py`
-  from the hand written prose and the schemas. Do not edit files under
-  `website/content/docs/` by hand; they are overwritten on every run.
+- Generated: everything under `content/docs/` is produced by `scripts/gen_docs.py` from the
+  hand written prose and the schemas. Do not edit files under `content/docs/` by hand; they
+  are overwritten on every run.
 
 ## Building the site
 
@@ -446,34 +449,31 @@ From the repository root:
 
 ```
 python scripts/gen_docs.py       # build the Fumadocs content tree
-cd website
 npm ci                            # install pinned dependencies
-npm run build                     # static export to website/out
+npm run build                     # build (static export under out/ when PAGES_DEPLOY=true)
 ```
 
-`npm run dev` runs a local preview. The generator regenerates the whole
-`website/content/docs` tree so the reference can never drift from the schemas.
+`npm run dev` runs a local preview. The generator regenerates the whole `content/docs` tree
+so the reference can never drift from the schemas.
 
 ## Deploying
 
 The site supports two deploy targets from the same code. `next.config.mjs` gates the GitHub
 Pages specifics behind the `PAGES_DEPLOY` env var.
 
+Vercel (native Next.js):
+
+- The app is at the repository root, so Vercel detects Next.js automatically. Import the
+  repository in Vercel and deploy. No Root Directory change is needed.
+- Vercel builds without `PAGES_DEPLOY`, so there is no base path and the app serves at the
+  domain root and runs natively. Each branch and pull request gets a preview deployment.
+
 GitHub Pages (static export):
 
 - Handled by `.github/workflows/docs.yml`, which sets `PAGES_DEPLOY=true` so the build emits a
-  static export under `website/out` with the `/interoperability-data-model` base path.
+  static export under `out/` with the `/interoperability-data-model` base path.
 - One time setup by a repo admin: Settings > Pages > Build and deployment > Source =
   GitHub Actions.
-
-Vercel (native Next.js):
-
-- Import the repository in Vercel and deploy. A repo root `vercel.json` builds the `website/`
-  app (its install and build commands cd into `website`, and `outputDirectory` is
-  `website/.next`), so you do not need to set the Vercel Root Directory. Setting Root
-  Directory = `website` in the dashboard also works if you prefer.
-- Vercel builds without `PAGES_DEPLOY`, so there is no base path and the app serves at the
-  domain root and runs natively. Each branch and pull request gets a preview deployment.
 
 ## Style
 
