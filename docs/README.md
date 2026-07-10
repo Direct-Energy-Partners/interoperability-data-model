@@ -27,12 +27,9 @@ truth. Each page below documents one component type and its attributes.
 - [Diode](./diode.md) (`diode`, D)
 - [Disconnect](./disconnect.md) (`disconnect`, Q)
 - [EV Charger](./charger.md) (`charger`, CHG)
-- [Fuel Cell](./fuelCell.md) (`fuelCell`, FC)
 - [Fuse](./fuse.md) (`fuse`, F)
 - [Generator](./generator.md) (`generator`, G)
-- [Grounding](./grounding.md) (`grounding`, GND)
 - [HVAC](./hvac.md) (`hvac`, HVAC)
-- [Hydro](./hydro.md) (`hydro`, HYDRO)
 - [Light](./light.md) (`light`, LIGHT)
 - [Load](./load.md) (`load`, LOAD)
 - [Meter](./meter.md) (`meter`, P)
@@ -44,9 +41,7 @@ truth. Each page below documents one component type and its attributes.
 - [Solar Panel](./solar.md) (`solar`, PV)
 - [Transfer Switch](./transferSwitch.md) (`transferSwitch`, Q)
 - [Transformer](./transformer.md) (`transformer`, T)
-- [Utility](./utility.md) (`utility`, GRID)
 - [Voltage Transducer](./voltageTransducer.md) (`voltageTransducer`, PT)
-- [Wind](./wind.md) (`wind`, WIND)
 
 ## How to read a component page
 

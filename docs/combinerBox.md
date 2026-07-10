@@ -24,7 +24,7 @@ blocks, each combiner box port adds:
 
 - `description` (string, default empty): free text label for the port.
 - `purpose` (enum, nullable, default `null`): the intended role of the port, one of `battery`,
-  `converter`, `solar`, `utility`, `panel`, `charger`, `generator`.
+  `converter`, `solar`, `panel`, `charger`, `generator`.
 
 ## Electrical
 

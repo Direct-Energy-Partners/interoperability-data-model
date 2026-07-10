@@ -36,7 +36,7 @@ converter port adds:
 - `parallelableCapacity` (number, minimum 1, default 1): how many units may be paralleled on
   this port.
 - `purpose` (enum, nullable, default `null`): the intended role of the port, one of `battery`,
-  `converter`, `solar`, `utility`, `panel`, `charger`, `generator`.
+  `converter`, `solar`, `panel`, `charger`, `generator`.
 - `resistance` (value, unit `ohm`): port resistance.
 - `inductance` (value, unit `H`): port inductance.
 - `faultFeedingPorts` (array of numbers, default `[]`): indices of the ports this port can feed
