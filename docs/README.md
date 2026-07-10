@@ -5,8 +5,8 @@ readable form so that tools across the DC ecosystem can exchange product data. T
 expressed as JSON Schema (draft-07), one file per component type under `schema/`, with example
 instances under `examples/`.
 
-These schemas are generated from the dcide-app component validators, which are the source of
-truth. Each page below documents one component type and its attributes.
+The schemas are the source of truth. Each page below documents one component type and its
+attributes.
 
 ## Start here
 

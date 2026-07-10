@@ -274,8 +274,8 @@ def render_reference(root, ctype):
     lines.append("description: Field level schema reference for the %s component type." % title)
     lines.append("---")
     lines.append("")
-    lines.append("Generated from `schema/%s.json` by `scripts/gen_docs.py`. The schemas are "
-                 "the source of truth (dcide-app validators). Do not edit this page by hand." % ctype)
+    lines.append("Generated from `schema/%s.json` by `scripts/gen_docs.py`. The schema is the "
+                 "source of truth. Do not edit this page by hand." % ctype)
     lines.append("")
     lines.append("- Type key: `%s`" % ctype)
     if indicator:
@@ -342,10 +342,10 @@ title: Interoperability Data Model
 description: A common, machine readable model for microgrid electrical components.
 ---
 
-The Interoperability Data Model (IDM) describes electrical components in a common, machine
-readable form so tools across the DC ecosystem can exchange product data. The model is
-expressed as JSON Schema (draft-07), one file per component type, and is generated from the
-dcide-app component validators, which are the source of truth.
+The Interoperability Data Model (IDM) is a standard for the electrical specifications of DC
+power system components. It describes each component in a common, machine readable form so
+tools across the DC ecosystem can exchange product data. The model is expressed as JSON Schema
+(draft-07), one file per component type; the schemas are the source of truth.
 
 ## Where to go
 
@@ -375,12 +375,12 @@ This page documents the standards and ratings the Interoperability Data Model (I
 references today. It is scoped to what exists in the schemas. It does not claim a formal
 standard the model does not implement.
 
-## What the model aligns to
+## What the model is
 
-The IDM schemas are generated from the dcide-app component validators, which are the source
-of truth. The model is an open effort championed through the Emerge Alliance
-(https://www.emergealliance.org/). It is a harmonized data format for microgrid equipment,
-not a certification standard in its own right.
+The IDM is a harmonized, machine readable standard for the electrical specifications of DC
+power system components. The JSON Schemas under `schema/` are its source of truth. It is an
+open effort championed through the Emerge Alliance (https://www.emergealliance.org/). It is a
+data format for microgrid equipment, not a certification standard in its own right.
 
 ## Compliance flags
 
@@ -428,8 +428,7 @@ description: How the schemas, the reference pages and the docs site are built.
 
 ## Source of truth
 
-The JSON Schemas in `schema/` are generated from the dcide-app component validators. Those
-validators are the source of truth for the data model. Changes flow from the validators into
+The JSON Schemas in `schema/` are the source of truth for the data model. Changes are made to
 `schema/` and `examples/`, and this site regenerates from there.
 
 ## What is hand written and what is generated

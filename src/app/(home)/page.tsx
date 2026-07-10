@@ -5,9 +5,9 @@ export default function HomePage() {
     <main className="flex flex-col justify-center text-center flex-1 gap-4 py-16">
       <h1 className="text-3xl font-bold">Interoperability Data Model</h1>
       <p className="text-fd-muted-foreground max-w-xl mx-auto">
-        A common, machine readable model for microgrid electrical components,
-        generated from the dcide-app validators. Browse the component guides and
-        the auto generated schema reference.
+        A standard for the electrical specifications of DC power system
+        components. Browse the component guides and the auto generated schema
+        reference.
       </p>
       <div>
         <Link

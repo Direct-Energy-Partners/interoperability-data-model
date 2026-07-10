@@ -6,8 +6,7 @@ type specific fields. This page documents the shared base once. The per componen
 document only what is specific to that type and link back here.
 
 The model is expressed as JSON Schema (draft-07), one file per component type under `schema/`.
-The schemas are generated directly from the dcide-app component validators, which are the
-source of truth. Example instances live under `examples/`.
+The schemas are the source of truth. Example instances live under `examples/`.
 
 ## Measurement values
 
