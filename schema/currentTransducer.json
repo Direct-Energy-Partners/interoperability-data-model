@@ -34,39 +34,6 @@
           ],
           "default": null
         },
-        "teamManufacturer": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "default": null
-        },
-        "distributors": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "default": []
-        },
-        "distributorsDetails": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "distributor": {
-                "type": "string"
-              },
-              "price": {
-                "type": "number"
-              }
-            },
-            "required": [
-              "distributor"
-            ],
-            "additionalProperties": false
-          },
-          "default": []
-        },
         "productIdentifier": {
           "type": "string",
           "default": ""
@@ -74,42 +41,6 @@
         "productSeries": {
           "type": "string",
           "default": ""
-        },
-        "msrp": {
-          "anyOf": [
-            {
-              "anyOf": [
-                {
-                  "not": {}
-                },
-                {
-                  "type": "number"
-                }
-              ]
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
-        },
-        "leadTime": {
-          "anyOf": [
-            {
-              "anyOf": [
-                {
-                  "not": {}
-                },
-                {
-                  "type": "number"
-                }
-              ]
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
         },
         "lifecycle": {
           "type": "object",
@@ -141,32 +72,6 @@
           },
           "additionalProperties": false,
           "default": {}
-        },
-        "website": {
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "uri"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
-        },
-        "regionAvailability": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "EU",
-              "US",
-              "Canada",
-              "China",
-              "Japan"
-            ]
-          },
-          "default": []
         },
         "compliance": {
           "type": "object",
@@ -533,110 +438,6 @@
           },
           "default": []
         },
-        "images": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "file": {
-                "anyOf": [
-                  {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "type": "string"
-                          },
-                          "group": {
-                            "type": "string"
-                          },
-                          "filename": {
-                            "type": "string"
-                          },
-                          "url": {
-                            "type": "string",
-                            "format": "uri"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "name",
-                          "group",
-                          "filename",
-                          "url"
-                        ],
-                        "additionalProperties": false
-                      },
-                      {
-                        "$ref": "#/definitions/currentTransducer/properties/images/items/properties/file/anyOf/0/anyOf/0/properties/id"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "thumbnail",
-                  "ISOPicture",
-                  "front",
-                  "rear",
-                  "left",
-                  "right",
-                  "top",
-                  "bottom",
-                  "general"
-                ]
-              }
-            },
-            "required": [
-              "file",
-              "type"
-            ],
-            "additionalProperties": false
-          },
-          "default": [
-            {
-              "file": null,
-              "type": "thumbnail"
-            },
-            {
-              "file": null,
-              "type": "ISOPicture"
-            },
-            {
-              "file": null,
-              "type": "front"
-            },
-            {
-              "file": null,
-              "type": "rear"
-            },
-            {
-              "file": null,
-              "type": "left"
-            },
-            {
-              "file": null,
-              "type": "right"
-            },
-            {
-              "file": null,
-              "type": "top"
-            },
-            {
-              "file": null,
-              "type": "bottom"
-            }
-          ]
-        },
         "mechanical": {
           "type": "object",
           "properties": {
@@ -774,109 +575,12 @@
           "additionalProperties": false,
           "default": {}
         },
-        "questions": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "question": {
-                "type": "string",
-                "default": ""
-              },
-              "answer": {
-                "type": "string",
-                "default": ""
-              }
-            },
-            "additionalProperties": false
-          },
-          "default": []
-        },
         "standards": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "default": []
-        },
-        "archivedAt": {
-          "anyOf": [
-            {
-              "anyOf": [
-                {
-                  "not": {}
-                },
-                {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              ]
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
-        },
-        "deletedAt": {
-          "anyOf": [
-            {
-              "anyOf": [
-                {
-                  "not": {}
-                },
-                {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              ]
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
-        },
-        "visibility": {
-          "type": "string",
-          "enum": [
-            "private",
-            "public"
-          ],
-          "default": "private"
-        },
-        "reviewed": {
-          "type": "boolean",
-          "default": false
-        },
-        "publishedBy": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "default": null
-        },
-        "publishedAt": {
-          "anyOf": [
-            {
-              "anyOf": [
-                {
-                  "not": {}
-                },
-                {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              ]
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
-        },
-        "metadata": {
-          "default": {}
         },
         "compatibleWith": {
           "anyOf": [
@@ -892,96 +596,9 @@
             }
           ]
         },
-        "compatibleWithCrossReference": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "compatibleWithPlaceholders": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "manufacturer": {
-                "type": "string"
-              },
-              "productIdentifier": {
-                "type": "string"
-              },
-              "componentType": {
-                "type": "string",
-                "enum": [
-                  "battery",
-                  "bus",
-                  "capacitor",
-                  "charger",
-                  "breaker",
-                  "controller",
-                  "combinerBox",
-                  "contactor",
-                  "converter",
-                  "currentTransducer",
-                  "custom",
-                  "diode",
-                  "disconnect",
-                  "fuelCell",
-                  "fuse",
-                  "generator",
-                  "grounding",
-                  "hvac",
-                  "load",
-                  "light",
-                  "meter",
-                  "motor",
-                  "other",
-                  "panel",
-                  "powerDistributionUnit",
-                  "precharge",
-                  "rapidShutdownDevice",
-                  "connector",
-                  "reference",
-                  "solar",
-                  "solution",
-                  "transferSwitch",
-                  "transformer",
-                  "utility",
-                  "voltageTransducer",
-                  "hydro",
-                  "wind",
-                  "cable",
-                  "software"
-                ]
-              }
-            },
-            "required": [
-              "manufacturer",
-              "productIdentifier"
-            ],
-            "additionalProperties": false
-          },
-          "default": []
-        },
         "specificationsSummary": {
           "type": "string",
           "default": ""
-        },
-        "completeness": {
-          "type": "number"
-        },
-        "viewedCount": {
-          "type": "number"
-        },
-        "id": {
-          "type": "string"
         },
         "electrical": {
           "type": "object",
