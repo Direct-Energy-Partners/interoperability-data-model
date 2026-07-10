@@ -3,19 +3,12 @@
   "name": "Example breaker",
   "description": "",
   "manufacturer": null,
-  "teamManufacturer": null,
-  "distributors": [],
-  "distributorsDetails": [],
   "productIdentifier": "",
   "productSeries": "",
-  "msrp": null,
-  "leadTime": null,
   "lifecycle": {
     "release": null,
     "endOfLife": null
   },
-  "website": null,
-  "regionAvailability": [],
   "compliance": {
     "CE": false,
     "UL": false,
@@ -57,40 +50,6 @@
     "coolingMethod": "none"
   },
   "files": [],
-  "images": [
-    {
-      "file": null,
-      "type": "thumbnail"
-    },
-    {
-      "file": null,
-      "type": "ISOPicture"
-    },
-    {
-      "file": null,
-      "type": "front"
-    },
-    {
-      "file": null,
-      "type": "rear"
-    },
-    {
-      "file": null,
-      "type": "left"
-    },
-    {
-      "file": null,
-      "type": "right"
-    },
-    {
-      "file": null,
-      "type": "top"
-    },
-    {
-      "file": null,
-      "type": "bottom"
-    }
-  ],
   "mechanical": {
     "dimensions": {
       "width": null,
@@ -120,20 +79,9 @@
       "unit": "W"
     }
   },
-  "questions": [],
   "standards": [],
-  "archivedAt": null,
-  "deletedAt": null,
-  "visibility": "private",
-  "reviewed": false,
-  "publishedBy": null,
-  "publishedAt": null,
-  "metadata": {},
   "compatibleWith": [],
-  "compatibleWithCrossReference": [],
-  "compatibleWithPlaceholders": [],
   "specificationsSummary": "",
-  "canServeAs": [],
   "electrical": {
     "ports": [
       {
