@@ -11,8 +11,7 @@ as a single input port that can carry AC, DC, or both.
 - Ports: 1, input only, carries an AC block and a DC block.
 
 See [common attributes](./common.md) for the shared base every component carries
-(identification, compliance, communication, environmental, mechanical, performance, files,
-images and metadata) and for the shared port model.
+(identification, compliance, communication, environmental, mechanical, performance and files) and for the shared port model.
 
 ## Ports
 
