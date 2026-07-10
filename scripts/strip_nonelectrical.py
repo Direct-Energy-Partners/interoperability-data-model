@@ -48,6 +48,11 @@ REMOVE_BASE = [
     "deletedAt",
     "completeness",
     "viewedCount",
+    # Previously flagged as ambiguous, removed at operator request: product
+    # lifecycle dates, datasheet/manual file references, declared compatibility.
+    "lifecycle",
+    "files",
+    "compatibleWith",
 ]
 
 # Component-specific non-electrical fields (only on some schemas). Both are

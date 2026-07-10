@@ -5,10 +5,6 @@
   "manufacturer": null,
   "productIdentifier": "",
   "productSeries": "",
-  "lifecycle": {
-    "release": null,
-    "endOfLife": null
-  },
   "compliance": {
     "CE": false,
     "UL": false,
@@ -27,7 +23,6 @@
     },
     "use": []
   },
-  "files": [],
   "mechanical": {
     "conductorMaterial": "copper",
     "conductorFlexibility": null,
@@ -36,7 +31,6 @@
   },
   "performance": {},
   "standards": [],
-  "compatibleWith": [],
   "specificationsSummary": "",
   "electrical": {
     "ports": [

@@ -5,10 +5,6 @@
   "manufacturer": null,
   "productIdentifier": "",
   "productSeries": "",
-  "lifecycle": {
-    "release": null,
-    "endOfLife": null
-  },
   "compliance": {
     "CE": false,
     "UL": false,
@@ -48,7 +44,6 @@
       "unit": "m"
     }
   },
-  "files": [],
   "mechanical": {
     "dimensions": {
       "width": null,
@@ -79,7 +74,6 @@
     }
   },
   "standards": [],
-  "compatibleWith": [],
   "specificationsSummary": "",
   "electrical": {
     "ports": [

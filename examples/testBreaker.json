@@ -5,10 +5,6 @@
   "manufacturer": null,
   "productIdentifier": "",
   "productSeries": "",
-  "lifecycle": {
-    "release": null,
-    "endOfLife": null
-  },
   "compliance": {
     "CE": false,
     "UL": false,
@@ -49,7 +45,6 @@
     },
     "coolingMethod": "none"
   },
-  "files": [],
   "mechanical": {
     "dimensions": {
       "width": null,
@@ -80,7 +75,6 @@
     }
   },
   "standards": [],
-  "compatibleWith": [],
   "specificationsSummary": "",
   "electrical": {
     "ports": [
