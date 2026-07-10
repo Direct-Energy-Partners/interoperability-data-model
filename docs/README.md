@@ -11,7 +11,7 @@ truth. Each page below documents one component type and its attributes.
 ## Start here
 
 - [Common attributes](./common.md): the shared base that every component carries
-  (identification, compliance, communication, environmental, mechanical, performance and files) and the shared port model (AC and DC blocks, terminal, wire size,
+  (identification, compliance, communication, environmental, mechanical, performance) and the shared port model (AC and DC blocks, terminal, wire size,
   features, earthing and control methods).
 
 ## Component types

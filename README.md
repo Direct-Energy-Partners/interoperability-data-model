@@ -33,7 +33,7 @@ This repository holds the machine readable model.
 - `examples/`: one valid example instance per component type, for example `examples/testBattery.json`.
 - `docs/`: one reference page per component type, plus `docs/common.md` for the shared base. Start at `docs/README.md`.
 
-The schemas are generated from the dcide-app component validators, which are the source of truth, and cover the 31 component types that appear in the product catalog. Each example is produced from the same validators and is valid against its schema. See `docs/common.md` for the shared attribute base (identification, compliance, communication, environmental, mechanical, performance and files) and for the shared port model with its AC and DC blocks.
+The schemas are generated from the dcide-app component validators, which are the source of truth, and cover the 31 component types that appear in the product catalog. Each example is produced from the same validators and is valid against its schema. See `docs/common.md` for the shared attribute base (identification, compliance, communication, environmental, mechanical, performance) and for the shared port model with its AC and DC blocks.
 
 ## **Background**
 The first article of the JSON datamodles was created by Dusan Brhlik and Giel Van den Broeck in 2019 who co-founded by Direct Energy Partners Inernational Corporation (DEP) with a mission to electrify the world at the speed of thought. 

@@ -10,7 +10,7 @@ is modelled as one output port that carries both an AC and a DC block.
 - Ports: 1, output, carries both an AC and a DC block
 
 See [common attributes](./common.md) for the shared base every component carries
-(identification, compliance, communication, environmental, mechanical, performance and files) and for the shared port model.
+(identification, compliance, communication, environmental, mechanical, performance) and for the shared port model.
 
 ## Ports
 
