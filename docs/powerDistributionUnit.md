@@ -24,7 +24,7 @@ wire size) and the AC and DC blocks, each PDU port adds:
 
 - `description` (string, default empty): free text note about the port.
 - `purpose` (enum, nullable, default `null`): the role the port serves, one of `battery`,
-  `converter`, `solar`, `utility`, `panel`, `charger`, `generator`.
+  `converter`, `solar`, `panel`, `charger`, `generator`.
 
 ## Electrical
 

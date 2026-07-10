@@ -6,10 +6,16 @@ carry commercial, catalog and app-internal fields. Those do not belong in the ID
 in the dcide-app validators. This change removes them from `schema/` and `examples/`.
 
 The removal is applied by `scripts/strip_nonelectrical.py` (re-runnable). Every field below
-lives in the shared base that all 31 component schemas inline, unless marked component
-specific. After removal all 31 schemas are valid draft-07 and all 31 examples validate, with
-no dangling `$ref`. The result keeps only electrical spec, identification and compliance
-fields.
+lives in the shared base that the component schemas inline, unless marked component specific.
+After removal all schemas are valid draft-07 and all examples validate, with no dangling
+`$ref`. The result keeps only electrical spec, identification and compliance fields.
+
+## Removed component types
+
+Five component types were removed entirely (schema, example and guide page): `grounding`,
+`hydro`, `fuelCell`, `wind`, `utility`. The model now covers 26 component types. The removed
+`utility` value was also dropped from the port `purpose` enum in `charger`, `combinerBox`,
+`converter` and `powerDistributionUnit`, and from their guide pages.
 
 ## Removed and why
 

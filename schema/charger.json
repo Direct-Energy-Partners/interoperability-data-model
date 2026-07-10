@@ -902,7 +902,6 @@
                           "battery",
                           "converter",
                           "solar",
-                          "utility",
                           "panel",
                           "charger",
                           "generator"
