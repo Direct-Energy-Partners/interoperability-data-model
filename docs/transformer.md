@@ -12,8 +12,7 @@ the dielectric strength between windings.
 - Acts as: converter
 
 See [common attributes](./common.md) for the shared base every component carries
-(identification, compliance, communication, environmental, mechanical, performance, files,
-images and metadata) and for the shared port model.
+(identification, compliance, communication, environmental, mechanical, performance and files) and for the shared port model.
 
 ## Ports
 

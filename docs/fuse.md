@@ -12,8 +12,7 @@ circuit protection, passing current through from one terminal to the other until
 
 A fuse does not carry the shared communication section, as it is a passive protective device.
 See [common attributes](./common.md) for the rest of the shared base every component carries
-(identification, compliance, environmental, mechanical, performance, files, images and
-metadata) and for the shared port model.
+(identification, compliance, environmental, mechanical, performance and files) and for the shared port model.
 
 ## Ports
 

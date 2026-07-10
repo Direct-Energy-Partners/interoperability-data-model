@@ -10,8 +10,7 @@ power outward to the rest of the system through a single output port.
 - Ports: 1, output only, carrying both an AC and a DC block.
 
 See [common attributes](./common.md) for the shared base every component carries
-(identification, compliance, communication, environmental, mechanical, performance, files,
-images and metadata) and for the shared port model.
+(identification, compliance, communication, environmental, mechanical, performance and files) and for the shared port model.
 
 ## Ports
 
