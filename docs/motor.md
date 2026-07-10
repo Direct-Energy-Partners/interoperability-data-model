@@ -10,7 +10,7 @@ bidirectional. The IDM models a motor as a single port that can carry AC, DC, or
 - Ports: 1, input or bidirectional, carries an AC block and a DC block.
 
 See [common attributes](./common.md) for the shared base every component carries
-(identification, compliance, communication, environmental, mechanical, performance and files) and for the shared port model.
+(identification, compliance, communication, environmental, mechanical, performance) and for the shared port model.
 
 ## Ports
 

@@ -11,7 +11,7 @@ carrying both an AC and a DC block.
 - Ports: 1, bidirectional, AC by default (carries both an AC and a DC block)
 
 See [common attributes](./common.md) for the shared base every component carries
-(identification, compliance, communication, environmental, mechanical, performance and files) and for the shared port model.
+(identification, compliance, communication, environmental, mechanical, performance) and for the shared port model.
 
 ## Ports
 

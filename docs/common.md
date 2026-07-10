@@ -52,9 +52,6 @@ Default units per quantity:
 - `manufacturer` (string id, nullable): reference to the manufacturer.
 - `productIdentifier` (string): manufacturer part number or SKU.
 - `productSeries` (string): product family or series name.
-- `lifecycle` (object):
-  - `release` (date, nullable): release date.
-  - `endOfLife` (date, nullable): end of life date.
 - `application` (array): subset of `dc-microgrid`.
 - `standards` (string array): standards the product complies with.
 - `specificationsSummary` (string): short summary of the specifications.
@@ -113,16 +110,6 @@ Components that dissipate heat also carry `coolingMethod` (one of `passive`, `fo
 - `standbyPower` (value, unit `W`)
 - `efficiency` (nom, max, unit `%`)
 - `losses` (nom, max, unit `W`)
-
-## Files
-
-- `files` (array): each entry has `file` (id or object), `type` (component file type) and
-  optional `visibility` (`public` or `private`, default `public`). Used to attach datasheets
-  and manuals.
-
-## Compatibility
-
-- `compatibleWith` (string array, nullable): components known to be compatible.
 
 ## The port model
 
