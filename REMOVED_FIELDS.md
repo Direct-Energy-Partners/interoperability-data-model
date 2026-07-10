@@ -8,7 +8,8 @@ in the dcide-app validators. This change removes them from `schema/` and `exampl
 The removal is applied by `scripts/strip_nonelectrical.py` (re-runnable). Every field below
 lives in the shared base that all 31 component schemas inline, unless marked component
 specific. After removal all 31 schemas are valid draft-07 and all 31 examples validate, with
-no dangling `$ref`.
+no dangling `$ref`. The result keeps only electrical spec, identification and compliance
+fields.
 
 ## Removed and why
 
@@ -41,6 +42,13 @@ Component specific (dcide-app modeling helpers, also reference removed fields):
 - `canServeAs` (breaker, rapidShutdownDevice): referenced `compatibleWithPlaceholders`.
 - `compatibleProducts` (combinerBox, powerDistributionUnit): referenced `id`.
 
+Previously flagged as ambiguous, now removed at operator request:
+
+- `lifecycle` (`release`, `endOfLife`): product lifecycle dates. Availability adjacent, not an
+  electrical spec.
+- `files`: references to datasheets and manuals, plus dcide-app file storage metadata.
+- `compatibleWith`: declared compatible component references.
+
 ## Kept as electrical spec or identification
 
 `type`, `name`, `description`, `manufacturer`, `productIdentifier`, `productSeries`
@@ -51,12 +59,5 @@ capacitances, protection ratings, thermal, and component specific electrical att
 
 ## Ambiguous, kept for human review
 
-These could be spec relevant, so they were NOT deleted. Flagged here for a human decision:
-
-- `lifecycle` (`release`, `endOfLife`): product lifecycle dates. Availability adjacent, but
-  end of life can matter for system design and long term maintenance planning.
-- `files`: references to datasheets and manuals. The document links are spec relevant, though
-  the field also models dcide-app file storage (ids, urls). Consider narrowing rather than
-  dropping.
-- `compatibleWith`: declared compatible components. Compatibility is arguably core to an
-  interoperability data model, even though the values are component references.
+None. The three fields previously flagged here (`lifecycle`, `files`, `compatibleWith`) were
+removed at operator request; see the removal list above.

@@ -42,37 +42,6 @@
           "type": "string",
           "default": ""
         },
-        "lifecycle": {
-          "type": "object",
-          "properties": {
-            "release": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "default": null
-            },
-            "endOfLife": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "default": null
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
-        },
         "compliance": {
           "type": "object",
           "properties": {
@@ -167,94 +136,6 @@
           "additionalProperties": false,
           "default": {}
         },
-        "files": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "file": {
-                "anyOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "group": {
-                        "type": "string"
-                      },
-                      "filename": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "name",
-                      "group",
-                      "filename",
-                      "url"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "$ref": "#/definitions/cable/properties/files/items/properties/file/anyOf/0/properties/id"
-                  }
-                ]
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "applicationNotes",
-                  "characteristics",
-                  "datasheet",
-                  "dynamicCharacteristics",
-                  "installationManual",
-                  "other",
-                  "operationalManual",
-                  "outputImpedanceCharacteristics",
-                  "quickstartGuide",
-                  "userManual",
-                  "certificate"
-                ]
-              },
-              "visibility": {
-                "anyOf": [
-                  {
-                    "anyOf": [
-                      {
-                        "not": {}
-                      },
-                      {
-                        "type": "string",
-                        "enum": [
-                          "private",
-                          "public"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "type": "null"
-                  }
-                ],
-                "default": "public"
-              }
-            },
-            "required": [
-              "file",
-              "type"
-            ],
-            "additionalProperties": false
-          },
-          "default": []
-        },
         "mechanical": {
           "type": "object",
           "properties": {
@@ -338,20 +219,6 @@
             "type": "string"
           },
           "default": []
-        },
-        "compatibleWith": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            },
-            {
-              "type": "null"
-            }
-          ]
         },
         "specificationsSummary": {
           "type": "string",
