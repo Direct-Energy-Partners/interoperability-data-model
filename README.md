@@ -25,6 +25,16 @@ The Interoperability Data Models (IDM) project aims to harmonize attributes for 
 <br>**Digital Transformation:**</br> Transitioning from static PDFs to a machine-readable JSON format empowers software applications to consume and process data efficiently.<br/>
 <br>An example of how these harmonized attributes can revolutionize datasheets is available at **dcide.app/components**.<br/>
 
+## **Repository structure**
+
+This repository holds the machine readable model.
+
+- `schema/`: one JSON Schema (draft-07) per component type, for example `schema/battery.json`.
+- `examples/`: one valid example instance per component type, for example `examples/testBattery.json`.
+- `docs/`: one reference page per component type, plus `docs/common.md` for the shared base. Start at `docs/README.md`.
+
+The schemas are generated from the dcide-app component validators, which are the source of truth, and cover the 31 component types that appear in the product catalog. Each example is produced from the same validators and is valid against its schema. See `docs/common.md` for the shared attribute base (identification, compliance, communication, environmental, mechanical, performance) and for the shared port model with its AC and DC blocks.
+
 ## **Background**
 The first article of the JSON datamodles was created by Dusan Brhlik and Giel Van den Broeck in 2019 who co-founded by Direct Energy Partners Inernational Corporation (DEP) with a mission to electrify the world at the speed of thought. 
 Incosistent equipment attributes made it nearly impossible to asess equipment interoperability. The concepts of describing interoperability and the language around harmonized datasheets and their attributes simply did not exist. The first article of the JSON moodels started as an elaborate spreadsheet and has now been transformed into the world's first digital product catalog with harmonized datasheets at www.dcide.app/components

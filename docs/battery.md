@@ -1,0 +1,47 @@
+# Battery
+
+A battery stores electrical energy and releases it on demand. In a DC system it buffers
+generation against load, provides backup power and supports grid services. The IDM models a
+battery as a single bidirectional DC port plus storage and chemistry attributes.
+
+- Type key: `battery`
+- Indicator: `BAT`
+- Plural: Batteries
+- Ports: 1, bidirectional, DC
+
+See [common attributes](./common.md) for the shared base every component carries
+(identification, compliance, communication, environmental, mechanical, performance) and for the shared port model.
+
+## Ports
+
+A battery has exactly one port. The port is DC only and bidirectional, since the battery both
+charges and discharges. On top of the abstract port base (features, terminal, wire size) and
+the standard DC block (voltage, current, power, configuration, earthing), the battery port
+adds:
+
+- `equivalentSeriesResistance` (value, unit `ohm`): internal series resistance of the cell or
+  pack.
+- `resistance` (value, unit `ohm`): port resistance.
+
+## Electrical
+
+The `electrical` section holds the storage attributes.
+
+- `ports` (array of 1 port): see above.
+- `energyCapacity` (value, unit `J`): usable stored energy.
+- `chargeCapacity` (value, unit `C`): stored charge.
+- `batteryTechnologies` (array): the cell chemistry, subset of `li-ion`, `lfp`, `lto`, `nimh`,
+  `nicd`, `lead-acid`, `flow`, `solid-state`, `zinc-air`, `sodium-ion`, `sodium-sulfur`,
+  `lithium-sulfur`.
+- `standards` (string array): battery specific standards.
+- `parallelableCapacity` (number, minimum 1, default 1): how many units may be paralleled.
+
+## Environmental
+
+The battery uses the environmental section with `coolingMethod` added (one of `passive`,
+`forced-air`, `liquid`, `none`, default `none`). All other environmental fields are as
+described in [common attributes](./common.md).
+
+## Example
+
+See [`examples/testBattery.json`](../examples/testBattery.json).

@@ -1,0 +1,812 @@
+{
+  "$ref": "#/definitions/cable",
+  "definitions": {
+    "cable": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "cable",
+          "default": "cable"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "default": ""
+        },
+        "manufacturer": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "not": {}
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "productIdentifier": {
+          "type": "string",
+          "default": ""
+        },
+        "productSeries": {
+          "type": "string",
+          "default": ""
+        },
+        "compliance": {
+          "type": "object",
+          "properties": {
+            "CE": {
+              "type": "boolean",
+              "default": false
+            },
+            "UL": {
+              "type": "boolean",
+              "default": false
+            },
+            "currentOS": {
+              "type": "boolean",
+              "default": false
+            },
+            "emergeAlliance": {
+              "type": "boolean",
+              "default": false
+            },
+            "ODCA": {
+              "type": "boolean",
+              "default": false
+            },
+            "other": {
+              "type": "boolean",
+              "default": false
+            },
+            "otherInput": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "application": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "dc-microgrid"
+            ]
+          },
+          "default": []
+        },
+        "communication": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false,
+          "default": {}
+        },
+        "environmental": {
+          "type": "object",
+          "properties": {
+            "installationTemperature": {
+              "type": "object",
+              "properties": {
+                "min": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "max": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "unit": {
+                  "type": "string",
+                  "const": "K",
+                  "default": "K"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "use": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "indoor",
+                  "outdoor"
+                ]
+              },
+              "default": []
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "mechanical": {
+          "type": "object",
+          "properties": {
+            "conductorMaterial": {
+              "type": "string",
+              "enum": [
+                "aluminum",
+                "copper"
+              ],
+              "default": "copper"
+            },
+            "conductorFlexibility": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "solid",
+                    "stranded",
+                    "class1",
+                    "class2",
+                    "class3",
+                    "class4",
+                    "class5",
+                    "class6"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "insulationMaterial": {
+              "type": "string",
+              "enum": [
+                "PVC",
+                "XLPE"
+              ],
+              "default": "PVC"
+            },
+            "screen": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "yes",
+                    "aluminiumPet",
+                    "aluminiumPetDrain",
+                    "copperBraid",
+                    "tinnedCopperBraid",
+                    "copperTape",
+                    "steelWireArmour",
+                    "copperWireScreen",
+                    "tinnedCopperWireScreen",
+                    "foilBraid",
+                    "overall",
+                    "individual",
+                    "individualAndOverall"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "performance": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false,
+          "default": {}
+        },
+        "standards": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "specificationsSummary": {
+          "type": "string",
+          "default": ""
+        },
+        "electrical": {
+          "type": "object",
+          "properties": {
+            "ports": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "features": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "pre-charge",
+                        "contactor",
+                        "arc-fault-detection",
+                        "circuit-breaker",
+                        "disconnect",
+                        "fuse",
+                        "residual-current-detection",
+                        "voltage-measurement",
+                        "current-measurement",
+                        "power-measurement",
+                        "energy-measurement",
+                        "isolation-monitoring",
+                        "surge-protection"
+                      ]
+                    },
+                    "default": []
+                  },
+                  "powerFlowDirection": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "bidirectional",
+                          "input",
+                          "output"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "terminal": {
+                    "type": "object",
+                    "properties": {
+                      "temperature": {
+                        "$ref": "#/definitions/cable/properties/environmental/properties/installationTemperature"
+                      },
+                      "type": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "lug",
+                              "screw"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null
+                      },
+                      "torque": {
+                        "type": "object",
+                        "properties": {
+                          "nom": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "default": null
+                          },
+                          "max": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "default": null
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "N m",
+                            "default": "N m"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      }
+                    },
+                    "additionalProperties": false,
+                    "default": {}
+                  },
+                  "wireSize": {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "enum": [
+                                  "1",
+                                  "1.5",
+                                  "2.5",
+                                  "4",
+                                  "6",
+                                  "10",
+                                  "16",
+                                  "25",
+                                  "26.67",
+                                  "35",
+                                  "0.05",
+                                  "0.08",
+                                  "0.14",
+                                  "0.25",
+                                  "0.34",
+                                  "0.38",
+                                  "0.5",
+                                  "0.75",
+                                  "50",
+                                  "55",
+                                  "70",
+                                  "95",
+                                  "120",
+                                  "127",
+                                  "150",
+                                  "185",
+                                  "240",
+                                  "300",
+                                  "355",
+                                  "400",
+                                  "407",
+                                  "453",
+                                  "500",
+                                  "635",
+                                  "762",
+                                  "889",
+                                  "1016"
+                                ]
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "default": null
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null
+                      },
+                      "max": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/wireSize/properties/min/anyOf/0"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null
+                      }
+                    },
+                    "additionalProperties": false,
+                    "default": {}
+                  },
+                  "AC": {
+                    "type": "object",
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean",
+                        "default": true
+                      },
+                      "voltage": {
+                        "type": "object",
+                        "properties": {
+                          "min": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "default": null
+                          },
+                          "nom": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "default": null
+                          },
+                          "max": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "default": null
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "V",
+                            "default": "V"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      },
+                      "current": {
+                        "type": "object",
+                        "properties": {
+                          "nom": {
+                            "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/terminal/properties/torque/properties/nom"
+                          },
+                          "max": {
+                            "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/terminal/properties/torque/properties/max"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "A",
+                            "default": "A"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      },
+                      "power": {
+                        "type": "object",
+                        "properties": {
+                          "nom": {
+                            "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/terminal/properties/torque/properties/nom"
+                          },
+                          "max": {
+                            "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/terminal/properties/torque/properties/max"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "W",
+                            "default": "W"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      },
+                      "frequency": {
+                        "type": "object",
+                        "properties": {
+                          "min": {
+                            "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/AC/properties/voltage/properties/min"
+                          },
+                          "nom": {
+                            "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/AC/properties/voltage/properties/nom"
+                          },
+                          "max": {
+                            "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/AC/properties/voltage/properties/max"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "Hz",
+                            "default": "Hz"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      },
+                      "powerFactor": {
+                        "type": "number",
+                        "minimum": -1,
+                        "maximum": 1
+                      },
+                      "configuration": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "single-phase",
+                              "split-phase",
+                              "three-phase-wye-neutral",
+                              "three-phase-wye",
+                              "three-phase-delta"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null
+                      },
+                      "earthingConfigurations": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "high-impedance-earthed-neutral",
+                            "low-impedance-earthed-neutral"
+                          ]
+                        },
+                        "default": []
+                      }
+                    },
+                    "additionalProperties": false,
+                    "default": {}
+                  },
+                  "DC": {
+                    "type": "object",
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean",
+                        "default": true
+                      },
+                      "voltage": {
+                        "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/AC/properties/voltage"
+                      },
+                      "current": {
+                        "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/AC/properties/current"
+                      },
+                      "power": {
+                        "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/AC/properties/power"
+                      },
+                      "configuration": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "unipolar",
+                              "bipolar"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null
+                      },
+                      "earthingConfigurations": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "unearthed",
+                            "earthedPositive",
+                            "earthedNegative",
+                            "earthedMidpoint"
+                          ]
+                        },
+                        "default": []
+                      }
+                    },
+                    "additionalProperties": false,
+                    "default": {}
+                  }
+                },
+                "additionalProperties": false,
+                "default": {
+                  "powerFlowDirection": "bidirectional"
+                }
+              },
+              "default": [
+                null
+              ]
+            },
+            "wireSize": {
+              "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/wireSize/properties/min/anyOf/0"
+            },
+            "cores": {
+              "type": "string",
+              "enum": [
+                "single",
+                "multi",
+                "multi-pe"
+              ],
+              "default": "single"
+            },
+            "operatingVoltage": {
+              "type": "object",
+              "properties": {
+                "toEarth": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "default": null
+                    },
+                    "unit": {
+                      "$ref": "#/definitions/cable/properties/electrical/properties/ports/items/properties/AC/properties/voltage/properties/unit"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "default": {}
+                },
+                "betweenLines": {
+                  "$ref": "#/definitions/cable/properties/electrical/properties/operatingVoltage/properties/toEarth"
+                }
+              },
+              "additionalProperties": false,
+              "default": {
+                "toEarth": {},
+                "betweenLines": {}
+              }
+            },
+            "numberOfConductors": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "hasPE": {
+              "type": "boolean",
+              "default": false
+            },
+            "voltageTypes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "AC",
+                  "DC"
+                ]
+              },
+              "default": []
+            },
+            "resistancePerLength": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "$ref": "#/definitions/cable/properties/electrical/properties/operatingVoltage/properties/toEarth/properties/value"
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "ohm/m",
+                    "ohm/km",
+                    "ohm/ft",
+                    "mohm/m",
+                    "mohm/km",
+                    "mohm/ft"
+                  ],
+                  "default": "ohm/m"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "inductancePerLength": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "$ref": "#/definitions/cable/properties/electrical/properties/operatingVoltage/properties/toEarth/properties/value"
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "uH/m",
+                    "uH/km",
+                    "uH/ft",
+                    "mH/m",
+                    "mH/km",
+                    "mH/ft",
+                    "H/m",
+                    "H/km",
+                    "H/ft"
+                  ],
+                  "default": "H/m"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "cpr": {
+              "type": "object",
+              "properties": {
+                "class": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Aca",
+                        "B1ca",
+                        "B2ca",
+                        "Cca",
+                        "Dca",
+                        "Eca",
+                        "Fca"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null
+                },
+                "smokeProduction": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "s1",
+                        "s1a",
+                        "s1b",
+                        "s2",
+                        "s3"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null
+                },
+                "flamingDroplets": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "d0",
+                        "d1",
+                        "d2"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null
+                },
+                "acidity": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "a1",
+                        "a2",
+                        "a3"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "intertrippingWireSize": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "default": null
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,40 @@
+# Transformer
+
+A transformer changes voltage level between two windings, providing galvanic isolation and
+matching one side of a system to another. In the IDM a transformer is modelled as two ports
+(a primary and a secondary) carrying AC blocks, with an isolation voltage rating that captures
+the dielectric strength between windings.
+
+- Type key: `transformer`
+- Indicator: `T`
+- Plural: Transformers
+- Ports: exactly 2, each may be input, output or bidirectional, AC
+- Acts as: converter
+
+See [common attributes](./common.md) for the shared base every component carries
+(identification, compliance, communication, environmental, mechanical, performance) and for the shared port model.
+
+## Ports
+
+A transformer has exactly two ports. Both ports default to bidirectional power flow, and each
+may be set to input, output or bidirectional. Each port carries an AC block (voltage, current,
+power, frequency, power factor, configuration, earthing) on top of the abstract port base
+(features, terminal, wire size). The transformer port does not carry a DC block. On top of the
+abstract base and the AC block, each transformer port adds:
+
+- `AC.controlMethods` (array): AC control methods for the port, subset of
+  `constant-voltage-frequency`, `constant-active-reactive-power`, `uncontrolled`.
+- `isolated` (boolean, nullable, default `true`): whether the port is galvanically isolated.
+- `parallelableCapacity` (number, minimum 1, default 1): how many units may be paralleled.
+
+## Electrical
+
+The `electrical` section holds the two ports and the winding rating.
+
+- `ports` (array of exactly 2 ports): see above.
+- `standards` (string array): transformer specific standards.
+- `isolationVoltage` (value, unit `V`): rated dielectric withstand voltage between windings.
+
+## Example
+
+See [`examples/testTransformer.json`](../examples/testTransformer.json).

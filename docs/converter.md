@@ -1,0 +1,66 @@
+# Converter
+
+A converter changes electrical power from one form to another, for example DC to DC at a
+different voltage, or between AC and DC. In a DC system it links buses at different voltage
+levels and conditions power between sources, storage and loads. The IDM models a converter as a
+flexible set of ports (two or more) plus efficiency and isolation attributes.
+
+- Type key: `converter`
+- Indicator: `U`
+- Plural: Converters
+- Ports: 2 or more, each input, output or bidirectional, AC and DC
+- Acts as: converter
+
+See [common attributes](./common.md) for the shared base every component carries
+(identification, compliance, communication, environmental, mechanical, performance) and for the shared port model.
+
+## Ports
+
+A converter has a dynamic number of ports: at least two, with no upper bound. Each port defaults
+to a bidirectional power flow direction. Every port carries both an AC block and a DC block,
+each of which adds `controlMethods` on top of the standard fields. A converter allows the full
+set of control methods (all AC and DC methods listed below).
+
+On top of the abstract port base (features, terminal, wire size) and the AC and DC blocks, each
+converter port adds:
+
+- `controlMethods` (array, per AC and DC block, default `[]`): the control strategies the port
+  can use. AC values are `constant-voltage-frequency`, `constant-active-reactive-power`,
+  `uncontrolled`. DC values are `constant-voltage`, `constant-current`, `constant-power`,
+  `droop-voltage`, `power-voltage`, `maximum-power-point-tracking`, `uncontrolled`.
+- `capacitor` (object): port side capacitor.
+  - `capacitance` (value, unit `F`): capacitance.
+  - `resistance` (value, unit `ohm`): capacitor resistance.
+- `reverseDiode` (boolean, default `false`): whether a reverse diode is present.
+- `isolated` (boolean, nullable, default `null`): whether the port is galvanically isolated.
+- `parallelableCapacity` (number, minimum 1, default 1): how many units may be paralleled on
+  this port.
+- `purpose` (enum, nullable, default `null`): the intended role of the port, one of `battery`,
+  `converter`, `solar`, `panel`, `charger`, `generator`.
+- `resistance` (value, unit `ohm`): port resistance.
+- `inductance` (value, unit `H`): port inductance.
+- `faultFeedingPorts` (array of numbers, default `[]`): indices of the ports this port can feed
+  fault current into.
+
+## Electrical
+
+The `electrical` section holds the ports plus converter level attributes.
+
+- `ports` (array, minimum 2): see above.
+- `standards` (string array): converter specific standards.
+- `isolationVoltage` (value, unit `V`): rated isolation voltage.
+- `efficiency` (object, optional): an efficiency curve over power.
+  - `powerSeries` (object): `value` (array of numbers, default `[]`) and `unit` (string,
+    default `W`).
+  - `efficiencySeries` (object): `value` (array of numbers, default `[]`) and `unit` (string,
+    default `%`).
+
+## Environmental
+
+The converter uses the environmental section with `coolingMethod` added (one of `passive`,
+`forced-air`, `liquid`, `none`, default `none`). All other environmental fields are as
+described in [common attributes](./common.md).
+
+## Example
+
+See [`examples/testConverter.json`](../examples/testConverter.json).
