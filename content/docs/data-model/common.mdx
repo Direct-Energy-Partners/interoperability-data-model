@@ -1,4 +1,7 @@
-# Common attributes
+---
+title: Common attributes
+description: Common attributes
+---
 
 Every component type in the Interoperability Data Model (IDM) shares a common base of
 attributes. Each component then adds its own `electrical` section and, in a few cases, extra
@@ -43,17 +46,29 @@ Default units per quantity:
 - Weight: `kg`
 - Terminal torque: `N m`
 
-## Identification
+## Identification and commercial
 
 - `type` (string, constant): the component type discriminator (for example `battery`).
 - `name` (string, required): human readable product name.
 - `description` (string): free text description. Defaults to empty.
 - `manufacturer` (string id, nullable): reference to the manufacturer.
+- `teamManufacturer` (string, nullable): team scoped manufacturer reference.
+- `distributors` (string array): distributor references.
+- `distributorsDetails` (array): per distributor objects with `distributor` (string) and
+  optional `price` (number).
 - `productIdentifier` (string): manufacturer part number or SKU.
 - `productSeries` (string): product family or series name.
+- `msrp` (number, nullable): manufacturer suggested retail price.
+- `leadTime` (number, nullable): lead time in days.
+- `lifecycle` (object):
+  - `release` (date, nullable): release date.
+  - `endOfLife` (date, nullable): end of life date.
+- `website` (url, nullable): product page. Normalised to https.
+- `regionAvailability` (array): subset of `EU`, `US`, `Canada`, `China`, `Japan`.
 - `application` (array): subset of `dc-microgrid`.
 - `standards` (string array): standards the product complies with.
 - `specificationsSummary` (string): short summary of the specifications.
+- `questions` (array): objects with `question` (string) and `answer` (string).
 
 ## Compliance
 
@@ -109,6 +124,33 @@ Components that dissipate heat also carry `coolingMethod` (one of `passive`, `fo
 - `standbyPower` (value, unit `W`)
 - `efficiency` (nom, max, unit `%`)
 - `losses` (nom, max, unit `W`)
+
+## Files and images
+
+- `files` (array): each entry has `file` (id or object), `type` (component file type) and
+  optional `visibility` (`public` or `private`, default `public`).
+- `images` (array): each entry has `file` (id or object, nullable) and `type` (one of
+  `thumbnail`, `ISOPicture`, `front`, `rear`, `left`, `right`, `top`, `bottom`, `general`).
+  New components start with one empty slot per standard view.
+
+## Metadata and compatibility
+
+- `metadata` (object): free form per field annotations. Each field key may carry `display`
+  (`na`, `unknown`, `hidden`) and `notes` (string).
+- `compatibleWith` (string array, nullable): components known to be compatible.
+- `compatibleWithCrossReference` (string array, nullable): derived cross references.
+- `compatibleWithPlaceholders` (array): unresolved compatibility entries with `manufacturer`,
+  `productIdentifier` and optional `componentType`.
+
+## System fields
+
+These are managed by the platform and appear in stored instances.
+
+- `id` (string): assigned on creation.
+- `visibility` (`private` or `public`, default `private`).
+- `reviewed` (boolean), `publishedBy` (string, nullable), `publishedAt` (date, nullable).
+- `archivedAt`, `deletedAt` (date, nullable).
+- `completeness`, `viewedCount` (number, optional).
 
 ## The port model
 
