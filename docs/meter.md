@@ -1,0 +1,39 @@
+# Meter
+
+A meter measures electrical quantities (such as voltage, current, power and energy) as power
+passes through it. In a DC system it is inserted in line between two connection points to
+monitor the flow without significantly altering it. The IDM models a meter as two ports that
+behave as a single pass through point, so it is displayed as a single port in the diagram.
+
+- Type key: `meter`
+- Indicator: `P`
+- Plural: Meters
+- Ports: 2, each input, output or bidirectional, displayed as a single port. Each port carries
+  an AC block and a DC block.
+
+See [common attributes](./common.md) for the shared base every component carries
+(identification, compliance, communication, environmental, mechanical, performance) and for the shared port model.
+
+## Ports
+
+A meter has exactly two ports. They form an in line pair: power enters one side and leaves the
+other, so the two ports are kept in sync and are displayed as a single port. Each port may be
+`input`, `output` or `bidirectional`, and the default direction is `bidirectional`. Each port
+carries both an AC block and a DC block. On top of the abstract port base (features, terminal,
+wire size) and the standard AC and DC blocks (voltage, current, power, configuration, earthing,
+and for AC also frequency and power factor), each meter port adds:
+
+- `overvoltageCategory` (number, optional): the overvoltage (installation) category of the
+  port.
+
+## Electrical
+
+The `electrical` section holds the port pair and an isolation rating.
+
+- `ports` (array of exactly 2 ports): see above. The two ports are synchronised so they share
+  their electrical values and power flow direction.
+- `isolationVoltage` (value, unit `V`): the isolation voltage rating of the meter.
+
+## Example
+
+See [`examples/testMeter.json`](../examples/testMeter.json).
