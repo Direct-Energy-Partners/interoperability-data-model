@@ -1,0 +1,824 @@
+{
+  "$ref": "#/definitions/solar",
+  "definitions": {
+    "solar": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "solar",
+          "default": "solar"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "default": ""
+        },
+        "manufacturer": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "not": {}
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "productIdentifier": {
+          "type": "string",
+          "default": ""
+        },
+        "productSeries": {
+          "type": "string",
+          "default": ""
+        },
+        "website": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "compliance": {
+          "type": "object",
+          "properties": {
+            "CE": {
+              "type": "boolean",
+              "default": false
+            },
+            "UL": {
+              "type": "boolean",
+              "default": false
+            },
+            "currentOS": {
+              "type": "boolean",
+              "default": false
+            },
+            "emergeAlliance": {
+              "type": "boolean",
+              "default": false
+            },
+            "ODCA": {
+              "type": "boolean",
+              "default": false
+            },
+            "other": {
+              "type": "boolean",
+              "default": false
+            },
+            "otherInput": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "application": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "dc-microgrid"
+            ]
+          },
+          "default": []
+        },
+        "communication": {
+          "type": "object",
+          "properties": {
+            "interfaces": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ethernet",
+                  "rs232",
+                  "rs485",
+                  "wifi",
+                  "io-link",
+                  "digital-io",
+                  "analog-io",
+                  "can"
+                ]
+              },
+              "default": []
+            },
+            "protocols": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "modbus-tcp-ip",
+                  "modbus-rtu",
+                  "can",
+                  "canopen",
+                  "mqtt",
+                  "nats",
+                  "iec-61850",
+                  "rest-api",
+                  "power-line-communication",
+                  "snmp",
+                  "io-link",
+                  "ethernet-ip",
+                  "opc-ua",
+                  "profinet",
+                  "ocpp1.6",
+                  "ocpp2.0",
+                  "ocpp2.1",
+                  "j1939"
+                ]
+              },
+              "default": []
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "environmental": {
+          "type": "object",
+          "properties": {
+            "operatingTemperature": {
+              "type": "object",
+              "properties": {
+                "min": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "max": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "unit": {
+                  "type": "string",
+                  "const": "K",
+                  "default": "K"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "storageTemperature": {
+              "$ref": "#/definitions/solar/properties/environmental/properties/operatingTemperature",
+              "default": {}
+            },
+            "operatingHumidity": {
+              "type": "object",
+              "properties": {
+                "min": {
+                  "$ref": "#/definitions/solar/properties/environmental/properties/operatingTemperature/properties/min"
+                },
+                "max": {
+                  "$ref": "#/definitions/solar/properties/environmental/properties/operatingTemperature/properties/max"
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "%"
+                  ],
+                  "default": "%"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "storageHumidity": {
+              "$ref": "#/definitions/solar/properties/environmental/properties/operatingHumidity",
+              "default": {}
+            },
+            "ingressProtection_IP": {
+              "type": "string",
+              "enum": [
+                "IP00",
+                "IP01",
+                "IP02",
+                "IP03",
+                "IP04",
+                "IP05",
+                "IP06",
+                "IP07",
+                "IP08",
+                "IP09",
+                "IP10",
+                "IP11",
+                "IP12",
+                "IP13",
+                "IP14",
+                "IP15",
+                "IP16",
+                "IP17",
+                "IP18",
+                "IP19",
+                "IP20",
+                "IP21",
+                "IP22",
+                "IP23",
+                "IP24",
+                "IP25",
+                "IP26",
+                "IP27",
+                "IP28",
+                "IP29",
+                "IP30",
+                "IP31",
+                "IP32",
+                "IP33",
+                "IP34",
+                "IP35",
+                "IP36",
+                "IP37",
+                "IP38",
+                "IP39",
+                "IP40",
+                "IP41",
+                "IP42",
+                "IP43",
+                "IP44",
+                "IP45",
+                "IP46",
+                "IP47",
+                "IP48",
+                "IP49",
+                "IP50",
+                "IP51",
+                "IP52",
+                "IP53",
+                "IP54",
+                "IP55",
+                "IP56",
+                "IP57",
+                "IP58",
+                "IP59",
+                "IP60",
+                "IP61",
+                "IP62",
+                "IP63",
+                "IP64",
+                "IP65",
+                "IP66",
+                "IP67",
+                "IP68",
+                "IP69"
+              ]
+            },
+            "ingressProtection_NEMA": {
+              "type": "string",
+              "enum": [
+                "1",
+                "2",
+                "3",
+                "3X",
+                "3S",
+                "3SX",
+                "3R",
+                "3RX",
+                "4",
+                "4X",
+                "5",
+                "6",
+                "6P",
+                "12",
+                "12K",
+                "13"
+              ]
+            },
+            "maximumOperatingAltitude": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "mm",
+                    "m",
+                    "km",
+                    "ft",
+                    "inch"
+                  ],
+                  "default": "m"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "mechanical": {
+          "type": "object",
+          "properties": {
+            "dimensions": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "length": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "height": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "unit": {
+                  "type": "string",
+                  "const": "m",
+                  "default": "m"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "weight": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "$ref": "#/definitions/solar/properties/environmental/properties/maximumOperatingAltitude/properties/value"
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "kg"
+                  ],
+                  "default": "kg"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "mountingType": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "floor",
+                  "wall",
+                  "panel",
+                  "din-rail",
+                  "rack"
+                ]
+              },
+              "default": []
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "performance": {
+          "type": "object",
+          "properties": {
+            "standbyPower": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "$ref": "#/definitions/solar/properties/environmental/properties/maximumOperatingAltitude/properties/value"
+                },
+                "unit": {
+                  "type": "string",
+                  "const": "W",
+                  "default": "W"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "efficiency": {
+              "type": "object",
+              "properties": {
+                "nom": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "max": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "%"
+                  ],
+                  "default": "%"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "losses": {
+              "type": "object",
+              "properties": {
+                "nom": {
+                  "$ref": "#/definitions/solar/properties/performance/properties/efficiency/properties/nom"
+                },
+                "max": {
+                  "$ref": "#/definitions/solar/properties/performance/properties/efficiency/properties/max"
+                },
+                "unit": {
+                  "$ref": "#/definitions/solar/properties/performance/properties/standbyPower/properties/unit"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "standards": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "specificationsSummary": {
+          "type": "string",
+          "default": ""
+        },
+        "electrical": {
+          "type": "object",
+          "properties": {
+            "ports": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "features": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "pre-charge",
+                          "contactor",
+                          "arc-fault-detection",
+                          "circuit-breaker",
+                          "disconnect",
+                          "fuse",
+                          "residual-current-detection",
+                          "voltage-measurement",
+                          "current-measurement",
+                          "power-measurement",
+                          "energy-measurement",
+                          "isolation-monitoring",
+                          "surge-protection"
+                        ]
+                      },
+                      "default": []
+                    },
+                    "powerFlowDirection": {
+                      "type": "string",
+                      "const": "output",
+                      "default": "output"
+                    },
+                    "terminal": {
+                      "type": "object",
+                      "properties": {
+                        "temperature": {
+                          "$ref": "#/definitions/solar/properties/environmental/properties/operatingTemperature"
+                        },
+                        "type": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "lug",
+                                "screw"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "default": null
+                        },
+                        "torque": {
+                          "type": "object",
+                          "properties": {
+                            "nom": {
+                              "$ref": "#/definitions/solar/properties/performance/properties/efficiency/properties/nom"
+                            },
+                            "max": {
+                              "$ref": "#/definitions/solar/properties/performance/properties/efficiency/properties/max"
+                            },
+                            "unit": {
+                              "type": "string",
+                              "const": "N m",
+                              "default": "N m"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "default": {}
+                        }
+                      },
+                      "additionalProperties": false,
+                      "default": {}
+                    },
+                    "wireSize": {
+                      "type": "object",
+                      "properties": {
+                        "min": {
+                          "anyOf": [
+                            {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "enum": [
+                                    "1",
+                                    "1.5",
+                                    "2.5",
+                                    "4",
+                                    "6",
+                                    "10",
+                                    "16",
+                                    "25",
+                                    "26.67",
+                                    "35",
+                                    "0.05",
+                                    "0.08",
+                                    "0.14",
+                                    "0.25",
+                                    "0.34",
+                                    "0.38",
+                                    "0.5",
+                                    "0.75",
+                                    "50",
+                                    "55",
+                                    "70",
+                                    "95",
+                                    "120",
+                                    "127",
+                                    "150",
+                                    "185",
+                                    "240",
+                                    "300",
+                                    "355",
+                                    "400",
+                                    "407",
+                                    "453",
+                                    "500",
+                                    "635",
+                                    "762",
+                                    "889",
+                                    "1016"
+                                  ]
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "default": null
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "default": null
+                        },
+                        "max": {
+                          "anyOf": [
+                            {
+                              "$ref": "#/definitions/solar/properties/electrical/properties/ports/items/0/properties/wireSize/properties/min/anyOf/0"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "default": null
+                        }
+                      },
+                      "additionalProperties": false,
+                      "default": {}
+                    },
+                    "DC": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "type": "boolean",
+                          "default": true
+                        },
+                        "voltage": {
+                          "type": "object",
+                          "properties": {
+                            "min": {
+                              "type": [
+                                "number",
+                                "null"
+                              ],
+                              "default": null
+                            },
+                            "nom": {
+                              "type": [
+                                "number",
+                                "null"
+                              ],
+                              "default": null
+                            },
+                            "max": {
+                              "type": [
+                                "number",
+                                "null"
+                              ],
+                              "default": null
+                            },
+                            "unit": {
+                              "type": "string",
+                              "const": "V",
+                              "default": "V"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "default": {}
+                        },
+                        "current": {
+                          "type": "object",
+                          "properties": {
+                            "nom": {
+                              "$ref": "#/definitions/solar/properties/performance/properties/efficiency/properties/nom"
+                            },
+                            "max": {
+                              "$ref": "#/definitions/solar/properties/performance/properties/efficiency/properties/max"
+                            },
+                            "unit": {
+                              "type": "string",
+                              "const": "A",
+                              "default": "A"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "default": {}
+                        },
+                        "power": {
+                          "type": "object",
+                          "properties": {
+                            "nom": {
+                              "$ref": "#/definitions/solar/properties/performance/properties/efficiency/properties/nom"
+                            },
+                            "max": {
+                              "$ref": "#/definitions/solar/properties/performance/properties/efficiency/properties/max"
+                            },
+                            "unit": {
+                              "$ref": "#/definitions/solar/properties/performance/properties/standbyPower/properties/unit"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "default": {}
+                        },
+                        "configuration": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "unipolar",
+                                "bipolar"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "default": null
+                        },
+                        "earthingConfigurations": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "unearthed",
+                              "earthedPositive",
+                              "earthedNegative",
+                              "earthedMidpoint"
+                            ]
+                          },
+                          "default": []
+                        },
+                        "maximumPowerPointCurrent": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "$ref": "#/definitions/solar/properties/environmental/properties/maximumOperatingAltitude/properties/value"
+                            },
+                            "unit": {
+                              "$ref": "#/definitions/solar/properties/electrical/properties/ports/items/0/properties/DC/properties/current/properties/unit"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "default": {}
+                        },
+                        "maximumPowerPointVoltage": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "$ref": "#/definitions/solar/properties/environmental/properties/maximumOperatingAltitude/properties/value"
+                            },
+                            "unit": {
+                              "$ref": "#/definitions/solar/properties/electrical/properties/ports/items/0/properties/DC/properties/voltage/properties/unit"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "default": {}
+                        },
+                        "openCircuitVoltage": {
+                          "$ref": "#/definitions/solar/properties/electrical/properties/ports/items/0/properties/DC/properties/maximumPowerPointVoltage"
+                        },
+                        "shortCircuitCurrent": {
+                          "$ref": "#/definitions/solar/properties/electrical/properties/ports/items/0/properties/DC/properties/maximumPowerPointCurrent"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "default": {}
+                    }
+                  },
+                  "additionalProperties": false,
+                  "default": {}
+                }
+              ],
+              "default": [
+                null
+              ]
+            },
+            "solarTechnologies": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "monocrystalline",
+                  "polycrystalline",
+                  "perc",
+                  "thin-film",
+                  "perovskite",
+                  "bifacial",
+                  "hit",
+                  "cigs",
+                  "cdte",
+                  "amorphous",
+                  "building-integrated photovoltaics"
+                ]
+              },
+              "default": []
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

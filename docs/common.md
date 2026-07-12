@@ -1,0 +1,174 @@
+# Common attributes
+
+Every component type in the Interoperability Data Model (IDM) shares a common base of
+attributes. Each component then adds its own `electrical` section and, in a few cases, extra
+type specific fields. This page documents the shared base once. The per component pages
+document only what is specific to that type and link back here.
+
+The model is expressed as JSON Schema, one file per component type under `schema/`.
+The schemas are the source of truth. Example instances live under `examples/`.
+
+## Measurement values
+
+Numeric quantities use a small set of object shapes. Every numeric field is nullable and
+defaults to `null` when unknown. The `unit` is fixed per quantity and carries a default.
+
+- Single value:
+  - `value` (number, nullable)
+  - `unit` (string)
+- Nominal and maximum:
+  - `nom` (number, nullable)
+  - `max` (number, nullable)
+  - `unit` (string)
+- Minimum, nominal and maximum:
+  - `min`, `nom`, `max` (number, nullable)
+  - `unit` (string)
+- Minimum and maximum:
+  - `min`, `max` (number, nullable)
+  - `unit` (string)
+
+Default units per quantity:
+
+- Voltage: `V` (also accepts `kV`)
+- Current: `A`
+- Power: `W` (also accepts `kW`, `MW`)
+- Frequency: `Hz`
+- Energy capacity: `J`
+- Charge capacity: `C`
+- Resistance: `ohm`
+- Temperature: `K`
+- Humidity: `%`
+- Efficiency: `%`
+- Length and altitude: `m` (also accepts `mm`, `km`, `ft`, `inch`)
+- Weight: `kg`
+- Terminal torque: `N m`
+
+## Identification
+
+- `type` (string, constant): the component type discriminator (for example `battery`).
+- `name` (string, required): human readable product name.
+- `description` (string): free text description. Defaults to empty.
+- `manufacturer` (string id, nullable): reference to the manufacturer.
+- `productIdentifier` (string): manufacturer part number or SKU.
+- `productSeries` (string): product family or series name.
+- `website` (url, nullable): product page. Normalised to https.
+- `application` (array): subset of `dc-microgrid`.
+- `standards` (string array): standards the product complies with.
+- `specificationsSummary` (string): short summary of the specifications.
+
+## Compliance
+
+`compliance` (object) flags the certifications and alliances the product meets.
+
+- `CE` (boolean)
+- `UL` (boolean)
+- `currentOS` (boolean): Current/OS.
+- `emergeAlliance` (boolean): Emerge Alliance.
+- `ODCA` (boolean)
+- `other` (boolean)
+- `otherInput` (string, optional): description when `other` is set.
+
+All booleans default to `false`.
+
+## Communication
+
+`communication` (object).
+
+- `interfaces` (array): subset of `ethernet`, `rs232`, `rs485`, `wifi`, `io-link`,
+  `digital-io`, `analog-io`, `can`.
+- `protocols` (array): subset of `modbus-tcp-ip`, `modbus-rtu`, `can`, `canopen`, `mqtt`,
+  `nats`, `iec-61850`, `rest-api`, `power-line-communication`, `snmp`, `io-link`,
+  `ethernet-ip`, `opc-ua`, `profinet`, `ocpp1.6`, `ocpp2.0`, `ocpp2.1`, `j1939`.
+
+## Environmental
+
+`environmental` (object).
+
+- `operatingTemperature` (min, max, unit `K`)
+- `storageTemperature` (min, max, unit `K`)
+- `operatingHumidity` (min, max, unit `%`)
+- `storageHumidity` (min, max, unit `%`)
+- `ingressProtection_IP` (enum, optional): IP code from `IP00` to `IP69`.
+- `ingressProtection_NEMA` (enum, optional): NEMA enclosure rating (for example `4X`, `12`).
+- `maximumOperatingAltitude` (value, unit `m`)
+
+Components that dissipate heat also carry `coolingMethod` (one of `passive`, `forced-air`,
+`liquid`, `none`, default `none`). The per component pages note where this applies.
+
+## Mechanical
+
+`mechanical` (object).
+
+- `dimensions` (object): `width`, `length`, `height` (number, nullable) and `unit` (default `m`).
+- `weight` (value, unit `kg`)
+- `mountingType` (array): subset of `floor`, `wall`, `panel`, `din-rail`, `rack`.
+
+## Performance
+
+`performance` (object).
+
+- `standbyPower` (value, unit `W`)
+- `efficiency` (nom, max, unit `%`)
+- `losses` (nom, max, unit `W`)
+
+## The port model
+
+Electrical connection points are modelled as ports. The number and direction of ports is
+fixed per component type (see each page). Every port shares the abstract base below and adds
+an `AC` block, a `DC` block, or both, depending on the type.
+
+### Abstract port
+
+- `id` (string, optional)
+- `label` (string, optional)
+- `features` (array): subset of `pre-charge`, `contactor`, `arc-fault-detection`,
+  `circuit-breaker`, `disconnect`, `fuse`, `residual-current-detection`,
+  `voltage-measurement`, `current-measurement`, `power-measurement`, `energy-measurement`,
+  `isolation-monitoring`, `surge-protection`.
+- `powerFlowDirection` (enum, nullable): `bidirectional`, `input` or `output`.
+- `terminal` (object):
+  - `temperature` (min, max, unit `K`)
+  - `type` (enum, nullable): `lug` or `screw`.
+  - `torque` (nom, max, unit `N m`)
+- `wireSize` (object): `min` and `max`, each a wire size code (nullable). Codes follow the
+  cross sectional area series (for example `1.5`, `2.5`, `4`, up to `1016`).
+
+### DC block
+
+`DC` (object).
+
+- `enabled` (boolean, default `true`)
+- `voltage` (min, nom, max, unit `V`)
+- `current` (min, nom, max, unit `A`)
+- `power` (nom, max, unit `W`)
+- `configuration` (enum, nullable): `unipolar` or `bipolar`.
+- `earthingConfigurations` (array): subset of `unearthed`, `earthedPositive`,
+  `earthedNegative`, `earthedMidpoint`.
+
+### AC block
+
+`AC` (object).
+
+- `enabled` (boolean, default `true`)
+- `voltage` (min, nom, max, unit `V`)
+- `current` (min, nom, max, unit `A`)
+- `power` (nom, max, unit `W`)
+- `frequency` (min, nom, max, unit `Hz`)
+- `powerFactor` (object)
+- `configuration` (enum, nullable): `single-phase`, `split-phase`, `three-phase-wye-neutral`,
+  `three-phase-wye`, `three-phase-delta`.
+- `earthingConfigurations` (array): subset of `high-impedance-earthed-neutral`,
+  `low-impedance-earthed-neutral`.
+
+### Port control methods
+
+Where a type supports control, ports reference control methods.
+
+- AC control methods: `constant-voltage-frequency`, `constant-active-reactive-power`,
+  `uncontrolled`.
+- DC control methods: `constant-voltage`, `constant-current`, `constant-power`,
+  `droop-voltage`, `power-voltage`, `maximum-power-point-tracking`, `uncontrolled`.
+
+Some component types extend a port with extra electrical attributes (for example a circuit
+breaker adds short circuit ratings to each port). Those additions are documented on the
+component page.

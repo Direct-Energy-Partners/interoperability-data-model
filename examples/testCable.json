@@ -1,0 +1,140 @@
+{
+  "type": "cable",
+  "name": "Example cable",
+  "description": "",
+  "manufacturer": null,
+  "productIdentifier": "",
+  "productSeries": "",
+  "website": null,
+  "compliance": {
+    "CE": false,
+    "UL": false,
+    "currentOS": false,
+    "emergeAlliance": false,
+    "ODCA": false,
+    "other": false
+  },
+  "application": [],
+  "communication": {},
+  "environmental": {
+    "installationTemperature": {
+      "min": null,
+      "max": null,
+      "unit": "K"
+    },
+    "use": []
+  },
+  "mechanical": {
+    "conductorMaterial": "copper",
+    "conductorFlexibility": null,
+    "insulationMaterial": "PVC",
+    "screen": null
+  },
+  "performance": {},
+  "standards": [],
+  "specificationsSummary": "",
+  "electrical": {
+    "ports": [
+      {
+        "features": [],
+        "powerFlowDirection": "bidirectional",
+        "terminal": {
+          "temperature": {
+            "min": null,
+            "max": null,
+            "unit": "K"
+          },
+          "type": null,
+          "torque": {
+            "nom": null,
+            "max": null,
+            "unit": "N m"
+          }
+        },
+        "wireSize": {
+          "min": null,
+          "max": null
+        },
+        "AC": {
+          "enabled": true,
+          "voltage": {
+            "min": null,
+            "nom": null,
+            "max": null,
+            "unit": "V"
+          },
+          "current": {
+            "nom": null,
+            "max": null,
+            "unit": "A"
+          },
+          "power": {
+            "nom": null,
+            "max": null,
+            "unit": "W"
+          },
+          "frequency": {
+            "min": null,
+            "nom": null,
+            "max": null,
+            "unit": "Hz"
+          },
+          "powerFactor": 1,
+          "configuration": null,
+          "earthingConfigurations": []
+        },
+        "DC": {
+          "enabled": true,
+          "voltage": {
+            "min": null,
+            "nom": null,
+            "max": null,
+            "unit": "V"
+          },
+          "current": {
+            "nom": null,
+            "max": null,
+            "unit": "A"
+          },
+          "power": {
+            "nom": null,
+            "max": null,
+            "unit": "W"
+          },
+          "configuration": null,
+          "earthingConfigurations": []
+        }
+      }
+    ],
+    "wireSize": null,
+    "cores": "single",
+    "operatingVoltage": {
+      "toEarth": {
+        "value": null,
+        "unit": "V"
+      },
+      "betweenLines": {
+        "value": null,
+        "unit": "V"
+      }
+    },
+    "numberOfConductors": null,
+    "hasPE": false,
+    "voltageTypes": [],
+    "resistancePerLength": {
+      "value": null,
+      "unit": "ohm/m"
+    },
+    "inductancePerLength": {
+      "value": null,
+      "unit": "H/m"
+    },
+    "cpr": {
+      "class": null,
+      "smokeProduction": null,
+      "flamingDroplets": null,
+      "acidity": null
+    },
+    "intertrippingWireSize": null
+  }
+}

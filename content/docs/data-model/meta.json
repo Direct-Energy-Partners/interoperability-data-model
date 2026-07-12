@@ -1,0 +1,32 @@
+{
+  "title": "Data model",
+  "pages": [
+    "common",
+    "battery",
+    "cable",
+    "capacitor",
+    "breaker",
+    "combinerBox",
+    "contactor",
+    "converter",
+    "currentTransducer",
+    "diode",
+    "disconnect",
+    "charger",
+    "fuse",
+    "generator",
+    "hvac",
+    "light",
+    "load",
+    "meter",
+    "motor",
+    "panel",
+    "powerDistributionUnit",
+    "precharge",
+    "rapidShutdownDevice",
+    "solar",
+    "transferSwitch",
+    "transformer",
+    "voltageTransducer"
+  ]
+}

@@ -1,0 +1,27 @@
+---
+title: Interoperability Data Model
+description: A common, machine readable model for microgrid electrical components.
+---
+
+The Interoperability Data Model (IDM) is a standard for the electrical specifications of DC
+power system components. It describes each component in a common, machine readable form so
+tools across the DC ecosystem can exchange product data. The model is expressed as JSON Schema,
+one file per component type; the schemas are the source of truth.
+
+## Where to go
+
+- Data model: the shared common base and one narrative guide per component type. Start with
+  [Common attributes](/docs/data-model/common).
+- Schema reference: a complete field level reference for every component type. See
+  the [reference overview](/docs/reference).
+- Standards and alignment: what the model actually references. See
+  [Standards](/docs/standards).
+- Contributing: how to request changes and how the docs site is built. See
+  [Contributing](/docs/contributing).
+
+## How to read a component page
+
+Each guide opens with a short description and a summary block (type key, indicator, port
+configuration), then documents the ports and the component specific electrical attributes.
+Anything not listed comes from the common base shared by all types. The matching schema
+reference page lists every field exhaustively.
