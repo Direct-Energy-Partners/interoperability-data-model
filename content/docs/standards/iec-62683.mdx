@@ -1,0 +1,122 @@
+---
+title: IEC 62683 alignment
+description: How the IEC 62683 product attributes map to IDM keys.
+---
+
+IEC 62683 (Low-voltage switchgear and controlgear: product data and properties for
+information exchange) defines the product attributes low voltage switching and protective
+devices publish for data exchange. This page maps those attributes to the IDM keys, so the
+overlap and the gaps are explicit. The mapping is maintained from the repository's
+[IEC 62683 comparison](https://github.com/Direct-Energy-Partners/interoperability-data-model/blob/main/iec-62683.md)
+and the keys below match the schemas in `schema/`.
+
+## Scope and sources
+
+- IEC 62683 is paywalled. The attribute list is compiled from the public IEC 62683-1 preview
+  (scope, the block library in Table 1, the device class hierarchy in Table 2) and the
+  property base it normatively references in IEC 60947-1 and IEC 60947-2.
+- Attributes that could not be confirmed as part of the standard were left out rather than
+  invented.
+- The comparison centres on the circuit breaker class, the richest property set the IDM
+  models directly. Shared property blocks (identification, ratings, connection, mounting,
+  environmental, standards) apply to the contactor, disconnect and fuse classes too; short
+  fuse and contactor or disconnect specific tables follow at the end.
+- In the IDM a switching device has two ports (line side and load side) kept in sync, so
+  `electrical.ports[].AC.*` below means both ports. Each port carries an `AC` and a `DC`
+  block; the AC path is shown for brevity and the matching `DC` path exists where the field
+  is present in both.
+
+## Alignment overview
+
+`(no IDM equivalent)` marks a gap. See the [breaker](/docs/reference/breaker) schema
+reference for the full IDM field list.
+
+| IEC 62683 attribute | Description | IDM key |
+| --- | --- | --- |
+| Manufacturer name | Reference to the manufacturer | `manufacturer` |
+| Type or catalogue designation | Manufacturer part number or SKU | `productIdentifier` |
+| Product series name | Product family or series | `productSeries` |
+| Product name | Human readable product name | `name` |
+| Product description | Free text description | `description` |
+| GTIN or EAN | Global trade article number | `(no IDM equivalent)` |
+| Product website | Product page URL. The IDM removed `website` as a non electrical field. | `(no IDM equivalent)` |
+| Rated frequency | Nominal AC supply frequency | `electrical.ports[].AC.frequency.nom` |
+| Number of poles | Pole configuration of the device | `electrical.ports[].AC.poles` |
+| Suitability for isolation | Whether the device provides isolation | `(no IDM equivalent)` |
+| Pollution degree | Rated pollution degree of the environment | `(no IDM equivalent)` |
+| Overvoltage category | Rated overvoltage category | `electrical.ports[].overvoltageCategory` |
+| Utilization category | Duty class (for example A or B) | `(no IDM equivalent)` |
+| Tripping characteristic | Trip curve class (for example B, C, D) | `electrical.ports[].tripCurve` |
+| Construction type | MCB, MCCB, SSCB or ACB | `electrical.breakerType` |
+| Current type suitability (AC) | Whether the AC block is usable | `electrical.ports[].AC.enabled` |
+| Current type suitability (DC) | Whether the DC block is usable | `electrical.ports[].DC.enabled` |
+| Mechanical durability | Number of mechanical operating cycles | `(no IDM equivalent)` |
+| Electrical durability | Number of electrical operating cycles | `(no IDM equivalent)` |
+| Power dissipation per pole | Power loss of the device | `performance.losses.nom` |
+| Rated operational voltage (Ue) | Nominal AC operating voltage | `electrical.ports[].AC.voltage.nom` |
+| Rated insulation voltage (Ui) | Rated isolation voltage | `electrical.isolationVoltage.value` |
+| Rated impulse withstand voltage (Uimp) | Rated impulse withstand voltage | `(no IDM equivalent)` |
+| Rated current (In, Iu) | Nominal rated current | `electrical.ports[].AC.current.nom` |
+| Rated operational current (Ie) | Operational current at the rated voltage | `electrical.ports[].AC.current.nom` |
+| Rated voltage per pole | Rated voltage per pole. The IDM `voltagePerPole` field is gated to DC (per pole, bipolar DC concept), so it does not represent this AC switchgear attribute. | `(no IDM equivalent)` |
+| Total rated voltage | Total rated voltage across poles | `electrical.ports[].AC.totalVoltage.value` |
+| Rated ultimate short-circuit breaking capacity (Icu) | IEC ultimate breaking capacity | `electrical.ports[].AC.ultimateShortCircuitBreakingCapacityIEC.value` |
+| Rated service short-circuit breaking capacity (Ics) | IEC service breaking capacity | `electrical.ports[].AC.serviceShortCircuitBreakingCapacityIEC.value` |
+| Rated short-circuit making capacity (Icm) | Peak make capability | `(no IDM equivalent)` |
+| Rated short-time withstand current (Icw) | Withstand current for a stated time | `(no IDM equivalent)` |
+| Instantaneous short-circuit current (UL) | UL instantaneous short-circuit current | `electrical.ports[].AC.instantaneousShortCircuitCurrentUL.value` |
+| Critical clearing time | Time to clear the fault | `electrical.ports[].AC.criticalClearingTime.value` |
+| Type of over-current release | Thermomagnetic or electronic trip unit | `(no IDM equivalent)` |
+| Rated current of the release | Trip unit rated current or setting | `electrical.ports[].AC.current.nom` |
+| Overload trip setting range | Adjustable thermal trip range | `(no IDM equivalent)` |
+| Instantaneous trip current | Magnetic trip threshold | `(no IDM equivalent)` |
+| Residual current device present | Whether an RCD is integrated | `electrical.residualCurrentDevice.enabled` |
+| Rated residual operating current | RCD rated residual operating current | `electrical.residualCurrentDevice.ratedResidualOperatingCurrent.value` |
+| Residual current trip level | Per port RCD trip level | `electrical.ports[].residualCurrentDeviceTripLevel.value` |
+| Type of terminal or connection | Terminal type (lug or screw) | `electrical.ports[].terminal.type` |
+| Connectable conductor cross-section (min) | Smallest wire size accepted | `electrical.ports[].wireSize.min` |
+| Connectable conductor cross-section (max) | Largest wire size accepted | `electrical.ports[].wireSize.max` |
+| Terminal tightening torque | Recommended terminal torque | `electrical.ports[].terminal.torque.nom` |
+| Mounting type | DIN rail, panel, wall, floor or rack | `mechanical.mountingType` |
+| Width | Device width | `mechanical.dimensions.width` |
+| Height | Device height | `mechanical.dimensions.height` |
+| Depth or length | Device length | `mechanical.dimensions.length` |
+| Weight | Device weight | `mechanical.weight.value` |
+| Degree of protection (IP code) | IP enclosure rating | `environmental.ingressProtection_IP` |
+| Operating ambient temperature (min) | Minimum operating temperature | `environmental.operatingTemperature.min` |
+| Operating ambient temperature (max) | Maximum operating temperature | `environmental.operatingTemperature.max` |
+| Storage temperature (min) | Minimum storage temperature | `environmental.storageTemperature.min` |
+| Storage temperature (max) | Maximum storage temperature | `environmental.storageTemperature.max` |
+| Relative humidity range | Operating humidity range | `environmental.operatingHumidity.min` |
+| Maximum operating altitude | Highest rated installation altitude | `environmental.maximumOperatingAltitude.value` |
+| Communication interfaces | Supported electrical interfaces | `communication.interfaces` |
+| Communication protocols | Supported communication protocols | `communication.protocols` |
+| Product standards complied with | Standards the product meets | `standards` |
+| CE marking | CE compliance flag | `compliance.CE` |
+| UL listing | UL compliance flag | `compliance.UL` |
+
+## Fuse specific attributes
+
+These apply to the IEC 62683 fuse and fuse-switch-disconnector classes and map to the IDM
+[fuse](/docs/reference/fuse) schema.
+
+| IEC 62683 attribute | Description | IDM key |
+| --- | --- | --- |
+| Melting I squared t | Pre-arcing let-through energy | `electrical.meltingI2t.value` |
+| Arcing I squared t | Arcing let-through energy | `electrical.arcingI2t.value` |
+| Total clearing I squared t | Total let-through energy | `electrical.totalClearingI2t.value` |
+| Minimum breaking capacity | Lowest current the fuse can interrupt | `electrical.ports[].AC.minimumBreakingCapacity.value` |
+| Maximum time constant (DC) | Rated circuit time constant | `electrical.ports[].DC.maximumTimeConstant.value` |
+| Number of poles | Number of poles of the fuse | `electrical.ports[].numberOfPoles` |
+
+## Contactor and switch-disconnector specific attributes
+
+These apply to the IEC 62683 contactor and switch-disconnector classes and map to the IDM
+[contactor](/docs/reference/contactor) and [disconnect](/docs/reference/disconnect) schemas.
+
+| IEC 62683 attribute | Description | IDM key |
+| --- | --- | --- |
+| Auxiliary feedback signal | Auxiliary or feedback contact present | `electrical.features.feedbackSignal` |
+| Integrated fuse (switch-disconnector) | Whether an integrated fuse is present | `electrical.features.fuse` |
+| Rated insulation voltage | Rated isolation voltage (contactor only; the disconnect schema does not carry it) | `electrical.isolationVoltage.value` |
+| Control method | Supported control strategy | `electrical.ports[].AC.controlMethods` |
