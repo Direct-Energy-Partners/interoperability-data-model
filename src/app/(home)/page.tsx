@@ -6,7 +6,7 @@ export default function HomePage() {
       <h1 className="text-3xl font-bold">Interoperability Data Model</h1>
       <p className="text-fd-muted-foreground max-w-xl mx-auto">
         A standard for the electrical specifications of DC power system
-        components. Browse the component guides and the auto generated schema
+        components. Browse the component guides and the field level schema
         reference.
       </p>
       <div>

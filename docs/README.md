@@ -2,7 +2,7 @@
 
 The Interoperability Data Model (IDM) describes electrical components in a common, machine
 readable form so that tools across the DC ecosystem can exchange product data. The model is
-expressed as JSON Schema (draft-07), one file per component type under `schema/`, with example
+expressed as JSON Schema, one file per component type under `schema/`, with example
 instances under `examples/`.
 
 The schemas are the source of truth. Each page below documents one component type and its

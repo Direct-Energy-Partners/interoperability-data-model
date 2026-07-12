@@ -5,7 +5,7 @@ attributes. Each component then adds its own `electrical` section and, in a few 
 type specific fields. This page documents the shared base once. The per component pages
 document only what is specific to that type and link back here.
 
-The model is expressed as JSON Schema (draft-07), one file per component type under `schema/`.
+The model is expressed as JSON Schema, one file per component type under `schema/`.
 The schemas are the source of truth. Example instances live under `examples/`.
 
 ## Measurement values

@@ -269,8 +269,9 @@ def render_reference(root, ctype):
     lines.append("description: Field level schema reference for the %s component type." % title)
     lines.append("---")
     lines.append("")
-    lines.append("Generated from `schema/%s.json` by `scripts/gen_docs.py`. The schema is the "
-                 "source of truth. Do not edit this page by hand." % ctype)
+    lines.append("Field level reference for the %s component type, as defined by "
+                 "[`schema/%s.json`](%s/schema/%s.json), the source of truth."
+                 % (title, ctype, GH_BLOB, ctype))
     lines.append("")
     lines.append("- Type key: `%s`" % ctype)
     if indicator:
@@ -339,18 +340,18 @@ description: A common, machine readable model for microgrid electrical component
 
 The Interoperability Data Model (IDM) is a standard for the electrical specifications of DC
 power system components. It describes each component in a common, machine readable form so
-tools across the DC ecosystem can exchange product data. The model is expressed as JSON Schema
-(draft-07), one file per component type; the schemas are the source of truth.
+tools across the DC ecosystem can exchange product data. The model is expressed as JSON Schema,
+one file per component type; the schemas are the source of truth.
 
 ## Where to go
 
 - Data model: the shared common base and one narrative guide per component type. Start with
   [Common attributes](/docs/data-model/common).
-- Schema reference: an auto generated, field level reference for every component type. See
+- Schema reference: a complete field level reference for every component type. See
   the [reference overview](/docs/reference).
 - Standards and alignment: what the model actually references. See
   [Standards](/docs/standards).
-- Contributing: how the schemas are generated and how to work on the docs. See
+- Contributing: how to request changes and how the docs site is built. See
   [Contributing](/docs/contributing).
 
 ## How to read a component page
@@ -654,10 +655,10 @@ def main():
         rows.append((title, ctype, indicator))
 
     idx = ["---", "title: Schema reference",
-           "description: Auto generated field level reference for every component type.",
+           "description: Field level reference for every component type.",
            "---", "",
-           "One auto generated page per component type, produced from the JSON Schemas in "
-           "`schema/` by `scripts/gen_docs.py`. Each page lists every field with its type, "
+           "One reference page per component type, matching the JSON Schemas in "
+           "`schema/` exactly. Each page lists every field with its type, "
            "whether it is required, its default and its allowed values or unit.", "",
            "| Component | Type key | Indicator | Reference |",
            "| --- | --- | --- | --- |"]
