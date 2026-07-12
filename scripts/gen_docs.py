@@ -42,12 +42,9 @@ COMPONENTS = [
     ("diode", "Diode", "D"),
     ("disconnect", "Disconnect", "Q"),
     ("charger", "EV Charger", "CHG"),
-    ("fuelCell", "Fuel Cell", "FC"),
     ("fuse", "Fuse", "F"),
     ("generator", "Generator", "G"),
-    ("grounding", "Grounding", "GND"),
     ("hvac", "HVAC", "HVAC"),
-    ("hydro", "Hydro", "HYDRO"),
     ("light", "Light", "LIGHT"),
     ("load", "Load", "LOAD"),
     ("meter", "Meter", "P"),
@@ -59,9 +56,7 @@ COMPONENTS = [
     ("solar", "Solar Panel", "PV"),
     ("transferSwitch", "Transfer Switch", "Q"),
     ("transformer", "Transformer", "T"),
-    ("utility", "Utility", "GRID"),
     ("voltageTransducer", "Voltage Transducer", "PT"),
-    ("wind", "Wind", "WIND"),
 ]
 TITLES = {k: t for k, t, _ in COMPONENTS}
 

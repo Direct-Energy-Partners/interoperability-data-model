@@ -13,12 +13,9 @@
     "diode",
     "disconnect",
     "charger",
-    "fuelCell",
     "fuse",
     "generator",
-    "grounding",
     "hvac",
-    "hydro",
     "light",
     "load",
     "meter",
@@ -30,8 +27,6 @@
     "solar",
     "transferSwitch",
     "transformer",
-    "utility",
-    "voltageTransducer",
-    "wind"
+    "voltageTransducer"
   ]
 }

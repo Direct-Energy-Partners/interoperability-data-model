@@ -19,55 +19,17 @@ Generated from `schema/voltageTransducer.json` by `scripts/gen_docs.py`. The sch
 | `name` | string | yes |  |  |
 | `description` | string |  | `""` |  |
 | `manufacturer` | string |  |  | nullable |
-| `teamManufacturer` | string |  | `null` | nullable |
-| `distributors` | array of string |  | `[]` |  |
-| `distributorsDetails` | array of objects |  | `[]` |  |
 | `productIdentifier` | string |  | `""` |  |
 | `productSeries` | string |  | `""` |  |
-| `msrp` | number |  |  | nullable |
-| `leadTime` | number |  |  | nullable |
-| `lifecycle` | object |  | `{}` |  |
-| `website` | string |  |  | format `uri`; nullable |
-| `regionAvailability` | array |  | `[]` | items: one of `EU`, `US`, `Canada`, `China`, `Japan` |
 | `compliance` | object |  | `{}` |  |
 | `application` | array |  | `[]` | items: one of `dc-microgrid` |
 | `communication` | object |  | `{}` |  |
 | `environmental` | object |  | `{}` |  |
-| `files` | array of objects |  | `[]` |  |
-| `images` | array of objects |  | `[8 items]` |  |
 | `mechanical` | object |  | `{}` |  |
 | `performance` | object |  | `{}` |  |
-| `questions` | array of objects |  | `[]` |  |
 | `standards` | array of string |  | `[]` |  |
-| `archivedAt` | string |  |  | format `date-time`; nullable |
-| `deletedAt` | string |  |  | format `date-time`; nullable |
-| `visibility` | string |  | `private` | one of `private`, `public` |
-| `reviewed` | boolean |  | `false` |  |
-| `publishedBy` | string |  | `null` | nullable |
-| `publishedAt` | string |  |  | format `date-time`; nullable |
-| `metadata` | any |  | `{}` |  |
-| `compatibleWith` | array of string |  | `[]` | nullable |
-| `compatibleWithCrossReference` | array of string |  | `[]` | nullable |
-| `compatibleWithPlaceholders` | array of objects |  | `[]` |  |
 | `specificationsSummary` | string |  | `""` |  |
-| `completeness` | number |  |  |  |
-| `viewedCount` | number |  |  |  |
-| `id` | string |  |  |  |
 | `electrical` | object |  | `{}` |  |
-
-### `distributorsDetails[]`
-
-| Field | Type | Required | Default | Allowed / notes |
-| --- | --- | --- | --- | --- |
-| `distributor` | string | yes |  |  |
-| `price` | number |  |  |  |
-
-### `lifecycle`
-
-| Field | Type | Required | Default | Allowed / notes |
-| --- | --- | --- | --- | --- |
-| `release` | string |  |  | format `date-time`; nullable |
-| `endOfLife` | string |  |  | format `date-time`; nullable |
 
 ### `compliance`
 
@@ -100,21 +62,6 @@ Generated from `schema/voltageTransducer.json` by `scripts/gen_docs.py`. The sch
 | `ingressProtection_NEMA` | string |  |  | one of `1`, `2`, `3`, `3X`, `3S`, `3SX`, `3R`, `3RX`, ... (16 total) |
 | `maximumOperatingAltitude` | measurement |  | `{}` | fields: value; unit `m` |
 
-### `files[]`
-
-| Field | Type | Required | Default | Allowed / notes |
-| --- | --- | --- | --- | --- |
-| `file` | object or string | yes | `null` |  |
-| `type` | string | yes |  | one of `applicationNotes`, `characteristics`, `datasheet`, `dynamicCharacteristics`, `installationManual`, `other`, `operationalManual`, `outputImpedanceCharacteristics`, ... (11 total) |
-| `visibility` | string |  | `public` | one of `private`, `public`; nullable |
-
-### `images[]`
-
-| Field | Type | Required | Default | Allowed / notes |
-| --- | --- | --- | --- | --- |
-| `file` | object or string | yes | `null` | nullable |
-| `type` | string | yes |  | one of `thumbnail`, `ISOPicture`, `front`, `rear`, `left`, `right`, `top`, `bottom`, ... (9 total) |
-
 ### `mechanical`
 
 | Field | Type | Required | Default | Allowed / notes |
@@ -130,21 +77,6 @@ Generated from `schema/voltageTransducer.json` by `scripts/gen_docs.py`. The sch
 | `standbyPower` | measurement |  | `{}` | fields: value; unit `W` |
 | `efficiency` | measurement |  | `{}` | fields: nom, max; unit `%` |
 | `losses` | measurement |  | `{}` | fields: nom, max; unit `W` |
-
-### `questions[]`
-
-| Field | Type | Required | Default | Allowed / notes |
-| --- | --- | --- | --- | --- |
-| `question` | string |  | `""` |  |
-| `answer` | string |  | `""` |  |
-
-### `compatibleWithPlaceholders[]`
-
-| Field | Type | Required | Default | Allowed / notes |
-| --- | --- | --- | --- | --- |
-| `manufacturer` | string | yes |  |  |
-| `productIdentifier` | string | yes |  |  |
-| `componentType` | string |  |  | one of `battery`, `bus`, `capacitor`, `charger`, `breaker`, `controller`, `combinerBox`, `contactor`, ... (39 total) |
 
 ### `electrical`
 
