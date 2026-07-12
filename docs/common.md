@@ -51,6 +51,7 @@ Default units per quantity:
 - `manufacturer` (string id, nullable): reference to the manufacturer.
 - `productIdentifier` (string): manufacturer part number or SKU.
 - `productSeries` (string): product family or series name.
+- `website` (url, nullable): product page. Normalised to https.
 - `application` (array): subset of `dc-microgrid`.
 - `standards` (string array): standards the product complies with.
 - `specificationsSummary` (string): short summary of the specifications.

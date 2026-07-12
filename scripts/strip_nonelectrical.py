@@ -30,7 +30,6 @@ REMOVE_BASE = [
     "leadTime",
     "regionAvailability",
     # Catalog / marketing
-    "website",
     "questions",
     "images",
     # dcide-app internal: team scoping, per-field UI annotations, derived

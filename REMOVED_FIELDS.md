@@ -28,7 +28,6 @@ Commercial (distributor, pricing, availability):
 
 Catalog / marketing:
 
-- `website`: product marketing page URL.
 - `questions`: marketing Q and A pairs.
 - `images`: product photos (thumbnail, ISO picture, front, rear, and so on).
 
@@ -57,11 +56,14 @@ Previously flagged as ambiguous, now removed at operator request:
 
 ## Kept as electrical spec or identification
 
-`type`, `name`, `description`, `manufacturer`, `productIdentifier`, `productSeries`
+`type`, `name`, `description`, `manufacturer`, `productIdentifier`, `productSeries`, `website`
 (identification of the product the specs describe); `application`, `compliance`, `standards`,
 `specificationsSummary`; `communication`, `environmental`, `mechanical`, `performance`; and
 the whole `electrical` section (ports, voltages, currents, power, ratings, impedances,
 capacitances, protection ratings, thermal, and component specific electrical attributes).
+
+`website` (product page URL, nullable) was removed in the first pass as catalog / marketing
+and restored at operator request; it stays part of the identification base.
 
 ## Ambiguous, kept for human review
 

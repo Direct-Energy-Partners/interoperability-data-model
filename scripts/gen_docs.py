@@ -458,7 +458,7 @@ reference for the full IDM field list.
 | Product name | Human readable product name | `name` |
 | Product description | Free text description | `description` |
 | GTIN or EAN | Global trade article number | `(no IDM equivalent)` |
-| Product website | Product page URL. The IDM removed `website` as a non electrical field. | `(no IDM equivalent)` |
+| Product website | Product page URL | `website` |
 | Rated frequency | Nominal AC supply frequency | `electrical.ports[].AC.frequency.nom` |
 | Number of poles | Pole configuration of the device | `electrical.ports[].AC.poles` |
 | Suitability for isolation | Whether the device provides isolation | `(no IDM equivalent)` |

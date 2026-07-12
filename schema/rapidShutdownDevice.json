@@ -42,6 +42,18 @@
           "type": "string",
           "default": ""
         },
+        "website": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "compliance": {
           "type": "object",
           "properties": {
