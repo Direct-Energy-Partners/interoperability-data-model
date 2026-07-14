@@ -1,0 +1,45 @@
+---
+title: Contributing
+description: How the schemas, the reference pages and the docs site are built.
+---
+
+## Source of truth
+
+The JSON Schemas in `schema/` are the source of truth for the data model. Changes are made to
+`schema/` and `examples/`, and this site regenerates from there.
+
+## What is hand written and what is generated
+
+The Fumadocs Next.js app lives at the repository root (package.json, next.config.mjs, src/,
+content/). The data model source (schema/, examples/, docs/) sits alongside it.
+
+- Hand written: the narrative guides (`docs/common.md` and one page per component type), and
+  the authored overview, standards and contributing pages inside `scripts/gen_docs.py`.
+- Generated: everything under `content/docs/` is produced by `scripts/gen_docs.py` from the
+  hand written prose and the schemas. Do not edit files under `content/docs/` by hand; they
+  are overwritten on every run.
+
+## Building the site
+
+From the repository root:
+
+```
+python scripts/gen_docs.py       # build the Fumadocs content tree
+npm ci                            # install pinned dependencies
+npm run build                     # build the Next.js app
+```
+
+`npm run dev` runs a local preview. The generator regenerates the whole `content/docs` tree
+so the reference can never drift from the schemas.
+
+## Deploying
+
+The docs deploy on Vercel. The app is at the repository root, so Vercel detects Next.js
+automatically: import the repository in Vercel and deploy, with no Root Directory change
+needed. Each branch and pull request gets a preview deployment.
+
+## Style
+
+- No em dashes or en dashes.
+- One item per line in bullet lists.
+- Keep prose direct.
